@@ -617,7 +617,9 @@
 					console.log("test");
 					// if I find an empty square
 					if (square!="X"&&square!="O") {
-						console.log(i);	
+						console.log(i);
+						boardState[i]=turn;
+						return true;
 					}
 				}); 
 					
