@@ -613,7 +613,7 @@
 				// minimax algorithm pseudocode
 				// loop through the nine squares
 				boardState.some(square=>{
-					i++;
+					
 					console.log("test");
 					// if I find an empty square
 					if (square!="X"&&square!="O") {
@@ -621,6 +621,7 @@
 						boardState[i]=turn;
 						return true;
 					}
+					i++;
 				}); 
 					
 					
