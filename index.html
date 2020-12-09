@@ -194,6 +194,7 @@
 			var miniMaxGame=false;
 			var playerOne="", playerTwo="", playerOneWins=0, playerTwoWins=0;
 			var board=[0,0,0,0,0,0,0,0,0];
+			var boardState;
 			var timeout;
 			var i=0;
 			$(document).ready(function(){
@@ -469,6 +470,7 @@
 
 			function takeSquare(squareNumber) {
 				board[squareNumber]=turn;
+				boardState = board;
 				$("#square"+squareNumber).text(turn);
 				enableBoardButtons();
 				changeTurns();
