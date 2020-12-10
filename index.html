@@ -607,13 +607,14 @@
 						}   
 					}, 1000);
 				} else {
-					console.log("minimax here");
+					console.log("boardState: "+boardState);
 					miniMax(boardState, turn);
 				}
 			}
 			function miniMax(boardState, turn) {
 				// minimax algorithm pseudocode
 				// loop through the nine squares
+				console.log("boardState in miniMax: "+boardState);
 				for (var i=0; i<9; i++) {
 					console.log(turn);
 					// if I find an empty square
