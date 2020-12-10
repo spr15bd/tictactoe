@@ -611,15 +611,15 @@
 					miniMax(boardState, turn);
 				}
 			}
-			function miniMax(newBoard, turn) {
+			function miniMax(boardState, turn) {
 				// minimax algorithm pseudocode
 				// loop through the nine squares
 				for (var i=0; i<9; i++) {
 					console.log(turn);
 					// if I find an empty square
-					if (newBoard[i]!="X"&&newBoard[i]!="O") {
+					if (boardState[i]!="X"&&boardState[i]!="O") {
 						//console.log(i);
-						newBoard[i]=turn;
+						boardState[i]=turn;
 						break;
 					}	
 				}
@@ -628,7 +628,7 @@
 					
 					
 				console.log("board: "+board);
-				console.log("hypothetical board: "+newBoard);
+				console.log("hypothetical board: "+boardState);
 					// add turn to square (X or O)
 					// check for win - if X win return +1, if O win return -1
 					// if no win
