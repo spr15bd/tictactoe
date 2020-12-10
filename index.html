@@ -390,6 +390,7 @@
 			
 			// check the status of the board, if no result swap players
 			function changeTurns() {
+				boardState = board;
   				if (winner()) {
     					doVictory();
   				} else if (matchDrawn()) {
