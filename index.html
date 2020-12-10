@@ -614,18 +614,17 @@
 			function miniMax(boardState, turn) {
 				// minimax algorithm pseudocode
 				// loop through the nine squares
-				boardState.some(square=>{
-					
+				for (i=0; i<boardState.length; i++) {
 					console.log("test");
 					// if I find an empty square
-					if (square!="X"&&square!="O") {
-						console.log(i);
+					if (boardState[i]!="X"&&boardState[i]!="O") {
+						//console.log(i);
 						boardState[i]=turn;
-						return true;
-					} else {
-						i++;
-					}
-				}); 
+						break;
+					}	
+				}
+				
+				
 					
 					
 				console.log("board: "+board);
