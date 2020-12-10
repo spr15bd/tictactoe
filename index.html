@@ -472,6 +472,7 @@
 			function takeSquare(squareNumber) {
 				board[squareNumber]=turn;
 				boardState = board;
+				console.log("square taken - board is now "+board+", boardState is now "+boardState);
 				$("#square"+squareNumber).text(turn);
 				enableBoardButtons();
 				changeTurns();
