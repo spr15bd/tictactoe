@@ -319,6 +319,7 @@
     					if (board[0]==0) {
       						$("#square0").text(turn);
       						board[0]=turn;
+						boardState[0]=turn;
       						changeTurns();
     					}
   				});
@@ -326,6 +327,7 @@
     					if (board[1]==0) {
       						$("#square1").text(turn);
       						board[1]=turn;
+						boardState[1]=turn;
       						changeTurns();
     					}
   				});
@@ -333,41 +335,47 @@
     					if (board[2]==0) {
       						$("#square2").text(turn);
       						board[2]=turn;
+						boardState[2]=turn;
       						changeTurns(); 
     					}
   				});
   				$("#square3").click(function() {
     					if (board[3]==0) {
       						$("#square3").text(turn);
-      						board[3]=turn;
+						board[3]=turn;
+      						boardState[3]=turn;
       						changeTurns(); 
     					}
   				});
   				$("#square4").click(function() {
     					if (board[4]==0) {
       						$("#square4").text(turn);
-      						board[4]=turn;
+						board[4]=turn;
+      						boardState[4]=turn;
       						changeTurns(); 
     					}
   				});
   				$("#square5").click(function() {
     					if (board[5]==0) {
       						$("#square5").text(turn);
-      						board[5]=turn;
+						board[5]=turn;
+      						boardState[5]=turn;
       						changeTurns(); 
     					}
   				});
   				$("#square6").click(function() {
     					if (board[6]==0) {
       						$("#square6").text(turn);
-      						board[6]=turn;
+						board[6]=turn;
+      						boardState[6]=turn;
       						changeTurns(); 
     					}
   				});
   				$("#square7").click(function() {
     					if (board[7]==0) {
       						$("#square7").text(turn);
-      						board[7]=turn;
+						board[7]=turn;
+      						boardState[7]=turn;
       						changeTurns(); 
     					}
   				});
@@ -375,6 +383,7 @@
     					if (board[8]==0) {
       						$("#square8").text(turn);
       						board[8]=turn;
+						boardState[8]=turn;
       						changeTurns(); 
     					}
   				});
@@ -390,7 +399,7 @@
 			
 			// check the status of the board, if no result swap players
 			function changeTurns() {
-				boardState = board;
+				
   				if (winner()) {
     					doVictory();
   				} else if (matchDrawn()) {
@@ -472,7 +481,7 @@
 
 			function takeSquare(squareNumber) {
 				board[squareNumber]=turn;
-				boardState = board;
+				boardState[squareNumber]=turn;
 				console.log("square taken - board is now "+board+", boardState is now "+boardState);
 				$("#square"+squareNumber).text(turn);
 				enableBoardButtons();
