@@ -195,7 +195,7 @@
 			var playerOne="", playerTwo="", playerOneWins=0, playerTwoWins=0;
 			var board=[0,0,0,0,0,0,0,0,0];
 			var boardState=[1,1,1,1,1,1,1,1,1];
-			console.log(boardState);
+			var minimaxScore=0;
 			var timeout;
 			var i=0;
 			$(document).ready(function(){
@@ -620,7 +620,8 @@
 					}, 1000);
 				} else {
 					console.log("boardState: "+board);
-					miniMax(turn);
+					minimaxScore = miniMax(turn);
+					// find score, if score <0 do not take that position
 				}
 			}
 			function miniMax(turn) {
