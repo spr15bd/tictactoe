@@ -621,26 +621,28 @@
 					}, 1000);
 				} else {
 					console.log("boardState: "+board);
-					minimaxScore = miniMax(turn);
-					// find score, if score <0 do not take that position
+					// loop through the nine squares
+					console.log("boardState in miniMax: "+boardState);
+					for (var i=0; i<9; i++) {
+						console.log(turn);
+						// if I find an empty square
+						if (boardState[i]!="X"&&boardState[i]!="O") {
+							// add turn to square (X or O)
+							console.log("added "+turn+" to the boardState");
+							minimaxScore = miniMax(turn);
+							// find score, if score >0 take that position - if score <0 do not take that position
+							
+							break;
+						}
+
+					}
+					
 				}
 			}
 			function miniMax(turn) {
 				// minimax algorithm pseudocode
-				// loop through the nine squares
-				console.log("boardState in miniMax: "+boardState);
-				for (var i=0; i<9; i++) {
-					console.log(turn);
-					// if I find an empty square
-					if (boardState[i]!="X"&&boardState[i]!="O") {
-						// add turn to square (X or O)
-						console.log("added "+turn+" to the boardState");
-						boardState[i]=turn;
-						break;
-					}
-					
-				}
-				
+				boardState[i]=turn;
+						
 				console.log("checking for a win");
 				// check for win - if X win return +1, if O win return -1
 				if (winner(turn)) {
@@ -650,13 +652,26 @@
 					// if no win
 					console.log("no win yet");
 					turn=turn=="X"?"O":"X";
+					for (var i=0; i<9; i++) {
+						if (boardState[i]!="X"&&boardState[i]!="O") {
+							// add turn to square (X or O)
+							console.log("added "+turn+" to the boardState");
+							minimaxScore = miniMax(turn);
+							// find score, if score >0 take that position - if score <0 do not take that position
+							
+						}	
+					}
 					// return miniMax(turn);
 				}
 				
 					
 					
 				console.log("board: "+board);
-				console.log("hypothetical board: "+boardState);
+				console.log("hypothetical board: "+boardState);	
+					
+				
+				
+				
 					
 					
 			}		
