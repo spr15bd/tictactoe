@@ -655,7 +655,7 @@
 					for (var i=0; i<9; i++) {
 						if (boardState[i]!="X"&&boardState[i]!="O") {
 							// add turn to square (X or O)
-							console.log("added "+turn+" to the boardState");
+							console.log("added "+turn+" to the boardState, now it's "+boardState);
 							minimaxScore = miniMax(turn);
 							// find score, if score >0 take that position - if score <0 do not take that position
 							
@@ -669,8 +669,7 @@
 				
 					
 					
-				console.log("board: "+board);
-				console.log("hypothetical board: "+boardState);	
+					
 					
 				
 				
