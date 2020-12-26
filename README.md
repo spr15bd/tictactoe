@@ -37,7 +37,7 @@ Tic tac toe game for one or two players in JQuery / JavaScript
     <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/spr15bd.github.io/tictactoe/">View Demo</a>
+    <a href="https://spr15bd.github.io/tictactoe/">View Demo</a>
     ·
     <a href="https://github.com/spr15bd/tictactoe/issues">Report Bug</a>
     ·
