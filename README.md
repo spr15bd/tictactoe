@@ -32,7 +32,7 @@ Tic tac toe game for one or two players in JQuery / JavaScript
 
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    README
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
     <br />
