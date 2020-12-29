@@ -33,9 +33,7 @@ Tic tac toe game for one or two players in JQuery / JavaScript
 
   <p align="center">
     README
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
-    <br />
+   
     <br />
     <a href="https://spr15bd.github.io/tictactoe/">View Demo</a>
     ·
@@ -80,16 +78,15 @@ Tic tac toe game for one or two players in JQuery / JavaScript
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-There are many great README templates available on GitHub, however, I didn't find one that really suit my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+This is a tic tac toe game for one or two players in JQuery / JavaScript
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should element DRY principles to the rest of your life :smile:
+Options in the game are:
+* One-player game against the computer (you have a reasonable chance of winning) 
+* One-player game against the computer using the minimax algorithm (you have not got a chance of winning)
+* Two-player game against a friend
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have have contributed to expanding this template!
+The second option means on each turn, the computer evaluates every available space and finds the space which maximises its chance of winning.
 
-A list of commonly used resources that I find helpful are listed in the acknowledgements.
 
 ### Built With
 
@@ -102,8 +99,7 @@ This section should list any major frameworks that you built your project using.
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
@@ -123,9 +119,7 @@ Prerequisites to running this are
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
+Use this if you want to learn how to use JQuery or JavaScript.
 
 
 
@@ -133,7 +127,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 ## Roadmap
 
 See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).
-
+Currently the plan is to replace JQuery with React.
 
 
 <!-- CONTRIBUTING -->
@@ -159,7 +153,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Bevan Dady - bevandady@gmail.com
 
 Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
 
