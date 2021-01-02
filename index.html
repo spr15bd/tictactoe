@@ -657,6 +657,7 @@
 					console.log("no win yet");
 					turn=turn=="X"?"O":"X";
 					for (var i=0; i<9; i++) {
+						console.log("miniMax: "+i+"th iteration of 9");
 						if (boardState[i]!="X"&&boardState[i]!="O") {
 							// add turn to square (X or O)
 							//console.log("added "+turn+" to the boardState, now it's "+boardState);
