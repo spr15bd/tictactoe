@@ -643,7 +643,8 @@
 			function miniMax(turn, i) {
 				// minimax algorithm pseudocode
 				boardState[i]=turn;
-				console.log("added "+turn+" to the boardState, it is now: "+boardState);		
+				console.log("new minimax, added "+turn+" to the boardState, it is now: "+boardState);
+				console.log("and board is: "+board);
 				console.log("checking for a win");
 				// check for win - if X win return +1, if O win return -1
 				if (winner(turn)) {
