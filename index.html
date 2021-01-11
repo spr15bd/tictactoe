@@ -631,7 +631,7 @@
 						// if I find an empty square
 						if (boardState[i]!="X"&&boardState[i]!="O") {
 							// add turn to square (X or O)
-							
+							turn=turn=="X"?"O":"X";
 							minimaxScore = miniMax(turn, i);
 							// find score, if score >0 take that position - if score <0 do not take that position
 							console.log("minimax score for square "+i+ " is "+minimaxScore);
