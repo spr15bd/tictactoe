@@ -663,6 +663,7 @@
 						console.log("miniMax: "+i+"th iteration of 9");
 						if (boardState[i]!="X"&&boardState[i]!="O") {
 							// add turn to square (X or O)
+							boardState[i]=turn;
 							//console.log("added "+turn+" to the boardState, now it's "+boardState);
 							//return miniMax(turn, i);
 							// find score, if score >0 take that position - if score <0 do not take that position
