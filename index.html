@@ -482,7 +482,8 @@
 
 			function takeSquare(squareNumber) {
 				board[squareNumber]=turn;
-				boardState[squareNumber]=turn;
+				//boardState[squareNumber]=turn;
+				boardState=board.slice(0);
 				console.log("square taken - board is now "+board+", boardState is now "+boardState);
 				$("#square"+squareNumber).text(turn);
 				enableBoardButtons();
@@ -637,6 +638,11 @@
 							turn=turn=="X"?"O":"X";
 							minimaxScore = miniMax(turn, i);
 							// find score, if score >0 take that position - if score <0 do not take that position
+							
+							if (score > 0) {
+								takeSquare(i);
+								
+							}
 							console.log("minimax score for square "+i+ " is "+minimaxScore);
 							//break;
 						}
@@ -668,10 +674,12 @@
 							turn=turn=="X"?"O":"X";
 							return miniMax(turn, i);
 							// find score, if score >0 take that position - if score <0 do not take that position
-							if (i==8&&!winner(turn)) {
+							
+							
+							//if (i==8&&!winner(turn)) {
 								//console.log("full board - match drawn");
 							//return 0;	    
-							}
+							//}
 						} else if (i==8) {
 							console.log("full board - match drawn");
 							return 0;
