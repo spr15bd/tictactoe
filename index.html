@@ -639,7 +639,7 @@
 							minimaxScore = miniMax(turn, i);
 							// find score, if score >0 take that position - if score <0 do not take that position
 							
-							if (score > 0) {
+							if (minimaxScore > 0) {
 								takeSquare(i);
 								
 							}
