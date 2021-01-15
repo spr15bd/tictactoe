@@ -665,6 +665,7 @@
 							// add turn to square (X or O)
 							boardState[i]=turn;
 							console.log("added "+turn+" to the boardState, now it's "+boardState);
+							turn=turn=="X"?"O":"X";
 							return miniMax(turn, i);
 							// find score, if score >0 take that position - if score <0 do not take that position
 							if (i==8&&!winner(turn)) {
