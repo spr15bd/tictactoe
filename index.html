@@ -414,7 +414,7 @@
 				}
 			}
 
-			function winner(turn) {
+			function winner(turn, board) {
 				if ((board[0]==board[1]&&board[1]==board[2]&&board[0]==turn)||
 				(board[3]==board[4]&&board[4]==board[5]&&board[3]==turn)||
 				(board[6]==board[7]&&board[7]==board[8]&&board[6]==turn)||
@@ -659,7 +659,7 @@
 				console.log("and board is: "+board);
 				console.log("checking for a win");
 				// check for win - if X win return +1, if O win return -1
-				if (winner(turn)) {
+				if (winner(turn, boardState)) {
 					console.log("winner");
 					return turn=="X"?1:-1;
 				} else {
