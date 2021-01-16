@@ -198,6 +198,7 @@
 			var minimaxScore=0;
 			var timeout;
 			var i=0;
+			var aiInPlay = false;
 			$(document).ready(function(){
   				for (var x=0; x<9;x++){
     					$("#square"+x).hide();
@@ -406,6 +407,7 @@
     					doDraw();
 				} else if (turn==player1) {
 					turn=player2;
+					aiInPlay = !aiInPlay;
 					if (onePlayerGame) {
 						doComputerAI(miniMaxGame);
 					}
@@ -491,6 +493,7 @@
 			}
 
 			function doComputerAI(miniMaxGame) {
+				aiInPlay = true;
 				disableBoardButtons();
 				if (!miniMaxGame) {
 					setTimeout(function() {
