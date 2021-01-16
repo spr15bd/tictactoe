@@ -664,7 +664,7 @@
 				// check for win - if X win return +1, if O win return -1
 				if (winner(turn, boardState)) {
 					console.log("winner");
-					return turn=="X"?1:-1;
+					return aiInPlay?1:-1;
 				} else {
 					// if no win
 					console.log("no win yet");
