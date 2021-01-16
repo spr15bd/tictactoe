@@ -400,7 +400,7 @@
 			
 			// check the status of the board, if no result swap players
 			function changeTurns() {
-				
+				console.log("changing turn");
   				if (winner("X")||winner("O")) {
     					doVictory();
   				} else if (matchDrawn()) {
@@ -645,7 +645,7 @@
 							
 							if (minimaxScore > 0) {
 								takeSquare(i);
-								console.log("boardState is: "+ boardState);
+								
 							}
 							console.log("minimax score for square "+i+ " is "+minimaxScore);
 							//break;
