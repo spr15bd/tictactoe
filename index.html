@@ -667,15 +667,16 @@
 				}
 			}
 			function miniMax(turn, i) {
+				minimaxTurn = turn;
 				// minimax algorithm pseudocode
 				//boardState[i]=turn;
 				console.log("new minimax, now it's "+turn+"'s go");
 				console.log("and board is: "+board);
 				console.log("checking for a win");
 				// check for win - if X win return +1, if O win return -1
-				if (winner(turn, boardState)) {
+				if (winner(minimaxTurn, boardState)) {
 					console.log("winner");
-					return turn==player2?1:-1;
+					return minimaxTurn==player2?1:-1;
 				} else {
 					// if no win
 					console.log("no win yet");
@@ -684,10 +685,10 @@
 						console.log("miniMax: "+i+"th iteration of 9");
 						if (boardState[i]!="X"&&boardState[i]!="O") {
 							// add turn to square (X or O)
-							boardState[i]=turn;
-							console.log("added "+turn+" to the boardState, now it's "+boardState);
-							turn=turn=="X"?"O":"X";
-							return miniMax(turn, i);
+							boardState[i]=minimaxTurn;
+							console.log("added "+minimaxTurn+" to the boardState, now it's "+boardState);
+							minimaxTurn=minimaxTurn=="X"?"O":"X";
+							return miniMax(minimaxTurn, i);
 							// find score, if score >0 take that position - if score <0 do not take that position
 							
 							
