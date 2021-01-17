@@ -195,7 +195,7 @@
 			var playerOne="", playerTwo="", playerOneWins=0, playerTwoWins=0;
 			var board=[0,0,0,0,0,0,0,0,0];
 			var boardState=[1,1,1,1,1,1,1,1,1];
-			var minimaxScore=0;
+			var minimaxScore=[];
 			var timeout;
 			var i=0;
 			//var aiInPlay = false;
@@ -640,18 +640,28 @@
 							boardState[i]=turn;
 							console.log("added "+turn+" to the boardState, now it's "+boardState);
 							turn=turn=="X"?"O":"X";
-							minimaxScore = miniMax(turn, i);
+							minimaxScore[i] = miniMax(turn, i);
 							// find score, if score >0 take that position - if score <0 do not take that position
 							
-							if (minimaxScore > 0) {
-								takeSquare(i);
-								console.log(turn +" took square "+i);
-								break;
-							}
-							console.log("minimax score for square "+i+ " is "+minimaxScore);
-							//break;
+							
 						}
-
+						
+					}
+					for (i=0; i < 9; i++) {
+						if (minimaxScore[i] > 0) {
+							takeSquare(i);
+							console.log(turn +" took square "+i);
+							break;
+						} else if (minimaxScore[i] == 0) {
+							takeSquare(i);
+							console.log(turn +" took square "+i);
+							break;
+						} else {
+							takeSquare(i);
+							break;
+						}
+						//console.log("minimax score for square "+i+ " is "+minimaxScore);
+						//break;
 					}
 					
 				}
