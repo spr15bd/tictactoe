@@ -642,31 +642,26 @@
 							turn=turn=="X"?"O":"X";
 							minimaxScore[i] = miniMax(turn, i);
 							// find score, if score >0 take that position - if score <0 do not take that position
-							
+							if (minimaxScore[i] > 0) {
+								takeSquare(i);
+								console.log(turn +" took square "+i);
+								break;
+							} else if (minimaxScore[i] == 0) {
+								takeSquare(i);
+								console.log(turn +" took square "+i);
+								break;
+							} else if (i==8) {
+								takeSquare(i);
+								console.log(turn +" took square "+i);
+								break;
+							}
 							
 						}
 						
 					}
-					for (i=0; i < 9; i++) {
-						if (minimaxScore[i] > 0) {
-							takeSquare(i);
-							console.log(turn +" took square "+i);
-							break;
-						} 
-					}	
-					for (i=0; i < 9; i++) {
-						if (minimaxScore[i] == 0) {
-							takeSquare(i);
-							console.log(turn +" took square "+i);
-							break;
-						} 
-					}
-					for (i=0; i < 9; i++) {
-						takeSquare(i);
-						console.log(turn +" took square "+i);
-						break;
+					
+					
 						
-					}	
 					
 						//console.log("minimax score for square "+i+ " is "+minimaxScore);
 						//break;
