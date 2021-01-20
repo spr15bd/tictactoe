@@ -627,50 +627,50 @@
 					console.log("board: "+board);
 					// loop through the nine squares
 					console.log("boardState in miniMax: "+boardState);
-					for (var i=0; i<9; i++) {
+					console.log(turn+"'s turn");
 						
-						boardState=board.slice(0);
+					boardState=board.slice(0);
 					
-						console.log(i+"th iteration of 9, "+turn+"'s turn");
-						// if I find an empty square
-						if (boardState[i]!="X"&&boardState[i]!="O") {
-							// add turn to square (X or O)
-							//turn=turn=="X"?"O":"X";
+					//console.log(i+"th iteration of 9, "+turn+"'s turn");
+					// if I find an empty square
+					if (boardState[i]!="X"&&boardState[i]!="O") {
+						// add turn to square (X or O)
+						//turn=turn=="X"?"O":"X";
 							
-							boardState[i]=turn;
-							console.log("added "+turn+" to the boardState, now it's "+boardState);
-							turn=turn=="X"?"O":"X";
-							minimaxScore[i] = miniMax(turn, i);
-							// find score, if score >0 take that position - if score <0 do not take that position
-							if (minimaxScore[i] > 0) {
-								setTimeout(function() {
-									takeSquare(i);
-									console.log(turn +" took square "+i);
-									
-								}, 1000);
-								break;
-							} else if (minimaxScore[i] == 0) {
-								setTimeout(function() {
-									takeSquare(i);
-									console.log(turn +" took square "+i);
-									
-								}, 1000);
-								break;
-							} else if (i==8) {
+						//boardState[i]=turn;
+						//console.log("added "+turn+" to the boardState, now it's "+boardState);
+						//turn=turn=="X"?"O":"X";
+						minimaxScore[i] = miniMax(turn, i);
+						// find score, if score >0 take that position - if score <0 do not take that position
+						if (minimaxScore[i] > 0) {
+							setTimeout(function() {
 								takeSquare(i);
 								console.log(turn +" took square "+i);
-								break;
-							}
-							
+									
+							}, 1000);
+							break;
+						} else if (minimaxScore[i] == 0) {
+							setTimeout(function() {
+								takeSquare(i);
+								console.log(turn +" took square "+i);
+									
+							}, 1000);
+							break;
+						} else if (i==8) {
+							takeSquare(i);
+							console.log(turn +" took square "+i);
+							break;
 						}
 						
 					}
+						
+					
 					
 					
 						
 					
-						//console.log("minimax score for square "+i+ " is "+minimaxScore);
-						//break;
+					//console.log("minimax score for square "+i+ " is "+minimaxScore);
+					//break;
 					
 					
 				}
