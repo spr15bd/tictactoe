@@ -646,15 +646,16 @@
 								setTimeout(function() {
 									takeSquare(i);
 									console.log(turn +" took square "+i);
-									break;
+									
 								}, 1000);
-								
+								break;
 							} else if (minimaxScore[i] == 0) {
 								setTimeout(function() {
 									takeSquare(i);
 									console.log(turn +" took square "+i);
-									break;
-								}, 1000);	
+									
+								}, 1000);
+								break;
 							} else if (i==8) {
 								takeSquare(i);
 								console.log(turn +" took square "+i);
