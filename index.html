@@ -643,13 +643,18 @@
 							minimaxScore[i] = miniMax(turn, i);
 							// find score, if score >0 take that position - if score <0 do not take that position
 							if (minimaxScore[i] > 0) {
-								takeSquare(i);
-								console.log(turn +" took square "+i);
-								break;
+								setTimeout(function() {
+									takeSquare(i);
+									console.log(turn +" took square "+i);
+									break;
+								}, 1000);
+								
 							} else if (minimaxScore[i] == 0) {
-								takeSquare(i);
-								console.log(turn +" took square "+i);
-								break;
+								setTimeout(function() {
+									takeSquare(i);
+									console.log(turn +" took square "+i);
+									break;
+								}, 1000);	
 							} else if (i==8) {
 								takeSquare(i);
 								console.log(turn +" took square "+i);
