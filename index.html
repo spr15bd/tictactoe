@@ -633,7 +633,7 @@
 					
 					//console.log(i+"th iteration of 9, "+turn+"'s turn");
 					// if I find an empty square
-					if (boardState[i]!="X"&&boardState[i]!="O") {
+					
 						// add turn to square (X or O)
 						//turn=turn=="X"?"O":"X";
 							
@@ -662,7 +662,7 @@
 							break;
 						}
 						
-					}
+					
 						
 					
 					
@@ -681,6 +681,21 @@
 				//boardState[i]=turn;
 				console.log("new minimax, now it's "+turn+"'s go");
 				console.log("and board is: "+board);
+				
+				for (var i=0; i<9; i++) {
+					if (boardState[i]!="X"&&boardState[i]!="O") {
+						boardState[i]=turn;
+					}
+				}
+				
+				// add turn to square (X or O)
+				//turn=turn=="X"?"O":"X";
+							
+				
+				//console.log("added "+turn+" to the boardState, now it's "+boardState);
+				//turn=turn=="X"?"O":"X";
+				
+				
 				console.log("checking for a win");
 				// check for win - if X win return +1, if O win return -1
 				if (winner(minimaxTurn, boardState)) {
