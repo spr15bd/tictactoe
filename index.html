@@ -701,18 +701,18 @@
 				if (winner(minimaxTurn, boardState)) {
 					console.log("winner");
 					return minimaxTurn==player2?1:-1;
-				} else {
+				} else if (i==8) {
 					// if no win
-					console.log("no win yet");
-					// 11.01.21turn=turn=="X"?"O":"X";
-					for (var i=0; i<9; i++) {
-						console.log("miniMax: "+i+"th iteration of 9");
-						if (boardState[i]!="X"&&boardState[i]!="O") {
-							// add turn to square (X or O)
-							boardState[i]=minimaxTurn;
-							console.log("added "+minimaxTurn+" to the boardState, now it's "+boardState);
-							minimaxTurn=minimaxTurn=="X"?"O":"X";
-							return miniMax(minimaxTurn, i);
+					console.log("full board - match drawn");
+					return 0;
+				} else {
+					minimaxTurn=minimaxTurn=="X"?"O":"X";
+					return miniMax(minimaxTurn, i);
+				}
+					
+							//console.log("added "+minimaxTurn+" to the boardState, now it's "+boardState);
+							//minimaxTurn=minimaxTurn=="X"?"O":"X";
+							//return miniMax(minimaxTurn, i);
 							// find score, if score >0 take that position - if score <0 do not take that position
 							
 							
@@ -720,12 +720,7 @@
 								//console.log("full board - match drawn");
 							//return 0;	    
 							//}
-						} else if (i==8) {
-							console.log("full board - match drawn");
-							return 0;
-						}
-					}
-					// return miniMax(turn);
+						
 				}
 				
 					
