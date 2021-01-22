@@ -628,8 +628,10 @@
 					// loop through the nine squares
 					console.log("boardState in miniMax: "+boardState);
 					console.log(turn+"'s turn");
-						
-					boardState=board.slice(0);
+					
+					
+					for (var i=0; i<9; i++) {
+						boardState=board.slice(0);
 					
 					//console.log(i+"th iteration of 9, "+turn+"'s turn");
 					// if I find an empty square
@@ -663,7 +665,7 @@
 						}
 						
 					
-						
+					}	
 					
 					
 					
