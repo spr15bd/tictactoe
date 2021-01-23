@@ -704,7 +704,7 @@
 				console.log("checking for a win");
 				// check for win - if X win return +1, if O win return -1
 				if (winner(minimaxTurn, boardState)) {
-					console.log("winner");
+					console.log("winner will be "+minimaxTurn);
 					return minimaxTurn==player2?1:-1;
 				} else if (i==8) {
 					// if no win
