@@ -650,7 +650,7 @@
 						
 					}
 					for (var i=0; i < 9; i++) {
-						if (minimaxScore[i]!="X" && minimaxScore != "O") {
+						if (boardState[i]!="X" && boardState[i] != "O") {
 							if (minimaxScore[i] > 0) {
 								setTimeout(function() {
 									console.log(turn +" took square "+i);
