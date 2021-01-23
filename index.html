@@ -650,29 +650,30 @@
 						
 					}
 					for (var i=0; i < 9; i++) {
-						if (minimaxScore[i] > 0) {
-							setTimeout(function() {
-								console.log(turn +" took square "+i);
-								takeSquare(i);
-								
-							}, 1000);
-							break;
-						} else if (minimaxScore[i] == 0) {
-							setTimeout(function() {
-								console.log(turn +" took square "+i);
-								takeSquare(i);
-								
-							}, 1000);
-							break;
-						} else {
-							setTimeout(function() {
-								console.log(turn +" took square "+i);
-								takeSquare(i);
-								
-							}, 1000);
-							break;
-						}
-							
+						if (minimaxScore[i]!="X" && minimaxScore != "O") {
+							if (minimaxScore[i] > 0) {
+								setTimeout(function() {
+									console.log(turn +" took square "+i);
+									takeSquare(i);
+
+								}, 1000);
+								break;
+							} else if (minimaxScore[i] == 0) {
+								setTimeout(function() {
+									console.log(turn +" took square "+i);
+									takeSquare(i);
+
+								}, 1000);
+								break;
+							} else {
+								setTimeout(function() {
+									console.log(turn +" took square "+i);
+									takeSquare(i);
+
+								}, 1000);
+								break;
+							}
+						}	
 					
 					}
 						
