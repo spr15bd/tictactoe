@@ -469,7 +469,7 @@
 
 			function resetBoard() {
 				board=[0,0,0,0,0,0,0,0,0];
-				boardState=[1,1,1,1,1,1,1,1,1];
+				boardState=board.slice(0);
 				for (var i=0; i<9; i++) {
 					$("#square"+i).text("");
 				}
@@ -645,36 +645,33 @@
 							//turn=turn=="X"?"O":"X";
 							minimaxScore[i] = miniMax(turn, i);
 							// find score, if score >0 take that position - if score <0 do not take that position
-							if (minimaxScore[i] > 0) {
-								setTimeout(function() {
-									console.log(turn +" took square "+i);
-									takeSquare(i);
-
-
-								}, 1000);
-								break;
-							} else if (minimaxScore[i] == 0) {
-								setTimeout(function() {
-									console.log(turn +" took square "+i);
-									takeSquare(i);
-
-
-								}, 1000);
-								break;
-							} else if (i==8) {
-								console.log(turn +" took square "+i);
-								takeSquare(i);
-
-								break;
-							}
+							
 						}
 						
-						
+					}
+					for (var i=0; i < 9; i++) {
+						if (minimaxScore[i] > 0) {
+							setTimeout(function() {
+								console.log(turn +" took square "+i);
+								takeSquare(i);
+								break;
+							}, 1000);
+						} else if (minimaxScore[i] == 0) {
+							setTimeout(function() {
+								console.log(turn +" took square "+i);
+								takeSquare(i);
+								break;
+							}, 1000);
+						} else {
+							setTimeout(function() {
+								console.log(turn +" took square "+i);
+								takeSquare(i);
+								break;
+							}, 1000);	
+						}
+							
 					
-					}	
-					
-					
-					
+					}
 						
 					
 					//console.log("minimax score for square "+i+ " is "+minimaxScore);
@@ -691,10 +688,24 @@
 				console.log("and board is: "+board);
 				
 				for (var i=0; i<9; i++) {
-					if (boardState[i]!="X"&&boardState[i]!="O") {
+					if (boardState[i]==0) {
 						boardState[i]=turn;
-					}
-				}
+						
+						console.log("checking for a win");
+						// check for win - if X win return +1, if O win return -1
+						if (winner(minimaxTurn, boardState)) {
+							console.log("winner will be "+minimaxTurn);
+							return minimaxTurn==player2?1:-1;
+						} else if (i==8) {
+							// if no win
+							console.log("full board - match drawn");
+							return 0;
+						} else {
+							minimaxTurn=minimaxTurn=="X"?"O":"X";
+							return miniMax(minimaxTurn, i);
+						}
+							}
+						}
 				
 				// add turn to square (X or O)
 				//turn=turn=="X"?"O":"X";
@@ -704,19 +715,7 @@
 				//turn=turn=="X"?"O":"X";
 				
 				
-				console.log("checking for a win");
-				// check for win - if X win return +1, if O win return -1
-				if (winner(minimaxTurn, boardState)) {
-					console.log("winner will be "+minimaxTurn);
-					return minimaxTurn==player2?1:-1;
-				} else if (i==8) {
-					// if no win
-					console.log("full board - match drawn");
-					return 0;
-				} else {
-					minimaxTurn=minimaxTurn=="X"?"O":"X";
-					return miniMax(minimaxTurn, i);
-				}
+				
 					
 							//console.log("added "+minimaxTurn+" to the boardState, now it's "+boardState);
 							//minimaxTurn=minimaxTurn=="X"?"O":"X";
