@@ -644,6 +644,7 @@
 							//console.log("added "+turn+" to the boardState, now it's "+boardState);
 							//turn=turn=="X"?"O":"X";
 							minimaxScore[i] = miniMax(turn, i);
+							console.log("completed minimax, score for square "+i+ "is "+minimaxScore[i]);
 							// find score, if score >0 take that position - if score <0 do not take that position
 							
 						}
