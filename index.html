@@ -630,29 +630,15 @@
 					console.log("boardState in miniMax: "+boardState);
 					console.log(turn+"'s turn");
 					
-					//minimax algorithm
-					//for loop over 9 sq
-					//	add player2 (ai) to next available sq
-					//		check for winner
-					//		if no win minimax on other player
-					
 					for (var i=0; i<9; i++) {
+						minimaxScore[i] = miniMax(turn, i);
+					}
+					
 						boardState=board.slice(0);
-						minimaxScore[i] = 0;
+						
 					//console.log(i+"th iteration of 9, "+turn+"'s turn");
 					// if I find an empty square
-						if (boardState[i]!="O"&&boardState[i]!="X") {
-							// add turn to square (X or O)
-							//turn=turn=="X"?"O":"X";
-							boardState[i]=turn;
-							//boardState[i]=turn;
-							//console.log("added "+turn+" to the boardState, now it's "+boardState);
-							//turn=player1;
-							minimaxScore[i] = miniMax(turn, i);
-							console.log("completed minimax, score for square "+i+ "is "+minimaxScore[i]);
-							// find score, if score >0 take that position - if score <0 do not take that position
-							
-						}
+						
 						
 					}
 					for (var i=0; i < 9; i++) {
@@ -690,7 +676,12 @@
 					
 				}
 			}
-			function miniMax(turn, i) {
+			function miniMax(turn) {
+				//minimax algorithm
+				//for loop over 9 sq
+				//	add player2 (ai) to next available sq
+				//		check for winner
+				//		if no win minimax on other player
 				console.log("new minimax on player "+turn+", "+i);
 				minimaxTurn = turn==player2?player1:player2;
 				// minimax algorithm pseudocode
