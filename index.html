@@ -628,7 +628,7 @@
 				} else {
 					console.log("board: "+board);
 					// loop through the nine squares
-					console.log("boardState in miniMax: "+boardState);
+					console.log("boardState: "+boardState);
 					console.log(turn+"'s turn");
 					mm=[];
 					boardState=board.slice(0);
@@ -685,7 +685,7 @@
 				//	add player2 (ai) to next available sq
 				//		check for winner
 				//		if no win minimax on other player
-				console.log("new minimax on player "+turn+", "+i);
+				console.log("new minimax on player "+turn);
 				minimaxTurn = turn;
 				//minimaxTurn = turn==player2?player1:player2;
 				// minimax algorithm pseudocode
