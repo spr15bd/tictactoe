@@ -196,6 +196,7 @@
 			var board=[0,0,0,0,0,0,0,0,0];
 			var boardState=[1,1,1,1,1,1,1,1,1];
 			var minimaxScore=[];
+			var mm=[];
 			var timeout;
 			var i=0;
 			//var aiInPlay = false;
@@ -691,7 +692,7 @@
 				//boardState[i]=turn;
 				
 				console.log("and board is: "+board+", boardState is "+boardState);
-				mm = [];
+				//mm = [];
 				for (var i=0; i<9; i++) {
 					if (boardState[i]==0) {
 						boardState[i]=turn;
