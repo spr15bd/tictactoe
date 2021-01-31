@@ -715,10 +715,12 @@
 							
 						}
 					}
-					
+					if (i==8) {
+						console.log("finished minimax - mm is: "+mm);
+						return mm;
+					}
 				}
-				console.log("finished minimax - mm is: "+mm);
-				return mm;
+				
 			
 				
 				// add turn to square (X or O)
