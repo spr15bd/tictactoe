@@ -701,24 +701,21 @@
 						// check for win - if X win return +1, if O win return -1
 						if (winner(minimaxTurn, boardState)) {
 							console.log("winner will be "+minimaxTurn);
-							mm[i] = minimaxTurn==player2?1:-1;
+							return minimaxTurn==player2?1:-1;
 							
 						} else if (i==8) {
 							// if no win
 							console.log("full board - match drawn");
 							
-							mm[i] = 0;
+							return 0;
 							
 						} else {
 							minimaxTurn=minimaxTurn=="X"?"O":"X";
-							mm[i] = miniMax(minimaxTurn)[i];
+							return miniMax(minimaxTurn);
 							
 						}
 					}
-					if (i==8) {
-						console.log("finished minimax - mm is: "+mm);
-						return mm;
-					}
+					
 				}
 				
 			
