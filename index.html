@@ -627,7 +627,7 @@
 					}, 1000);
 				} else {
 					console.log("board: "+board);
-					// loop through the nine squares
+					
 					console.log("boardState: "+boardState);
 					console.log(turn+"'s turn");
 					mm=[];
@@ -639,14 +639,14 @@
 					
 						
 						
-					//console.log(i+"th iteration of 9, "+turn+"'s turn");
-					// if I find an empty square
+					
+					
 						
 						
 					
 					for (var i=0; i < 9; i++) {
 						if (board[i]!="X" && board[i] != "O") {
-							if (minimaxScore[i] > 0) {
+							if (minimaxScore[i] > 0) {	// if I find an empty square
 								setTimeout(function() {
 									console.log(turn +" took square "+i);
 									takeSquare(i);
