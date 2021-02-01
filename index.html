@@ -633,10 +633,13 @@
 					mm=[];
 					boardState=board.slice(0);
 					
-					minimaxScore = miniMax(turn);
-					console.log("minimax score sq "+i+" ="+minimaxScore[i]);
+					for (var i=0; i < 9; i++) {
+						
 					
+						minimaxScore = miniMax(turn, i);
+						console.log("minimax score sq "+i+" ="+minimaxScore[i]);
 					
+					}
 						
 						
 					
