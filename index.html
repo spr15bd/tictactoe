@@ -646,36 +646,23 @@
 					
 						
 						
-					
+					var bestScore=-1;
 					for (var i=0; i < 9; i++) {
 						if (board[i]!="X" && board[i] != "O") {
-							if (minimaxScore[i] > 0) {	// if I find an empty square
-								setTimeout(function() {
-									console.log(turn +" took square "+i);
-									takeSquare(i);
-
-								}, 1000);
-								break;
-							} else if (minimaxScore[i] == 0) {
-								setTimeout(function() {
-									console.log(turn +" took square "+i);
-									takeSquare(i);
-
-								}, 1000);
-								break;
-							} else {
-								setTimeout(function() {
-									console.log(turn +" took square "+i);
-									takeSquare(i);
-
-								}, 1000);
-								break;
+							if (minimaxScore[i] > -1) {	// if I find an empty square
+								bestScore = i;
+								
+							
 							}
 						}	
 					
 					}
 						
-					
+					setTimeout(function() {
+						console.log(turn +" took square "+i);
+							takeSquare(bestScore);
+
+					}, 1000);
 					//console.log("minimax score for square "+i+ " is "+minimaxScore);
 					//break;
 					
