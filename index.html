@@ -669,7 +669,7 @@
 					
 				}
 			}
-			function miniMax(turn) {
+			function miniMax(turn, i) {
 				//minimax algorithm
 				//for loop over 9 sq
 				//	add player2 (ai) to next available sq
@@ -677,14 +677,8 @@
 				//		if no win minimax on other player
 				console.log("new minimax on player "+turn);
 				minimaxTurn = turn;
-				//minimaxTurn = turn==player2?player1:player2;
-				// minimax algorithm pseudocode
-				//boardState[i]=turn;
 				
-				console.log("and board is: "+board+", boardState is "+boardState);
-				//mm = [];
-				for (var i=0; i<9; i++) {
-					if (boardState[i]==0) {
+				if (boardState[i]==0) {
 						boardState[i]=turn;
 						
 						console.log("checking for a win");
@@ -701,24 +695,21 @@
 							
 						} else {
 							minimaxTurn=minimaxTurn=="X"?"O":"X";
-							return miniMax(minimaxTurn);
+							for (var i=0; i < 9; i++) {
+						
+					
+								return miniMax(minimaxTurn, i);
+								//console.log("minimax score sq "+i+" ="+minimaxScore[i]);
+
+							}
+							
 							
 						}
-					}
+					
 					
 				}
 				
 			
-				
-				// add turn to square (X or O)
-				//turn=turn=="X"?"O":"X";
-							
-				//if (i==8&&!winner(turn)) {
-					//console.log("full board - match drawn");
-				//return 0;	    
-				//}
-						
-				
 				
 			}		
 		</script>
