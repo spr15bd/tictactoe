@@ -634,11 +634,7 @@
 					boardState=board.slice(0);
 					
 					for (var i=0; i < 9; i++) {
-						
-					
 						minimaxScore[i] = miniMax(turn, i);
-						
-					
 					}
 						
 						
@@ -680,6 +676,7 @@
 				minimaxTurn = turn;
 				
 				if (boardState[i]==0) {
+					console.log("about to set sq "+i+" to "+minimaxTurn);
 						boardState[i]=minimaxTurn;
 						
 						console.log("checking for a win");
