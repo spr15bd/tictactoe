@@ -673,23 +673,23 @@
 				//		check for winner
 				//		if no win minimax on other player
 				console.log("new minimax on player "+turn);
-				minimaxTurn = turn;
+				//minimaxTurn = turn;
 				
 				if (boardState[i]==0) {
-					console.log("about to set sq "+i+" to "+minimaxTurn);
-						boardState[i]=minimaxTurn;
+					console.log("about to set sq "+i+" to "+turn);
+						boardState[i]=turn;
 						
 						console.log("checking for a win");
 						// check for win - if X win return +1, if O win return -1
-						if (winner(minimaxTurn, boardState)) {
-							console.log("winner will be "+minimaxTurn);
-							return minimaxTurn==player2?1:-1;
+						if (winner(turn, boardState)) {
+							console.log("winner will be "+turn);
+							return turn==player2?1:-1;
 							
 						}  else {
 							console.log("winner unknown, changing turn in minimax");
-							minimaxTurn=minimaxTurn=="X"?"O":"X";
+							turn=turn=="X"?"O":"X";
 							for (var i=0; i < 9; i++) {
-								return miniMax(minimaxTurn, i);
+								return miniMax(turn, i);
 								
 							}
 						}
