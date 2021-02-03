@@ -688,10 +688,10 @@
 						}  else {
 							console.log("winner unknown, changing turn in minimax");
 							turn=turn=="X"?"O":"X";
-							for (var j=0; j < 9; j++) {
-								miniMax(turn, j);
+							//for (var j=0; j < 9; j++) {
+							return miniMax(turn, i);
 								
-							}
+							//}
 						}
 				}
 				if (i==8) {
