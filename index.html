@@ -672,7 +672,7 @@
 				//	add player2 (ai) to next available sq
 				//		check for winner
 				//		if no win minimax on other player
-				console.log("new minimax on player "+turn);
+				console.log("new minimax on player "+turn+", i is"+i);
 				//minimaxTurn = turn;
 				
 				if (boardState[i]==0) {
@@ -688,8 +688,8 @@
 						}  else {
 							console.log("winner unknown, changing turn in minimax");
 							turn=turn=="X"?"O":"X";
-							for (var i=0; i < 9; i++) {
-								return miniMax(turn, i);
+							for (var j=0; j < 9; j++) {
+								return miniMax(turn, j);
 								
 							}
 						}
