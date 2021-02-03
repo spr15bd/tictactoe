@@ -637,7 +637,7 @@
 						
 					
 						minimaxScore[i] = miniMax(turn, i);
-						console.log("minimax score sq "+i+" ="+minimaxScore);
+						
 					
 					}
 						
@@ -645,7 +645,7 @@
 					
 					
 						
-						
+					console.log("minimax score: "+minimaxScore);	
 					var bestScore=-1;
 					var bestSquare;
 					for (var i=0; i < 9; i++) {
@@ -660,7 +660,7 @@
 					}
 						
 					setTimeout(function() {
-						console.log(turn +" took square "+i);
+						console.log(turn +" took square "+bestSquare);
 							takeSquare(bestSquare);
 
 					}, 1000);
