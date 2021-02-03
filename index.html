@@ -658,7 +658,7 @@
 					setTimeout(function() {
 						console.log(turn +" took square "+bestSquare);
 							takeSquare(bestSquare);
-
+							
 					}, 1000);
 					//console.log("minimax score for square "+i+ " is "+minimaxScore);
 					//break;
@@ -672,7 +672,7 @@
 				//	add player2 (ai) to next available sq
 				//		check for winner
 				//		if no win minimax on other player
-				console.log("new minimax on player "+turn+", i is"+i);
+				console.log("new minimax on player "+turn+", i is"+i+", boardState: "+boardState);
 				//minimaxTurn = turn;
 				
 				if (boardState[i]==0) {
