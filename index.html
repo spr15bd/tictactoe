@@ -689,10 +689,11 @@
 							return minimaxTurn==player2?1:-1;
 							
 						}  else {
+							console.log("winner unknown, changing turn in minimax");
 							minimaxTurn=minimaxTurn=="X"?"O":"X";
 							for (var i=0; i < 9; i++) {
 								return miniMax(minimaxTurn, i);
-								//console.log("minimax score sq "+i+" ="+minimaxScore[i]);
+								
 							}
 						}
 				}
