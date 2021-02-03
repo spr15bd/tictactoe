@@ -680,7 +680,7 @@
 				minimaxTurn = turn;
 				
 				if (boardState[i]==0) {
-						boardState[i]=turn;
+						boardState[i]=minimaxTurn;
 						
 						console.log("checking for a win");
 						// check for win - if X win return +1, if O win return -1
@@ -691,8 +691,6 @@
 						}  else {
 							minimaxTurn=minimaxTurn=="X"?"O":"X";
 							for (var i=0; i < 9; i++) {
-						
-					
 								return miniMax(minimaxTurn, i);
 								//console.log("minimax score sq "+i+" ="+minimaxScore[i]);
 							}
@@ -702,7 +700,6 @@
 					// if no win
 					console.log("full board - match drawn");
 					return 0;
-							
 				}
 			}		
 		</script>
