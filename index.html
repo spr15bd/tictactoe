@@ -689,7 +689,7 @@
 							console.log("winner unknown, changing turn in minimax");
 							turn=turn=="X"?"O":"X";
 							for (var j=0; j < 9; j++) {
-								boardState[i] = miniMax(turn, j);
+								minimaxScore[i] = miniMax(turn, j);
 								
 							}
 						}
