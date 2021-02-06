@@ -672,6 +672,7 @@
 				//	add player2 (ai) to next available sq
 				//		check for winner
 				//		if no win minimax on other player
+				var result;
 				console.log("new minimax on player "+turn+", i is"+i+", boardState: "+boardState);
 				//minimaxTurn = turn;
 				
@@ -683,23 +684,26 @@
 						// check for win - if X win return +1, if O win return -1
 						if (winner(turn, boardState)) {
 							console.log("winner will be "+turn);
-							return turn==player2?1:-1;
+							result = turn==player2?1:-1;
 							
 						}  else if (matchDrawn()) {
 							// if no win
 							console.log("full board - match drawn");
 							boardState=board.slice(0);
-							return 0;
+							result = 0;
 						} else {
 							console.log("winner unknown, changing turn in minimax");
+							result=-1;
 							turn=turn=="X"?"O":"X";
+							var newResult;
 							for (var j=0; j < 9; j++) {
-								var result = miniMax(turn, j, 0);
-								if (result >=-1) return result;
+								newResult = miniMax(turn, j, 0);
+								if (newResult >=result) result=newResult;
 								
 							}
 						}
 				}
+				return result;
 				//if (i==8) {
 					
 				//}
