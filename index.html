@@ -697,7 +697,7 @@
 							turn=turn=="X"?"O":"X";
 							var newResult;
 							for (var j=0; j < 9; j++) {
-								newResult = miniMax(turn, j, 0);
+								newResult = miniMax(turn, j, 1);
 								if (newResult >=result) result=newResult;
 								
 							}
