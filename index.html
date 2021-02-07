@@ -685,25 +685,27 @@
 						if (winner(turn, boardState)) {
 							console.log("winner will be "+turn);
 							result = turn==player2?1:-1;
-							
+							return result;
 						}  else if (matchDrawn()) {
 							// if no win
 							console.log("full board - match drawn");
 							boardState=board.slice(0);
 							result = 0;
+							return result;
 						} else {
 							console.log("winner unknown, changing turn in minimax");
 							result=-1;
 							turn=turn=="X"?"O":"X";
-							var newResult;
+							var newResult=;
 							for (var j=0; j < 9; j++) {
 								newResult = miniMax(turn, j, 1);
 								if (newResult >=result) result=newResult;
 								
 							}
+							return newResult;
 						}
 				}
-				return result;
+				
 				//if (i==8) {
 					
 				//}
