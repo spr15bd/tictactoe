@@ -402,7 +402,7 @@
 			// check the status of the board, if no result swap players
 			function changeTurns() {
 				console.log("changing turn, from "+turn);
-  				if (winner("X", board)||winner("O", board)) {
+  				if (winner("X", boardState)||winner("O", boardState)) {
     					doVictory();
   				} else if (matchDrawn(board)) {
     					doDraw();
