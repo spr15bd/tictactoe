@@ -693,13 +693,14 @@
 							console.log("winner unknown, changing turn in minimax");
 							result=-1;
 							turn=turn=="X"?"O":"X";
+							level++;
 							var newResult;
 							for (var j=0; j < 9; j++) {
-								newResult = miniMax(turn, j, 1);
+								newResult = miniMax(turn, j, level);
 								if (newResult >=result) result=newResult;
 								
 							}
-							console.log("returning minimax at level 1, result was "+result);
+							console.log("returning minimax at level "+level+", result was "+result);
 							return result;
 						}
 				}
