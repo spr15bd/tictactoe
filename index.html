@@ -635,7 +635,8 @@
 					
 					//start the minimax algorithm at the top level, level 0
 					for (var i=0; i < 9; i++) {
-						minimaxScore[i] = miniMax(turn, i, level);
+						console.log("minimax at top level, player "+turn+", i="+i);
+						minimaxScore[i] = miniMax(turn, i, 0);
 					}
 						
 						
