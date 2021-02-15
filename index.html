@@ -684,11 +684,12 @@
 							console.log("winner will be "+turn);
 							result = turn==player2?1:-1;
 							boardState[i]=0;
+							
 							return result;
 						}  else if (matchDrawn(boardState)) {
 							// if no win
 							console.log("full board - match drawn");
-							boardState=board.slice(0);
+							//boardState=board.slice(0);
 							result = 0;
 							boardState[i]=0;
 							return result;
