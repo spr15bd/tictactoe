@@ -701,7 +701,7 @@
 							var newResult;
 							//iterate over all remaining spaces on the board
 							for (var j=0; j < 9; j++) {
-								boardState=board.slice(0);
+								//boardState=board.slice(0);
 								newResult = miniMax(turn, j, level);
 								if (newResult==null) continue;
 								else if (newResult >=result) result=newResult;
