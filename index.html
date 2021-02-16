@@ -634,15 +634,15 @@
 					boardState=board.slice(0);
 					
 					//start the minimax algorithm at the top level, level 0
-					for (var i=0; i < 9; i++) {
+					
 						console.log("minimax at top level, player "+turn+", i="+i);
-						minimaxScore[i] = miniMax(turn, i, 0);
-					}
+						minimaxScore = miniMax(turn, i, 0);
+					
 						
 						
 					
 					
-						
+					/*	
 					console.log("minimax score: "+minimaxScore);	
 					var bestScore=-1;
 					var bestSquare;
@@ -656,6 +656,7 @@
 						}	
 					
 					}
+					*/
 						
 					setTimeout(function() {
 						console.log(turn +" took square "+bestSquare);
