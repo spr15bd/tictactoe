@@ -636,7 +636,7 @@
 					//start the minimax algorithm at the top level, level 0
 					
 						console.log("minimax at top level, player "+turn+", i="+i);
-						minimaxScore = miniMax(turn, i, 0);
+						minimaxScore = miniMax(turn, 0);
 					
 						
 						
@@ -665,7 +665,7 @@
 					}, 1000);
 				}
 			}
-			function miniMax(turn, i, depth) {
+			function miniMax(turn, depth) {
 				//minimax algorithm
 				//for loop over 9 sq
 				//	add player2 (ai) to next available sq
