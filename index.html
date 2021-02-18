@@ -671,13 +671,26 @@
 				//	add player2 (ai) to next available sq
 				//		check for winner
 				//		if no win minimax on other player
+				
 				var result;
 				console.log("new minimax on player "+turn+", depth is "+depth+", boardState: "+boardState);
 				
-				
-				if (boardState[i]==0) {
+				for (var j=0; j < 9; j++) {
+					//boardState=board.slice(0);
+					if (boardState[i]==0) {
 						console.log("about to set sq "+i+" to "+turn);
 						boardState[i]=turn;
+						newResult = miniMax(turn,  level);
+						if (newResult==null) continue;
+						else if (newResult >=result) result=newResult;
+					} else {	//space is already occupied
+						return null;	
+					}			
+				}
+				console.log("returning minimax at level "+level+", result was "+result);
+				return result;
+				
+				
 						
 						console.log("checking for a win");
 						// check for win - if X win return +1, if O win return -1
@@ -701,19 +714,9 @@
 							level++;
 							var newResult;
 							//iterate over all remaining spaces on the board
-							for (var j=0; j < 9; j++) {
-								//boardState=board.slice(0);
-								newResult = miniMax(turn,  level);
-								if (newResult==null) continue;
-								else if (newResult >=result) result=newResult;
-								
-							}
-							console.log("returning minimax at level "+level+", result was "+result);
-							return result;
+							
 						}
-				} else {	//space is already occupied
-					return null;	
-				}
+				
 			}		
 		</script>
 	</body>
