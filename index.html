@@ -636,7 +636,7 @@
 					//start the minimax algorithm at the top level, level 0
 					
 						console.log("minimax at top level, player "+turn+", i="+i);
-						minimaxScore = miniMax(turn, 0);
+						//minimaxScore = miniMax(turn, 0);
 					
 						
 						
@@ -660,7 +660,7 @@
 						
 					setTimeout(function() {
 						console.log(turn +" took square "+bestSquare);
-							takeSquare(bestSquare);
+							takeSquare(miniMax(turn, 0););
 							
 					}, 1000);
 				}
@@ -672,7 +672,9 @@
 				//		check for winner
 				//		if no win minimax on other player
 				
-				var result;
+				var result=-100;
+				var latestResult;
+				var bestSquare;
 				console.log("new minimax on player "+turn+", depth is "+depth+", boardState: "+boardState);
 				
 				for (var j=0; j < 9; j++) {
@@ -685,38 +687,46 @@
 						// check for win - if X win return +1, if O win return -1
 						if (winner(turn, boardState)) {
 							console.log("winner will be "+turn);
-							result = turn==player2?1:-1;
+							latestResult = turn==player2?1:-1;
 							//boardState[i]=0;
 							
-							return result;
+							return i;
 						}  else if (matchDrawn(boardState)) {
 							// if no win
 							console.log("full board - match drawn");
 							//boardState=board.slice(0);
-							result = 0;
+							latestResult = 0;
 							//boardState[i]=0;
-							return result;
+							if (latestResult>result) {
+								result=latestResult;
+								bestSquare=i;
+							}
 						} else {
 							console.log("winner unknown, changing turn in minimax");
-							result=-1;
+							//result=-1;
 							turn=turn=="X"?"O":"X";
 							level++;
-							var newResult;
+							//var newResult;
 							//iterate over all remaining spaces on the board
-							newResult = miniMax(turn,  level);
+							latestResult = miniMax(turn,  level);
 							//if (newResult==null) continue;
 							//else if (newResult >=result) result=newResult;
+							if (latestResult>result) {
+								result=latestResult;
+								bestSquare=i;
+							}
 							console.log("returning minimax at level "+level+", result was "+result);
-							return result;
+							
 						}
 						
-						
+					}
+					
 					//} else {	//space is already occupied
 					//	return null;	
 					//}			
 				}
 				
-				
+				return i;
 				
 						
 						
