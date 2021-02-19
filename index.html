@@ -711,15 +711,15 @@
 							level++;
 							//var newResult;
 							//iterate over all remaining spaces on the board
-							latestResult = miniMax(turn,  level);
+							bestSquare = miniMax(turn,  level);
 							//if (newResult==null) continue;
 							//else if (newResult >=result) result=newResult;
-							if (latestResult>result) {
+							/*if (latestResult>result) {
 								result=latestResult;
 								bestSquare=i;
 							}
 							console.log("returning minimax at level "+level+", result was "+result);
-							
+							*/
 						}
 						
 					}
