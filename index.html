@@ -638,7 +638,7 @@
 						console.log("minimax at top level, player "+turn+", i="+i);
 						//minimaxScore = miniMax(turn, 0);
 					
-						
+					miniMax(turn, 0);	
 						
 					
 					
@@ -660,7 +660,7 @@
 						
 					setTimeout(function() {
 						//console.log(turn +" took square "+bestSquare);
-							takeSquare(miniMax(turn, 0));
+							takeSquare(bestSquare);
 							
 					}, 1000);
 				}
@@ -711,29 +711,22 @@
 							level++;
 							//var newResult;
 							//iterate over all remaining spaces on the board
-							bestSquare = miniMax(turn,  level);
+							latestResult = miniMax(turn,  level);
 							//if (newResult==null) continue;
 							//else if (newResult >=result) result=newResult;
-							/*if (latestResult>result) {
+							if (latestResult>result) {
 								result=latestResult;
 								bestSquare=i;
 							}
-							console.log("returning minimax at level "+level+", result was "+result);
-							*/
+							//console.log("returning minimax at level "+level+", result was "+result);
+							
 						}
 						
 					}
-					
-					//} else {	//space is already occupied
-					//	return null;	
-					//}			
+								
 				}
 				
 				return bestSquare;
-				
-						
-						
-				
 			}		
 		</script>
 	</body>
