@@ -688,7 +688,7 @@
 						if (winner(turn, boardState)) {
 							console.log("winner will be "+turn);
 							latestResult = turn==player2?1:-1;
-							//boardState[i]=0;
+							boardState[i]=0;
 							bestSquare=i;
 							if (latestResult>result) {
 								result=latestResult;
@@ -700,7 +700,7 @@
 							console.log("full board - match drawn");
 							//boardState=board.slice(0);
 							latestResult = 0;
-							//boardState[i]=0;
+							boardState[i]=0;
 							if (latestResult>result) {
 								result=latestResult;
 								bestSquare=i;
@@ -727,7 +727,7 @@
 								
 				}
 				console.log("Finished minimax, returned result of "+result+", best sq is "+bestSquare);
-				boardState=board.slice(0);
+				//boardState=board.slice(0);
 				return result;
 			}		
 		</script>
