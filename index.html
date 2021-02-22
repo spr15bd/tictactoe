@@ -687,7 +687,7 @@
 						// check for win - if X win return +1, if O win return -1
 						if (winner(turn, boardState)) {
 							console.log("winner will be "+turn);
-							latestResult = turn==player2?1:-1;
+							result = turn==player2?1:-1;
 							boardState[i]=0;
 							bestSquare=i;
 							/*if (latestResult>result) {
