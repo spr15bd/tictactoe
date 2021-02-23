@@ -200,6 +200,7 @@
 			var timeout;
 			var i=0;
 			var level=0;
+			var result=-100;
 			$(document).ready(function(){
   				for (var x=0; x<9;x++){
     					$("#square"+x).hide();
@@ -632,7 +633,7 @@
 					console.log(turn+"'s turn");
 					mm=[];
 					boardState=board.slice(0);
-					var result=-100;
+					result=-100;
 					//start the minimax algorithm at the top level, level 0
 					
 						console.log("minimax at top level, player "+turn+", i="+i);
