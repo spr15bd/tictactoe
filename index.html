@@ -632,7 +632,7 @@
 					console.log(turn+"'s turn");
 					mm=[];
 					boardState=board.slice(0);
-					
+					var result=-100;
 					//start the minimax algorithm at the top level, level 0
 					
 						console.log("minimax at top level, player "+turn+", i="+i);
@@ -672,7 +672,7 @@
 				//		check for winner
 				//		if no win minimax on other player
 				
-				var result=-100;
+				//var result=-100;
 				var latestResult;
 				//var bestSquare;
 				console.log("new minimax on player "+turn+", depth is "+depth+", boardState: "+boardState);
