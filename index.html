@@ -702,11 +702,8 @@
 							console.log("full board - match drawn");
 							//boardState=board.slice(0);
 							latestResult = 0;
-							boardState[i]=0;
-							if (latestResult>result) {
-								result=latestResult;
-								bestSquare=i;
-							}
+							//boardState[i]=0;
+							
 						} else {
 							console.log("winner unknown, changing turn in minimax");
 							//result=-1;
@@ -714,7 +711,7 @@
 							level++;
 							//var newResult;
 							//iterate over all remaining spaces on the board
-							result = miniMax(turn,  level);
+							latestResult = miniMax(turn,  level);
 							//if (newResult==null) continue;
 							//else if (newResult >=result) result=newResult;
 							/*if (latestResult>=result) {
@@ -726,7 +723,10 @@
 						}
 						
 					}
-								
+					if (latestResult>=result) {
+						result=latestResult;
+						bestSquare=i;
+					}			
 				}
 				console.log("Finished minimax, returned result of "+result+", best sq is "+bestSquare);
 				//boardState=board.slice(0);
