@@ -705,7 +705,11 @@
 							//boardState=board.slice(0);
 							latestResult = 0;
 							//boardState[i]=0;
-							
+							if (latestResult>result) {
+								console.log("result bettered, best sq "+i);
+								result=latestResult;
+								bestSquare=i;
+							}
 						} else {
 							console.log("winner unknown, changing turn in minimax");
 							//result=-1;
@@ -721,16 +725,16 @@
 								bestSquare=i;
 							}*/
 							//console.log("returning minimax at level "+level+", result was "+result);
-							
+							if (latestResult>result) {
+								console.log("result bettered, best sq "+i);
+								result=latestResult;
+								bestSquare=i;
+							}
 						}
 						
 					}
 					console.log("outside recursion");
-					if (latestResult>result) {
-						console.log("result bettered, best sq "+i);
-						result=latestResult;
-						bestSquare=i;
-					}
+					
 					console.log("resetting sq "+i+ " to 0");
 					boardState[i]=0;
 				}
