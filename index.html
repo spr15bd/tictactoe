@@ -703,7 +703,7 @@
 							// if no win
 							console.log("full board - match drawn");
 							//boardState=board.slice(0);
-							result = 0;
+							latestResult = 0;
 							//boardState[i]=0;
 							/*if (latestResult>result) {
 								console.log("result bettered, best sq "+i);
@@ -718,7 +718,9 @@
 							level++;
 							//var newResult;
 							//iterate over all remaining spaces on the board
+							bestSquare = i;
 							latestResult = miniMax(turn,  level);
+							
 							//if (newResult==null) continue;
 							//else if (newResult >=result) result=newResult;
 							/*if (latestResult>=result) {
