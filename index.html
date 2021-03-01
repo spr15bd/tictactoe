@@ -735,7 +735,7 @@
 						boardState[i]=0;
 						
 					}
-					if (latestResult>result) {
+					if (depth==0 && latestResult>result) {
 						console.log("result bettered, best sq "+i);
 						result=latestResult;
 						bestSquare=i;
