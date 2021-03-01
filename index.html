@@ -698,7 +698,7 @@
 								bestSquare=i;
 								
 							}*/
-							continue;
+							break;
 						}  else if (matchDrawn(boardState)) {
 							// if no win
 							console.log("full board - match drawn");
@@ -710,7 +710,7 @@
 								result=latestResult;
 								//bestSquare=i;
 							}*/
-							continue;
+							break;
 						} else {
 							console.log("winner unknown, changing turn in minimax");
 							//result=-1;
