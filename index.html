@@ -718,6 +718,8 @@
 							//bestSquare = i;
 							latestResult = miniMax(turn,  level);
 							
+							console.log("minimax stage "+i+", resetting sq "+i+ " to 0");
+							boardState[i]=0;
 							//if (newResult==null) continue;
 							//else if (newResult >=result) result=newResult;
 							/*if (latestResult>=result) {
@@ -728,8 +730,7 @@
 							//return latestResult;
 						}
 						
-						console.log("minimax stage "+i+", resetting sq "+i+ " to 0");
-						boardState[i]=0;
+						
 						
 					}
 					if (depth==0 && latestResult>result) {
