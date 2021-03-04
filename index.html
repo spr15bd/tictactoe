@@ -681,6 +681,7 @@
 				
 				for (var i=0; i < 9; i++) {
 					//boardState=board.slice(0);
+					console.log("minimax stage i= "+i);
 					if (boardState[i]==0) {
 						console.log("about to set sq "+i+" to "+turn+", depth "+depth);
 						boardState[i]=turn;
@@ -727,7 +728,7 @@
 							//return latestResult;
 						}
 						
-						console.log("resetting sq "+i+ " to 0");
+						console.log("minimax stage "+i+", "resetting sq "+i+ " to 0");
 						boardState[i]=0;
 						
 					}
