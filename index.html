@@ -673,8 +673,8 @@
 				//		check for winner
 				//		if no win minimax on other player
 				
-				var result=-100;
-				var latestResult=-100;
+				var result=turn==player1?100:-100;
+				var latestResult=turn==player1?100:-100;
 				var bestSquare=0;
 				//var bestSquare;
 				console.log("new minimax on player "+turn+", depth is "+depth+", boardState: "+boardState);
