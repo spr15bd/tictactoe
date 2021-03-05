@@ -639,7 +639,7 @@
 						console.log("minimax at top level, player "+turn+", i="+i);
 						//minimaxScore = miniMax(turn, 0);
 					
-					miniMax(turn, 0);	
+					bestSquare = miniMax(turn, 0);	
 						
 					
 					
@@ -688,7 +688,7 @@
 						
 						console.log("checking for a win");
 						// check for win - if X win return +1, if O win return -1
-						/*if (winner(turn, boardState)) {
+						if (winner(turn, boardState)) {
 							console.log("winner will be "+turn);
 							//latestResult = turn==player2?1:-1;
 							latestResult = 1;
@@ -696,7 +696,7 @@
 							//bestSquare=i;
 							
 							//return latestResult;
-						}  else*/ if (matchDrawn(boardState)) {
+						}  else if (matchDrawn(boardState)) {
 							// if no win
 							console.log("full board - match drawn");
 							//boardState=board.slice(0);
@@ -733,7 +733,7 @@
 						
 						
 					}
-					if (depth==0 && latestResult>result) {
+					if (latestResult>result) {
 						console.log("result bettered, best sq "+i);
 						result=latestResult;
 						bestSquare=i;
@@ -745,7 +745,7 @@
 				console.log("Finished minimax, returned result of "+result+", best sq is "+bestSquare);
 				//boardState=board.slice(0);
 				
-				//return result;
+				return bestSquare;
 			}		
 		</script>
 	</body>
