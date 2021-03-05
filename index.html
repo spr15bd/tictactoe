@@ -716,7 +716,7 @@
 							//var newResult;
 							//iterate over all remaining spaces on the board
 							//bestSquare = i;
-							latestResult = miniMax(turn,  level);
+							bestSquare = miniMax(turn,  level);
 							
 							console.log("minimax stage "+i+", depth is "+depth+", turn is "+turn+", resetting sq "+i+ " to 0");
 							boardState[i]=0;
