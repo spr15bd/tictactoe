@@ -691,9 +691,9 @@
 							//latestResult = turn==player2?1:-1;
 							latestResult = turn==player2?1:-1;
 							//boardState[i]=0;
-							//bestSquare=i;
-							
-							//return latestResult;
+							bestSquare=i;
+							result = latestResult;
+							return result;
 						}  else if (matchDrawn(boardState)) {
 							// if no win
 							console.log("full board - match drawn");
