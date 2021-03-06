@@ -627,19 +627,17 @@
 						}   
 					}, 1000);
 				} else {
-					console.log("board: "+board);
-					
-					console.log("boardState: "+boardState);
+					console.log("board: "+board+", boardState: "+boardState);
 					console.log(turn+"'s turn");
-					mm=[];
+					//mm=[];
 					boardState=board.slice(0);
-					result=-100;
+					//result=-100;
 					//start the minimax algorithm at the top level, level 0
 					
 						console.log("minimax at top level, player "+turn+", i="+i);
 						//minimaxScore = miniMax(turn, 0);
 					
-					bestSquare = miniMax(turn, 0);	
+					miniMax(turn, 0);	
 						
 					
 					
@@ -675,7 +673,7 @@
 				
 				var result=turn==player1?100:-100;
 				var latestResult=turn==player1?100:-100;
-				var bestSquare=0;
+				bestSquare=0;
 				//var bestSquare;
 				console.log("new minimax on player "+turn+", depth is "+depth+", boardState: "+boardState);
 				
@@ -716,7 +714,7 @@
 							//var newResult;
 							//iterate over all remaining spaces on the board
 							//bestSquare = i;
-							bestSquare = miniMax(turn,  level);
+							latestResult = miniMax(turn,  level);
 							
 							console.log("minimax stage "+i+", depth is "+depth+", turn is "+turn+", resetting sq "+i+ " to 0");
 							boardState[i]=0;
@@ -750,7 +748,7 @@
 				console.log("Finished minimax, returned result of "+result+", best sq is "+bestSquare);
 				//boardState=board.slice(0);
 				
-				return bestSquare;
+				return latestResult;
 			}		
 		</script>
 	</body>
