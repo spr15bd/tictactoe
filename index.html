@@ -691,7 +691,7 @@
 							//latestResult = turn==player2?1:-1;
 							latestResult = turn==player2?1:-1;
 							//boardState[i]=0;
-							bestSquare=i;
+							//bestSquare=i;
 							result = latestResult;
 							return result;
 						}  else if (matchDrawn(boardState)) {
@@ -705,7 +705,8 @@
 								result=latestResult;
 								//bestSquare=i;
 							}*/
-							//return latestResult;
+							result = latestResult;
+							return result;
 						} else {
 							console.log("winner unknown, changing turn in minimax");
 							//result=-1;
