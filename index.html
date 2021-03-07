@@ -627,14 +627,13 @@
 						}   
 					}, 1000);
 				} else {
-					console.log("board: "+board+", boardState: "+boardState);
-					console.log(turn+"'s turn");
+					console.log("board: "+board+", boardState: "+boardState+", "+turn+"'s turn, minimax at top level, player "+turn+", i="+i);
 					//mm=[];
 					boardState=board.slice(0);
 					//result=-100;
 					//start the minimax algorithm at the top level, level 0
 					
-						console.log("minimax at top level, player "+turn+", i="+i);
+					
 						//minimaxScore = miniMax(turn, 0);
 					
 					miniMax(turn, 0);	
@@ -679,12 +678,9 @@
 				
 				for (var i=0; i < 9; i++) {
 					//boardState=board.slice(0);
-					console.log("minimax stage i= "+i);
 					if (boardState[i]==0) {
-						console.log("about to set sq "+i+" to "+turn+", depth "+depth);
+						console.log("minimax stage i= "+i+", about to set sq "+i+" to "+turn+", depth "+depth+", and check for win");
 						boardState[i]=turn;
-						
-						console.log("checking for a win");
 						// check for win - if X win return +1, if O win return -1
 						if (winner(turn, boardState)) {
 							console.log("winner will be "+turn);
@@ -717,7 +713,7 @@
 							//bestSquare = i;
 							latestResult = miniMax(turn,  level);
 							
-							console.log("minimax stage "+i+", depth is "+depth+", turn is "+turn+", resetting sq "+i+ " to 0");
+							console.log("minimax stage "+i+", depth is "+depth+", turn is "+turn+", best sq "+bestSquare+", latestResult "+latestResult+", resetting sq "+i+ " to 0");
 							boardState[i]=0;
 							//if (newResult==null) continue;
 							//else if (newResult >=result) result=newResult;
