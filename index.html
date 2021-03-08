@@ -707,11 +707,11 @@
 							console.log("winner unknown, changing turn in minimax");
 							//result=-1;
 							turn=turn=="X"?"O":"X";
-							level++;
+							depth++;
 							//var newResult;
 							//iterate over all remaining spaces on the board
 							//bestSquare = i;
-							latestResult = miniMax(turn,  level);
+							latestResult = miniMax(turn,  depth);
 							
 							console.log("minimax stage "+i+", depth is "+depth+", turn is "+turn+", best sq "+bestSquare+", latestResult "+latestResult+", resetting sq "+i+ " to 0");
 							//boardState[i]=0;
