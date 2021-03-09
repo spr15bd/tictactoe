@@ -687,7 +687,7 @@
 							//latestResult = turn==player2?1:-1;
 							latestResult = turn==player2?1:-1;
 							depth++;
-							//boardState[i]=0;
+							boardState[i]=0;
 							//bestSquare=i;
 							//result = latestResult;
 							//return result;
@@ -697,7 +697,7 @@
 							//boardState=board.slice(0);
 							latestResult = 0;
 							depth++;
-							//boardState[i]=0;
+							boardState[i]=0;
 							/*if (latestResult>result) {
 								console.log("result bettered, best sq "+i);
 								result=latestResult;
@@ -716,7 +716,7 @@
 							latestResult = miniMax(newTurn,  depth);
 							
 							console.log("minimax stage "+i+", depth is "+depth+", turn is "+newTurn+", best sq "+bestSquare+", latestResult "+latestResult+", resetting sq "+i+ " to 0");
-							//boardState[i]=0;
+							boardState[i]=0;
 							//if (newResult==null) continue;
 							//else if (newResult >=result) result=newResult;
 							/*if (latestResult>=result) {
@@ -727,7 +727,7 @@
 							//return latestResult;
 						}
 						
-						boardState[i]=0;
+						
 						
 					}
 					if (turn==player2 && latestResult>result) {		// if new turn is the computer, turn is player & wants to minimise his result 
