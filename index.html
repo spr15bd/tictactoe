@@ -673,7 +673,7 @@
 				var result=turn==player1?100:-100;
 				var latestResult=turn==player1?100:-100;
 				bestSquare=0;
-				//var bestSquare;
+				var newTurn;
 				console.log("new minimax on player "+turn+", depth is "+depth+", boardState: "+boardState);
 				
 				for (var i=0; i < 9; i++) {
@@ -706,14 +706,14 @@
 						} else {
 							console.log("winner unknown, changing turn in minimax");
 							//result=-1;
-							turn=turn=="X"?"O":"X";
+							newTurn=turn=="X"?"O":"X";
 							depth++;
 							//var newResult;
 							//iterate over all remaining spaces on the board
 							//bestSquare = i;
-							latestResult = miniMax(turn,  depth);
+							latestResult = miniMax(newTurn,  depth);
 							
-							console.log("minimax stage "+i+", depth is "+depth+", turn is "+turn+", best sq "+bestSquare+", latestResult "+latestResult+", resetting sq "+i+ " to 0");
+							console.log("minimax stage "+i+", depth is "+depth+", turn is "+newTurn+", best sq "+bestSquare+", latestResult "+latestResult+", resetting sq "+i+ " to 0");
 							//boardState[i]=0;
 							//if (newResult==null) continue;
 							//else if (newResult >=result) result=newResult;
@@ -728,11 +728,11 @@
 						
 						
 					}
-					if (turn==player2 && latestResult<result) {		// if new turn is the computer, turn is player & wants to minimise his result 
+					if (turn==player2 && latestResult>result) {		// if new turn is the computer, turn is player & wants to minimise his result 
 						console.log("result bettered, best sq "+i);
 						result=latestResult;
 						bestSquare=i;
-					} else if (turn==player1 && latestResult>result) {
+					} else if (turn==player1 && latestResult<result) {
 						console.log("result bettered, best sq "+i);
 						result=latestResult;
 						bestSquare=i;
