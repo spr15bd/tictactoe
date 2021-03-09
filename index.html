@@ -686,6 +686,7 @@
 							console.log("winner will be "+turn);
 							//latestResult = turn==player2?1:-1;
 							latestResult = turn==player2?1:-1;
+							depth++;
 							//boardState[i]=0;
 							//bestSquare=i;
 							//result = latestResult;
@@ -695,6 +696,7 @@
 							console.log("full board - match drawn");
 							//boardState=board.slice(0);
 							latestResult = 0;
+							depth++;
 							//boardState[i]=0;
 							/*if (latestResult>result) {
 								console.log("result bettered, best sq "+i);
