@@ -728,11 +728,11 @@
 						
 						
 					}
-					if (turn==player2 && latestResult>result) {
+					if (turn==player2 && latestResult<result) {		// if new turn is the computer, turn is player & wants to minimise his result 
 						console.log("result bettered, best sq "+i);
 						result=latestResult;
 						bestSquare=i;
-					} else if (turn==player1 && latestResult<result) {
+					} else if (turn==player1 && latestResult>result) {
 						console.log("result bettered, best sq "+i);
 						result=latestResult;
 						bestSquare=i;
