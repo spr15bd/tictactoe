@@ -680,14 +680,14 @@
 					//boardState=board.slice(0);
 					if (boardState[i]==0) {
 						console.log("minimax stage i= "+i+", about to set sq "+i+" to "+turn+", depth "+depth+", and check for win");
-						boardState[i]=turn;
+						//boardState[i]=turn;
 						// check for win - if X win return +1, if O win return -1
 						if (winner(turn, boardState)) {
 							console.log("winner will be "+turn);
 							//latestResult = turn==player2?1:-1;
 							latestResult = turn==player2?1:-1;
 							depth++;
-							boardState[i]=0;
+							//boardState[i]=0;
 							//bestSquare=i;
 							//result = latestResult;
 							//return result;
@@ -697,7 +697,7 @@
 							//boardState=board.slice(0);
 							latestResult = 0;
 							depth++;
-							boardState[i]=0;
+							//boardState[i]=0;
 							/*if (latestResult>result) {
 								console.log("result bettered, best sq "+i);
 								result=latestResult;
@@ -713,10 +713,11 @@
 							//var newResult;
 							//iterate over all remaining spaces on the board
 							//bestSquare = i;
+							boardState[i]=turn;
 							latestResult = miniMax(newTurn,  depth);
 							
 							console.log("minimax stage "+i+", depth is "+depth+", turn is "+newTurn+", best sq "+bestSquare+", latestResult "+latestResult+", resetting sq "+i+ " to 0");
-							boardState[i]=0;
+							
 							//if (newResult==null) continue;
 							//else if (newResult >=result) result=newResult;
 							/*if (latestResult>=result) {
