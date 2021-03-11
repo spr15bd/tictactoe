@@ -196,7 +196,7 @@
 			var board=[0,0,0,0,0,0,0,0,0];
 			var boardState=[0,0,0,0,0,0,0,0,0];
 			var minimaxScore=[];
-			var bestSquare;
+			var square;
 			var timeout;
 			var i=0;
 			var level=0;
@@ -636,7 +636,7 @@
 					
 						//minimaxScore = miniMax(turn, 0);
 					
-					bestSquare = miniMax(turn, 0).bestSquare;	
+					square = miniMax(turn, 0).bestSquare;	
 						
 					
 					
@@ -672,7 +672,7 @@
 				
 				var result=turn==player1?100:-100;
 				var latestResult=turn==player1?100:-100;
-				bestSquare=0;
+				var bestSquare=0;
 				var newTurn;
 				console.log("new minimax on player "+turn+", depth is "+depth+", boardState: "+boardState);
 				
