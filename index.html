@@ -636,7 +636,7 @@
 					
 						//minimaxScore = miniMax(turn, 0);
 					
-					miniMax(turn, 0);	
+					bestSquare = miniMax(turn, 0).bestSquare;	
 						
 					
 					
@@ -714,7 +714,7 @@
 							//iterate over all remaining spaces on the board
 							//bestSquare = i;
 							
-							latestResult = miniMax(newTurn,  depth);
+							latestResult = miniMax(newTurn,  depth).result;
 							
 							console.log("minimax stage "+i+", depth is "+depth+", returned up from "+newTurn+", turn is "+turn+", latestResult "+latestResult);
 							
@@ -748,7 +748,7 @@
 				console.log("Finished minimax at depth "+depth+", returned result of "+result+", best sq is "+bestSquare);
 				//boardState=board.slice(0);
 				
-				return result;
+				return {result, bestSquare};
 			}		
 		</script>
 	</body>
