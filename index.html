@@ -190,6 +190,7 @@
 		</div>
 		<script>
 			// global variables
+			var firstMove = false;
 			var onePlayerGame=false;
 			var miniMaxGame=false;
 			var playerOne="", playerTwo="", playerOneWins=0, playerTwoWins=0;
@@ -275,6 +276,7 @@
 			});
 
 			function resetAll() {
+				firstMove = false;
   				onePlayerGame=false;
 				miniMaxGame=false;
   				playerOne="", playerTwo="", playerOneWins=0, playerTwoWins=0;
@@ -308,7 +310,9 @@
     					turn=player1;
   				} else {
     					turn=player2;
+					
     					if (onePlayerGame) {
+						firstMove=true;
 						doComputerAI(miniMaxGame);
     					}
 						   
@@ -635,7 +639,10 @@
 					
 					
 						//minimaxScore = miniMax(turn, 0);
-					
+					if (firstMove) {
+						takeSquare(Math.floor(Math.random()*9));
+						firstMove = false;
+					}
 					square = miniMax(turn, 0).bestSquare;	
 						
 					
