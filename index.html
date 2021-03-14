@@ -190,7 +190,7 @@
 		</div>
 		<script>
 			// global variables
-			var firstMove = false;
+			var firstMove = true;
 			var onePlayerGame=false;
 			var miniMaxGame=false;
 			var playerOne="", playerTwo="", playerOneWins=0, playerTwoWins=0;
@@ -276,7 +276,7 @@
 			});
 
 			function resetAll() {
-				firstMove = false;
+				firstMove = true;
   				onePlayerGame=false;
 				miniMaxGame=false;
   				playerOne="", playerTwo="", playerOneWins=0, playerTwoWins=0;
@@ -312,7 +312,6 @@
     					turn=player2;
 					
     					if (onePlayerGame) {
-						firstMove=true;
 						doComputerAI(miniMaxGame);
     					}
 						   
@@ -640,11 +639,18 @@
 					
 						//minimaxScore = miniMax(turn, 0);
 					if (firstMove) {
+						console.log(Math.floor(Math.random()*9));
 						takeSquare(Math.floor(Math.random()*9));
 						firstMove = false;
-					}
-					square = miniMax(turn, 0).bestSquare;	
+					} else {
+						square = miniMax(turn, 0).bestSquare;	
 						
+						setTimeout(function() {
+						//console.log(turn +" took square "+bestSquare);
+							takeSquare(square);
+							
+						}, 1000);
+					}
 					
 					
 					/*	
@@ -663,11 +669,7 @@
 					}
 					*/
 						
-					setTimeout(function() {
-						//console.log(turn +" took square "+bestSquare);
-							takeSquare(square);
-							
-					}, 1000);
+					
 				}
 			}
 			function miniMax(turn, depth) {
