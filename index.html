@@ -662,21 +662,7 @@
 					}
 					
 					
-					/*	
-					console.log("minimax score: "+minimaxScore);	
-					var bestScore=-1;
-					var bestSquare;
-					for (var i=0; i < 9; i++) {
-						if (board[i]!="X" && board[i] != "O") {	// if I find an empty square
-							if (minimaxScore[i] > bestScore) {	
-								bestScore = minimaxScore[i];
-								bestSquare = i;
-							
-							}
-						}	
 					
-					}
-					*/
 						
 					
 				}
@@ -684,9 +670,9 @@
 			function miniMax(turn, depth) {
 				//minimax algorithm
 				//for loop over 9 sq
-				//	add player2 (ai) to next available sq
-				//		check for winner
-				//		if no win minimax on other player
+				//add player2 (ai) to next available sq
+				//check for winner
+				//if no win minimax on other player
 				
 				var result=turn==player1?100:-100;
 				var latestResult=turn==player1?100:-100;
@@ -699,7 +685,7 @@
 					if (boardState[i]==0) {
 						console.log("minimax stage i= "+i+", about to set sq "+i+" to "+turn+", depth "+depth+", and check for win");
 						boardState[i]=turn;
-						// check for win - if X win return +1, if O win return -1
+						// check for win - if X wins return +1, if O wins return -1
 						if (winner(turn, boardState)) {
 							console.log("winner will be "+turn);
 							//latestResult = turn==player2?1:-1;
@@ -712,40 +698,15 @@
 						}  else if (matchDrawn(boardState)) {
 							// if no win
 							console.log("full board - match drawn");
-							//boardState=board.slice(0);
 							latestResult = 0;
-							//depth++;
-							//boardState[i]=0;
-							/*if (latestResult>result) {
-								console.log("result bettered, best sq "+i);
-								result=latestResult;
-								//bestSquare=i;
-							}*/
-							//result = latestResult;
-							//return result;
 						} else {
 							console.log("winner unknown, changing turn in minimax");
 							//result=-1;
 							newTurn=turn=="X"?"O":"X";
 							depth++;
-							//var newResult;
-							//iterate over all remaining spaces on the board
-							//bestSquare = i;
-							
 							latestResult = miniMax(newTurn,  depth).result;
-							
 							console.log("minimax stage "+i+", depth is "+depth+", returned up from "+newTurn+", turn is "+turn+", latestResult "+latestResult);
-							
-							//if (newResult==null) continue;
-							//else if (newResult >=result) result=newResult;
-							/*if (latestResult>=result) {
-								result=latestResult;
-								bestSquare=i;
-							}*/
-							//console.log("returning minimax at level "+level+", result was "+result);
-							//return latestResult;
 						}
-						
 						boardState[i] = 0;
 						console.log("minimax stage i= "+i+", depth "+depth+", reset sq to 0");
 					}
