@@ -197,12 +197,8 @@
 			var playerOne="", playerTwo="", playerOneWins=0, playerTwoWins=0;
 			var board=[0,0,0,0,0,0,0,0,0];
 			var boardState=[0,0,0,0,0,0,0,0,0];
-			//var minimaxScore=[];
 			var square;
 			var timeout;
-			//var i=0;
-			//var level=0;
-			//var result=-100;
 			$(document).ready(function(){
   				for (var x=0; x<9;x++){
     					$("#square"+x).hide();
@@ -432,7 +428,6 @@
 				(board[2]===board[5]&&board[5]===board[8]&&board[2]===turn)||
 				(board[0]===board[4]&&board[4]===board[8]&&board[0]===turn)||
 				(board[6]===board[4]&&board[4]===board[2]&&board[6]===turn)) {
-					//console.log(turn+" is winner");
 					return true;  
 				}
 			}
@@ -492,7 +487,6 @@
 
 			function takeSquare(squareNumber) {
 				board[squareNumber]=turn;
-				//boardState[squareNumber]=turn;
 				boardState=board.slice(0);
 				console.log("square taken - board is now "+board+", boardState is now "+boardState);
 				$("#square"+squareNumber).text(turn);
@@ -633,15 +627,9 @@
 					}, 1000);
 				} else {
 					console.log("board: "+board+", boardState: "+boardState+", "+turn+"'s turn, minimax at top level, player "+turn);
-					//mm=[];
 					boardState=board.slice(0);
-					//result=-100;
 					//start the minimax algorithm at the top level, level 0
-					
-					
-						//minimaxScore = miniMax(turn, 0);
 					if (firstMove) {
-						//console.log(Math.floor(Math.random()*9));
 						takeSquare(Math.floor(Math.random()*9));
 						firstMove = false;
 					} else if (secondMove) {
@@ -655,16 +643,9 @@
 						square = miniMax(turn, 0).bestSquare;	
 						
 						setTimeout(function() {
-						//console.log(turn +" took square "+bestSquare);
 							takeSquare(square);
-							
 						}, 1000);
 					}
-					
-					
-					
-						
-					
 				}
 			}
 			function miniMax(turn, depth) {
@@ -681,27 +662,19 @@
 				console.log("new minimax on player "+turn+", depth is "+depth+", boardState: "+boardState);
 				
 				for (var i=0; i < 9; i++) {
-					//boardState=board.slice(0);
 					if (boardState[i]==0) {
 						console.log("minimax stage i= "+i+", about to set sq "+i+" to "+turn+", depth "+depth+", and check for win");
 						boardState[i]=turn;
 						// check for win - if X wins return +1, if O wins return -1
 						if (winner(turn, boardState)) {
 							console.log("winner will be "+turn);
-							//latestResult = turn==player2?1:-1;
 							latestResult = turn==player2?1:-1;
-							//depth++;
-							//boardState[i]=0;
-							//bestSquare=i;
-							//result = latestResult;
-							//return result;
 						}  else if (matchDrawn(boardState)) {
-							// if no win
+							// if match is drawn
 							console.log("full board - match drawn");
 							latestResult = 0;
 						} else {
 							console.log("winner unknown, changing turn in minimax");
-							//result=-1;
 							newTurn=turn=="X"?"O":"X";
 							depth++;
 							latestResult = miniMax(newTurn,  depth).result;
@@ -719,14 +692,8 @@
 						result=latestResult;
 						bestSquare=i;
 					}
-					
-					//console.log("outside recursion");
-					
-					
 				}
 				console.log("Finished minimax at depth "+depth+", about to return result of "+result+", best sq is "+bestSquare);
-				//boardState=board.slice(0);
-				
 				return {result, bestSquare};
 			}		
 		</script>
