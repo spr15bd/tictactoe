@@ -1,62 +1,59 @@
-
 class Main extends React.Component {
-    constructor(props) {
-        super(props);
-        this.titleDisplayed = true;
-        // global variables
-        var firstMove = false;
-			var secondMove = false;
-			var onePlayerGame=false;
-			var miniMaxGame=false;
-			var playerOne="", playerTwo="", playerOneWins=0, playerTwoWins=0;
-			var board=[0,0,0,0,0,0,0,0,0];
-			var boardState=[0,0,0,0,0,0,0,0,0];
-			//var minimaxScore=[];
-			var square;
-			var timeout;
-			//var i=0;
-			//var level=0;
-			//var result=-100;
-    }
-    render() {
-        let boardDisplay = [];
-        let howDoYouWantToPlay = [];
-        let choices = [];
-        let twoPlayer= [];
-        if (this.titleDisplayed) {
-            howDoYouWantToPlay.push(<h2>How do you want to play?</h2>);
-            choices.push(<div><a id="one-player">One Player</a>
-				    <a id="one-player-minimax">One Player with Minimax</a>
-    				<a id="two-player">Two Player</a></div>)                       
-        }
-        boardDisplay.push(
-      		<div className="container-fluid">
-  			<div className="board">
-    				<img src="https://8bvjog-db3pap001.files.1drv.com/y4m3NWJJOBI7QHptRE2J5YOzx19zJU3rNs2j9S7wG2x9RTS7hXwL1gnXwyA0MBeW8CRyQ699a8CmGR-nnmQKmHkyG4i0V7w-l53X9AmvjNiWaTQbu7Zp4jMrnpRVIrr42fi6Zh9B2xAOtbxXOwnY_HLVLrbMCRxN5WMAdhrkwZnaHfD_7rEJPgwnqRRT9C_lDeeMc2KdjNHyQRymtGMs-UjGw?width=100% height=100%&cropmode=none"></img>
-    				<label id="player-one">Player 1</label>
-    				<label id="player-two">Player 2</label>
-    				<label id="player-one-score">0</label>
-    				<label id="player-two-score">0</label>
-    				<a id="reset">Reset</a>
-                    {howDoYouWantToPlay}
-    				{choices}
-    				<a id="game-over"></a>
-    				<a id="choose-x"></a>
-    				<a id="choose-o"></a>
-    				<a id="back">Back</a>
-    				<a id="square0"></a>
-    				<a id="square1"></a>
-    				<a id="square2"></a>
-    				<a id="square3"></a>
-    				<a id="square4"></a>
-    				<a id="square5"></a>
-    				<a id="square6"></a>
-    				<a id="square7"></a>
-    				<a id="square8"></a>
-  			</div>
-		</div>			
+	constructor(props) {
+        	super(props);
+        	this.titleDisplayed = true;
+        	// global variables
+        	var firstMove = false;
+		var secondMove = false;
+		var onePlayerGame=false;
+		var miniMaxGame=false;
+		var playerOne="", playerTwo="", playerOneWins=0, playerTwoWins=0;
+		var board=[0,0,0,0,0,0,0,0,0];
+		var boardState=[0,0,0,0,0,0,0,0,0];
+		var square;
+		var timeout;
+ 	}
+    	render() {
+        	let boardDisplay = [];
+        	let howDoYouWantToPlay = [];
+        	let choices = [];
+        	let twoPlayer= [];
+        	if (this.titleDisplayed) {
+            		howDoYouWantToPlay.push(<h2>How do you want to play?</h2>);
+            		choices.push(	<div>	
+						<a id="one-player">One Player</a>
+				    		<a id="one-player-minimax">One Player with Minimax</a>
+    						<a id="two-player">Two Player</a>
+					</div>)                       
+        	}
+        	boardDisplay.push(
+    			<div className="container-fluid">
+  				<div className="board">
+    					<img src="https://8bvjog-db3pap001.files.1drv.com/y4m3NWJJOBI7QHptRE2J5YOzx19zJU3rNs2j9S7wG2x9RTS7hXwL1gnXwyA0MBeW8CRyQ699a8CmGR-nnmQKmHkyG4i0V7w-l53X9AmvjNiWaTQbu7Zp4jMrnpRVIrr42fi6Zh9B2xAOtbxXOwnY_HLVLrbMCRxN5WMAdhrkwZnaHfD_7rEJPgwnqRRT9C_lDeeMc2KdjNHyQRymtGMs-UjGw?width=100% height=100%&cropmode=none"></img>
+    					<label id="player-one">Player 1</label>
+    					<label id="player-two">Player 2</label>
+    					<label id="player-one-score">0</label>
+    					<label id="player-two-score">0</label>
+    					<a id="reset">Reset</a>
+                    			{howDoYouWantToPlay}
+    					{choices}
+    					<a id="game-over"></a>
+    					<a id="choose-x"></a>
+    					<a id="choose-o"></a>
+    					<a id="back">Back</a>
+    					<a id="square0"></a>
+    					<a id="square1"></a>
+    					<a id="square2"></a>
+    					<a id="square3"></a>
+    					<a id="square4"></a>
+    					<a id="square5"></a>
+    					<a id="square6"></a>
+    					<a id="square7"></a>
+    					<a id="square8"></a>
+  				</div>
+			</div>			
 		);
-        return(boardDisplay);
+        	return(boardDisplay);
 		/*	$(document).ready(function(){
   				for (var x=0; x<9;x++){
     					$("#square"+x).hide();
@@ -133,8 +130,8 @@ class Main extends React.Component {
 
 			
         
-    }
-    resetAll() {
+    	}
+    	resetAll() {
 				firstMove = false;
 				secondMove = false;
 				miniMaxGame=false;
