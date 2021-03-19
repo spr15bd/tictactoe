@@ -1,6 +1,20 @@
 class Main extends React.Component {
 	constructor(props) {
         	super(props);
+		
+		this.state={
+      			titleDisplayed:true,
+			firstMove:false,
+			secondMove:false,
+			onePlayerGame:false,
+			miniMaxGame:false,
+			playerOne:"",
+			playerTwo:"",
+			board:[0,0,0,0,0,0,0,0,0],
+			boardState:[0,0,0,0,0,0,0,0,0],
+			square:0,
+			timeout:0
+    		};
         	this.titleDisplayed = true;
         	// global variables
         	var firstMove = false;
@@ -18,7 +32,7 @@ class Main extends React.Component {
         	let howDoYouWantToPlay = [];
         	let choices = [];
         	let twoPlayer= [];
-        	if (this.titleDisplayed) {
+        	if (this.state.titleDisplayed) {
             		howDoYouWantToPlay.push(<h2>How do you want to play?</h2>);
             		choices.push(	<div>	
 						<a id="one-player" onClick={() => this.choosePlayer(1)}>One Player</a>
