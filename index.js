@@ -127,7 +127,7 @@ class Main extends React.Component {
   				}); 
 			}),
         */
-
+	}
 			
         choosePlayer(num) {
 		console.log(num + " chosen");	
