@@ -21,9 +21,9 @@ class Main extends React.Component {
         	if (this.titleDisplayed) {
             		howDoYouWantToPlay.push(<h2>How do you want to play?</h2>);
             		choices.push(	<div>	
-						<a id="one-player" onClick={() => this.choosePlayer(1}>One Player</a>
-				    		<a id="one-player-minimax" onClick={() => this.choosePlayer(2}>One Player with Minimax</a>
-    						<a id="two-player" onClick={() => this.choosePlayer(3}>Two Player</a>
+						<a id="one-player" onClick={() => this.choosePlayer(1)}>One Player</a>
+				    		<a id="one-player-minimax" onClick={() => this.choosePlayer(2)}>One Player with Minimax</a>
+    						<a id="two-player" onClick={() => this.choosePlayer(3)}>Two Player</a>
 					</div>)                       
         	}
         	boardDisplay.push(
