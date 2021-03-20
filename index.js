@@ -17,10 +17,10 @@ class Main extends React.Component {
     		};
         	this.titleDisplayed = true;
         	// global variables
-        	var firstMove = false;
-		var secondMove = false;
-		var onePlayerGame=false;
-		var miniMaxGame=false;
+        	let firstMove = false;
+		let secondMove = false;
+		let onePlayerGame=false;
+		let miniMaxGame=false;
 		var playerOne="", playerTwo="", playerOneWins=0, playerTwoWins=0;
 		var board=[0,0,0,0,0,0,0,0,0];
 		var boardState=[0,0,0,0,0,0,0,0,0];
