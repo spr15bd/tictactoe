@@ -41,7 +41,7 @@ class Main extends React.Component {
     						<a id="two-player" onClick={() => this.chooseGame(3)}>Two Player</a>
 					</div>);                       
         	} else if (this.state.xOrYOptionsDisplayed) {
-			console.log("X Or Y Options screen");
+			console.log("X Or O Options screen");
 			heading.push(<h2>Choose X or O</h2>);
             		choices.push(	<div>	
 						<a id="choose-x" onClick={() => this.choosePlayer("X")}>X</a>
