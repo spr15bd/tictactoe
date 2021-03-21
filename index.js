@@ -30,18 +30,23 @@ class Main extends React.Component {
  	}
     	render() {
         	let boardDisplay = [];
-        	let howDoYouWantToPlay = [];
+        	let heading = [];
         	let choices = [];
         	let twoPlayer= [];
         	if (this.state.titleDisplayed) {
-            		howDoYouWantToPlay.push(<h2>How do you want to play?</h2>);
+            		heading.push(<h2>How do you want to play?</h2>);
             		choices.push(	<div>	
-						<a id="one-player" onClick={() => this.choosePlayer(1)}>One Player</a>
-				    		<a id="one-player-minimax" onClick={() => this.choosePlayer(2)}>One Player with Minimax</a>
-    						<a id="two-player" onClick={() => this.choosePlayer(3)}>Two Player</a>
-					</div>)                       
+						<a id="one-player" onClick={() => this.chooseGame(1)}>One Player</a>
+				    		<a id="one-player-minimax" onClick={() => this.chooseGame(2)}>One Player with Minimax</a>
+    						<a id="two-player" onClick={() => this.chooseGame(3)}>Two Player</a>
+					</div>);                       
         	} else if (this.state.xOrYOptionsDisplayed) {
 			console.log("X Or Y Options screen");
+			heading.push(<h2>Choose X or O</h2>);
+            		choices.push(	<div>	
+						<a id="choose-x" onClick={() => this.choosePlayer("X")}></a>
+    						<a id="choose-o" onClick={() => this.choosePlayer("O")}></a>
+					</div>); 
 		}	
         	boardDisplay.push(
     			<div className="container-fluid">
@@ -55,8 +60,8 @@ class Main extends React.Component {
                     			{howDoYouWantToPlay}
     					{choices}
     					<a id="game-over"></a>
-    					<a id="choose-x"></a>
-    					<a id="choose-o"></a>
+    					
+					
     					<a id="back">Back</a>
     					<a id="square0"></a>
     					<a id="square1"></a>
@@ -146,7 +151,7 @@ class Main extends React.Component {
         */
 	}
 			
-        choosePlayer(num) {
+        chooseGame(num) {
 		console.log(num + " chosen");	
 		this.setState({onePlayerGame: true});
 		this.setState({titleDisplayed: false});
@@ -154,7 +159,7 @@ class Main extends React.Component {
     					$("#one-player").hide();
 					$("#one-player-minimax").hide();
     					$("#two-player").hide();
-    					$("h2").text("Choose X or O");
+    					//$("h2").text("Choose X or O");
     					$("#choose-o").text("O");
     					$("#choose-x").text("X");
     					$("h2").show();
