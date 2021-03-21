@@ -44,8 +44,8 @@ class Main extends React.Component {
 			console.log("X Or Y Options screen");
 			heading.push(<h2>Choose X or O</h2>);
             		choices.push(	<div>	
-						<a id="choose-x" onClick={() => this.choosePlayer("X")}></a>
-    						<a id="choose-o" onClick={() => this.choosePlayer("O")}></a>
+						<a id="choose-x" onClick={() => this.choosePlayer("X")}>X</a>
+    						<a id="choose-o" onClick={() => this.choosePlayer("O")}>O</a>
 					</div>); 
 		}	
         	boardDisplay.push(
@@ -166,6 +166,10 @@ class Main extends React.Component {
     					$("#choose-x").show();
     					$("#choose-o").show();
     					$("#back").show();
+	}
+
+	choosePlayer(str) {
+		console.log("Chose Player "+str);
 	}
     	
     	resetAll() {
