@@ -4,6 +4,7 @@ class Main extends React.Component {
 		
 		this.state={
       			titleDisplayed:true,
+			xOrYOptionsDisplayed: false;
 			firstMove:false,
 			secondMove:false,
 			onePlayerGame:false,
@@ -15,7 +16,7 @@ class Main extends React.Component {
 			square:0,
 			timeout:0
     		};
-        	this.titleDisplayed = true;
+        	
         	// global variables
         	let firstMove = false;
 		let secondMove = false;
@@ -39,7 +40,9 @@ class Main extends React.Component {
 				    		<a id="one-player-minimax" onClick={() => this.choosePlayer(2)}>One Player with Minimax</a>
     						<a id="two-player" onClick={() => this.choosePlayer(3)}>Two Player</a>
 					</div>)                       
-        	}
+        	} else if (this.state.xOrYOptionsDisplayed) {
+			console.log("X Or Y Options screen");
+		}	
         	boardDisplay.push(
     			<div className="container-fluid">
   				<div className="board">
@@ -146,6 +149,8 @@ class Main extends React.Component {
         choosePlayer(num) {
 		console.log(num + " chosen");	
 		this.setState({onePlayerGame: true});
+		this.setState({titleDisplayed: false});
+		this.setState({xOrYOptionsDisplayed: true});
     					$("#one-player").hide();
 					$("#one-player-minimax").hide();
     					$("#two-player").hide();
