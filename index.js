@@ -156,15 +156,15 @@ class Main extends React.Component {
 		this.setState({onePlayerGame: true});
 		this.setState({titleDisplayed: false});
 		this.setState({xOrYOptionsDisplayed: true});
-    					$("#one-player").hide();
-					$("#one-player-minimax").hide();
-    					$("#two-player").hide();
+    					//$("#one-player").hide();
+					//$("#one-player-minimax").hide();
+    					//$("#two-player").hide();
     					//$("h2").text("Choose X or O");
-    					$("#choose-o").text("O");
-    					$("#choose-x").text("X");
-    					$("h2").show();
-    					$("#choose-x").show();
-    					$("#choose-o").show();
+    					//$("#choose-o").text("O");
+    					//$("#choose-x").text("X");
+    					//$("h2").show();
+    					//$("#choose-x").show();
+    					//$("#choose-o").show();
     					$("#back").show();
 	}
 
