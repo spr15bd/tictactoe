@@ -145,6 +145,17 @@ class Main extends React.Component {
 			
         choosePlayer(num) {
 		console.log(num + " chosen");	
+		this.setState({onePlayerGame: true});
+    					$("#one-player").hide();
+					$("#one-player-minimax").hide();
+    					$("#two-player").hide();
+    					$("h2").text("Choose X or O");
+    					$("#choose-o").text("O");
+    					$("#choose-x").text("X");
+    					$("h2").show();
+    					$("#choose-x").show();
+    					$("#choose-o").show();
+    					$("#back").show();
 	}
     	
     	resetAll() {
