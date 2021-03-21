@@ -4,7 +4,7 @@ class Main extends React.Component {
 		
 		this.state={
       			titleDisplayed:true,
-			xOrYOptionsDisplayed: false;
+			xOrYOptionsDisplayed: false,
 			firstMove:false,
 			secondMove:false,
 			onePlayerGame:false,
