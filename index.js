@@ -57,7 +57,7 @@ class Main extends React.Component {
     					<label id="player-one-score">0</label>
     					<label id="player-two-score">0</label>
     					<a id="reset">Reset</a>
-                    			{howDoYouWantToPlay}
+                    			{heading}
     					{choices}
     					<a id="game-over"></a>
     					
