@@ -62,7 +62,7 @@ class Main extends React.Component {
     					<a id="game-over"></a>
     					
 					
-    					<a id="back">Back</a>
+    					<a id="back" onClick={() => this.choosePlayer("X")}>Back</a>
     					<a id="square0"></a>
     					<a id="square1"></a>
     					<a id="square2"></a>
@@ -165,11 +165,17 @@ class Main extends React.Component {
     					//$("h2").show();
     					//$("#choose-x").show();
     					//$("#choose-o").show();
-    					$("#back").show();
+    					//$("#back").show();
 	}
 
 	choosePlayer(str) {
 		console.log("Chose Player "+str);
+	}
+
+	back() {
+		this.setState({onePlayerGame: true});
+		this.setState({titleDisplayed: false});
+		this.setState({xOrYOptionsDisplayed: true});	
 	}
     	
     	resetAll() {
