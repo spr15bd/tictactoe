@@ -173,9 +173,10 @@ class Main extends React.Component {
 	}
 
 	back() {
-		this.setState({onePlayerGame: true});
-		this.setState({titleDisplayed: false});
-		this.setState({xOrYOptionsDisplayed: true});	
+		this.setState({onePlayerGame: false});
+		this.setState({miniMaxGame: false});
+		this.setState({titleDisplayed: true});
+		this.setState({xOrYOptionsDisplayed: false});	
 	}
     	
     	resetAll() {
