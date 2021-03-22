@@ -62,7 +62,7 @@ class Main extends React.Component {
     					<a id="game-over"></a>
     					
 					
-    					<a id="back" onClick={() => this.choosePlayer("X")}>Back</a>
+    					<a id="back" onClick={() => this.back()}>Back</a>
     					<a id="square0"></a>
     					<a id="square1"></a>
     					<a id="square2"></a>
