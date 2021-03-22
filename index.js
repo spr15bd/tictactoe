@@ -32,6 +32,7 @@ class Main extends React.Component {
         	let boardDisplay = [];
         	let heading = [];
         	let choices = [];
+		let board = [];
         	let twoPlayer= [];
         	if (this.state.titleDisplayed) {
             		heading.push(<h2>How do you want to play?</h2>);
@@ -46,8 +47,22 @@ class Main extends React.Component {
             		choices.push(	<div>	
 						<a id="choose-x" onClick={() => this.choosePlayer("X")}>X</a>
     						<a id="choose-o" onClick={() => this.choosePlayer("O")}>O</a>
-					</div>); 
-		}	
+					</div>
+			); 
+		} else if (this.state.inPlay()) {
+			choices.push(	<div>	
+						<a id="square0"></a>
+						<a id="square1"></a>
+						<a id="square2"></a>
+						<a id="square3"></a>
+						<a id="square4"></a>
+						<a id="square5"></a>
+						<a id="square6"></a>
+						<a id="square7"></a>
+						<a id="square8"></a>
+					</div>
+			); 
+		}
         	boardDisplay.push(
     			<div className="container-fluid">
   				<div className="board">
@@ -63,15 +78,7 @@ class Main extends React.Component {
     					
 					
     					<a id="back" onClick={() => this.back()}>Back</a>
-    					<a id="square0"></a>
-    					<a id="square1"></a>
-    					<a id="square2"></a>
-    					<a id="square3"></a>
-    					<a id="square4"></a>
-    					<a id="square5"></a>
-    					<a id="square6"></a>
-    					<a id="square7"></a>
-    					<a id="square8"></a>
+    					
   				</div>
 			</div>			
 		);
