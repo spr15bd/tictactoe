@@ -178,7 +178,7 @@ class Main extends React.Component {
 	choosePlayer(str) {
 		
 		this.setState(	{	player1:str,
-					player2:str=="X"?"O":"X";
+					player2:str=="X"?"O":"X"
 				});
     					
     		this.playGame();
