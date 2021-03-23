@@ -176,7 +176,12 @@ class Main extends React.Component {
 	}
 
 	choosePlayer(str) {
-		console.log("Chose Player "+str);
+		
+		this.setState(	{	player1:str,
+					player2:str=="X"?"O":"X";
+				});
+    					
+    		this.playGame();
 	}
 
 	back() {
@@ -207,6 +212,7 @@ class Main extends React.Component {
 			}
   
 	playGame() { 
+		console.log("Chose Player "+this.state.player1);
   				$("h2").hide();
   				$("#choose-x").hide();
   				$("#choose-o").hide();
