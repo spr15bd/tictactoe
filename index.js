@@ -5,6 +5,7 @@ class Main extends React.Component {
 		this.state={
       			titleDisplayed:true,
 			xOrYOptionsDisplayed: false,
+			inPlay:false,
 			firstMove:false,
 			secondMove:false,
 			onePlayerGame:false,
@@ -49,7 +50,7 @@ class Main extends React.Component {
     						<a id="choose-o" onClick={() => this.choosePlayer("O")}>O</a>
 					</div>
 			); 
-		} else if (this.state.inPlay()) {
+		} else if (this.state.inPlay) {
 			choices.push(	<div>	
 						<a id="square0"></a>
 						<a id="square1"></a>
