@@ -19,13 +19,14 @@ class Main extends React.Component {
     		};
         	
         	// global variables
+		let turn="";
         	let firstMove = false;
 		let secondMove = false;
 		let onePlayerGame=false;
 		let miniMaxGame=false;
-		var playerOne="", playerTwo="", playerOneWins=0, playerTwoWins=0;
-		var board=[0,0,0,0,0,0,0,0,0];
-		var boardState=[0,0,0,0,0,0,0,0,0];
+		let playerOne="", playerTwo="", playerOneWins=0, playerTwoWins=0;
+		//var board=[0,0,0,0,0,0,0,0,0];
+		//var boardState=[0,0,0,0,0,0,0,0,0];
 		var square;
 		var timeout;
  	}
@@ -196,7 +197,7 @@ class Main extends React.Component {
 				firstMove = false;
 				secondMove = false;
 				miniMaxGame=false;
-  				playerOne="", playerTwo="", playerOneWins=0, playerTwoWins=0;
+  				//playerOne="", playerTwo="", playerOneWins=0, playerTwoWins=0;
   				$("#player-one-score, #player-two-score").text("0");
   				$("img").attr("src","https://8bvjog-db3pap001.files.1drv.com/y4m3NWJJOBI7QHptRE2J5YOzx19zJU3rNs2j9S7wG2x9RTS7hXwL1gnXwyA0MBeW8CRyQ699a8CmGR-nnmQKmHkyG4i0V7w-l53X9AmvjNiWaTQbu7Zp4jMrnpRVIrr42fi6Zh9B2xAOtbxXOwnY_HLVLrbMCRxN5WMAdhrkwZnaHfD_7rEJPgwnqRRT9C_lDeeMc2KdjNHyQRymtGMs-UjGw?width=435&height=435&cropmode=none");
   				$("h2").css({"text-align":"center", "position":"absolute", "left":"70px","top":"100px","display":"none"});
@@ -219,18 +220,18 @@ class Main extends React.Component {
   				//$("#choose-o").hide();
  				//$("#back").hide();
   				//$("img").attr("src","https://8lvjog-db3pap001.files.1drv.com/y4maLqZBnVA48r6inDcZV4ALGUE-aRn2LggjvNxaNaHLtk-VU1XAvRILb4Z8BiCNIxxoMekyNkr1HRpkjeVy3A2vkUDEntuQcdSFOufHEVxNvPIqedMFNbeflXkcOkwNRph1FMbeFbCzVqlBstEWiwvdGLmG_-oWscN22bzi_00RNFhqXeGrwtpQiOUOtzxUW1kj1Z1sApUqCyBd8FtZp3VkA?width=435&height=435&cropmode=none");
-  				$("#reset").show();
+  				//$("#reset").show();
   				$("#player-one").show();
   				$("#player-two").show();
   				$("#player-one-score").show();
   				$("#player-two-score").show();
   				if (Math.random(0,1)<0.5) {
-    					turn=player1;
+    					turn=this.state.player1;
 					secondMove = true;
   				} else {
-    					turn=player2;
+    					turn=this.state.player2;
 					firstMove = true;
-    					if (onePlayerGame) {
+    					if (this.state.onePlayerGame) {
 						doComputerAI(miniMaxGame);
     					}
 						   
