@@ -19,7 +19,7 @@ class Main extends React.Component {
     		};
         	
         	// global variables
-		let turn="";
+		this.turn="";
         	let firstMove = false;
 		let secondMove = false;
 		let onePlayerGame=false;
@@ -181,11 +181,11 @@ class Main extends React.Component {
 	}
 
 	choosePlayer(str) {
-		
+		console.log("in choosePlayer ");
 		this.setState(	{	playerOne:str,
 					playerTwo:str=="X"?"O":"X"
 				});
-    					
+    		console.log(this.state.playerOne);			
     		this.playGame();
 	}
 
@@ -229,10 +229,10 @@ class Main extends React.Component {
   				$("#player-one-score").show();
   				$("#player-two-score").show();
   				if (Math.random(0,1)<0.5) {
-    					turn=this.state.playerOne;
+    					this.turn=this.state.playerOne;
 					secondMove = true;
   				} else {
-    					turn=this.state.playerTwo;
+    					this.turn=this.state.playerTwo;
 					firstMove = true;
     					if (this.state.onePlayerGame) {
 						doComputerAI(miniMaxGame);
