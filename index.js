@@ -230,12 +230,12 @@ class Main extends React.Component {
   				$("#player-two-score").show();
   				if (Math.random(0,1)<0.5) {
     					this.turn=this.state.playerOne;
-					secondMove = true;
+					this.state.secondMove = true;
   				} else {
     					this.turn=this.state.playerTwo;
-					firstMove = true;
+					this.state.firstMove = true;
     					if (this.state.onePlayerGame) {
-						doComputerAI(miniMaxGame);
+						this.doComputerAI(miniMaxGame);
     					}
 						   
 					
