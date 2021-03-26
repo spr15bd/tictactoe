@@ -164,8 +164,16 @@ class Main extends React.Component {
 	}
 			
         chooseGame(num) {
-		console.log(num + " chosen");	
-		this.setState({onePlayerGame: true});
+		console.log(num + " chosen");
+		if (num==1) {
+			this.setState({onePlayerGame: true});
+		} else if (num==2) {
+			this.setState({onePlayerGame: true});
+			this.setState({miniMaxGame: true});
+		} else if (num==3) {
+			this.setState({twoPlayerGame: true});
+		}
+		
 		this.setState({titleDisplayed: false});
 		this.setState({xOrYOptionsDisplayed: true});
     					//$("#one-player").hide();
@@ -235,7 +243,7 @@ class Main extends React.Component {
     					this.turn=this.state.playerTwo;
 					this.state.firstMove = true;
     					if (this.state.onePlayerGame) {
-						this.doComputerAI(miniMaxGame);
+						this.doComputerAI(this.state.miniMaxGame);
     					}
 						   
 					
