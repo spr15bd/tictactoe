@@ -182,8 +182,8 @@ class Main extends React.Component {
 
 	choosePlayer(str) {
 		
-		this.setState(	{	player1:str,
-					player2:str=="X"?"O":"X"
+		this.setState(	{	playerOne:str,
+					playerTwo:str=="X"?"O":"X"
 				});
     					
     		this.playGame();
@@ -217,7 +217,7 @@ class Main extends React.Component {
 			}
   
 	playGame() { 
-		console.log("Chose Player "+this.state.player1);
+		console.log("Chose Player "+this.state.playerOne);
   				//$("h2").hide();
   				//$("#choose-x").hide();
   				//$("#choose-o").hide();
@@ -229,10 +229,10 @@ class Main extends React.Component {
   				$("#player-one-score").show();
   				$("#player-two-score").show();
   				if (Math.random(0,1)<0.5) {
-    					turn=this.state.player1;
+    					turn=this.state.playerOne;
 					secondMove = true;
   				} else {
-    					turn=this.state.player2;
+    					turn=this.state.playerTwo;
 					firstMove = true;
     					if (this.state.onePlayerGame) {
 						doComputerAI(miniMaxGame);
