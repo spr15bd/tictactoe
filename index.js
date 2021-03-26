@@ -18,10 +18,7 @@ class Main extends React.Component {
 			timeout:0
     		};
         	
-        	
- 	}
-    	render() {
-		// global variables
+        	// global variables
 		let turn="";
         	let firstMove = false;
 		let secondMove = false;
@@ -32,6 +29,9 @@ class Main extends React.Component {
 		//var boardState=[0,0,0,0,0,0,0,0,0];
 		var square;
 		var timeout;
+ 	}
+    	render() {
+		
 		
 		
         	let boardDisplay = [];
