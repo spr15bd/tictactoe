@@ -39,13 +39,18 @@ class Main extends React.Component {
         	let choices = [];
 		let board = [];
         	let twoPlayer= [];
+		let imageDisplayed;
         	if (this.state.titleDisplayed) {
             		heading.push(<h2>How do you want to play?</h2>);
             		choices.push(	<div>	
 						<a id="one-player" onClick={() => this.chooseGame(1)}>One Player</a>
 				    		<a id="one-player-minimax" onClick={() => this.chooseGame(2)}>One Player with Minimax</a>
     						<a id="two-player" onClick={() => this.chooseGame(3)}>Two Player</a>
-					</div>);                       
+					</div>
+			);
+			imageDisplayed.push(
+				<img src="https://8bvjog-db3pap001.files.1drv.com/y4m3NWJJOBI7QHptRE2J5YOzx19zJU3rNs2j9S7wG2x9RTS7hXwL1gnXwyA0MBeW8CRyQ699a8CmGR-nnmQKmHkyG4i0V7w-l53X9AmvjNiWaTQbu7Zp4jMrnpRVIrr42fi6Zh9B2xAOtbxXOwnY_HLVLrbMCRxN5WMAdhrkwZnaHfD_7rEJPgwnqRRT9C_lDeeMc2KdjNHyQRymtGMs-UjGw?width=100% height=100%&cropmode=none"></img>
+			);
         	} else if (this.state.xOrYOptionsDisplayed) {
 			console.log("X Or O Options screen");
 			heading.push(<h2>Choose X or O</h2>);
@@ -53,7 +58,10 @@ class Main extends React.Component {
 						<a id="choose-x" onClick={() => this.choosePlayer("X")}>X</a>
     						<a id="choose-o" onClick={() => this.choosePlayer("O")}>O</a>
 					</div>
-			); 
+			);
+			imageDisplayed.push(
+				<img src="https://8bvjog-db3pap001.files.1drv.com/y4m3NWJJOBI7QHptRE2J5YOzx19zJU3rNs2j9S7wG2x9RTS7hXwL1gnXwyA0MBeW8CRyQ699a8CmGR-nnmQKmHkyG4i0V7w-l53X9AmvjNiWaTQbu7Zp4jMrnpRVIrr42fi6Zh9B2xAOtbxXOwnY_HLVLrbMCRxN5WMAdhrkwZnaHfD_7rEJPgwnqRRT9C_lDeeMc2KdjNHyQRymtGMs-UjGw?width=100% height=100%&cropmode=none"></img>
+			);
 		} else if (this.state.inPlay) {
 			choices.push(	<div>	
 						<a id="square0"></a>
@@ -67,11 +75,15 @@ class Main extends React.Component {
 						<a id="square8"></a>
 					</div>
 			); 
+			imageDisplayed.push(
+				<img src="https://8lvjog-db3pap001.files.1drv.com/y4maLqZBnVA48r6inDcZV4ALGUE-aRn2LggjvNxaNaHLtk-VU1XAvRILb4Z8BiCNIxxoMekyNkr1HRpkjeVy3A2vkUDEntuQcdSFOufHEVxNvPIqedMFNbeflXkcOkwNRph1FMbeFbCzVqlBstEWiwvdGLmG_-oWscN22bzi_00RNFhqXeGrwtpQiOUOtzxUW1kj1Z1sApUqCyBd8FtZp3VkA?width=435&height=435&cropmode=none"></img>
+			);
 		}
+		
         	boardDisplay.push(
     			<div className="container-fluid">
   				<div className="board">
-    					<img src="https://8bvjog-db3pap001.files.1drv.com/y4m3NWJJOBI7QHptRE2J5YOzx19zJU3rNs2j9S7wG2x9RTS7hXwL1gnXwyA0MBeW8CRyQ699a8CmGR-nnmQKmHkyG4i0V7w-l53X9AmvjNiWaTQbu7Zp4jMrnpRVIrr42fi6Zh9B2xAOtbxXOwnY_HLVLrbMCRxN5WMAdhrkwZnaHfD_7rEJPgwnqRRT9C_lDeeMc2KdjNHyQRymtGMs-UjGw?width=100% height=100%&cropmode=none"></img>
+					{imageDisplayed}
     					<label id="player-one">Player 1</label>
     					<label id="player-two">Player 2</label>
     					<label id="player-one-score">0</label>
