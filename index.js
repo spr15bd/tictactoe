@@ -444,7 +444,7 @@ disableBoardButtons() {
 
 			doComputerAI(miniMaxGame) {
 				this.setState({aiInPlay:true});
-				this.disableBoardButtons();
+				//this.disableBoardButtons();TEMPORARILY DESABLED 27TH MARCH 2021
 				if (!miniMaxGame) {
 					setTimeout(function() {
 						// if a win is possible on the computer's move, take the win  
