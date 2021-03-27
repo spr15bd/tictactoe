@@ -39,7 +39,7 @@ class Main extends React.Component {
         	let choices = [];
 		let board = [];
         	let twoPlayer= [];
-		let imageDisplayed;
+		let imageDisplayed=[];
         	if (this.state.titleDisplayed) {
             		heading.push(<h2>How do you want to play?</h2>);
             		choices.push(	<div>	
