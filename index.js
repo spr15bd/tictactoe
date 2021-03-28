@@ -422,8 +422,8 @@ class Main extends React.Component {
 			}
 
 			resetBoard() {
-				board=[0,0,0,0,0,0,0,0,0];
-				boardState=board.slice(0);
+				this.setState({board:[0,0,0,0,0,0,0,0,0]});
+				this.setState({boardState:this.state.board.slice(0)});
 				for (var i=0; i<9; i++) {
 					$("#square"+i).text("");
 				}
@@ -581,7 +581,7 @@ disableBoardButtons() {
 				} else {
 					console.log("board: "+this.state.board+", boardState: "+this.state.boardState+", "+turn+"'s turn, minimax at top level, player "+turn);
 					//mm=[];
-					this.state.boardState=this.state.board.slice(0);
+					this.setState({boardState:this.state.board.slice(0)});
 					//result=-100;
 					//start the minimax algorithm at the top level, level 0
 					
@@ -693,7 +693,7 @@ disableBoardButtons() {
 							//return latestResult;
 						}
 						
-						this.state.boardState[i] = 0;
+						this.setState({boardState[i]:0});
 						console.log("minimax stage i= "+i+", depth "+depth+", reset sq to 0");
 					}
 					if (turn==player2 && latestResult>result) {		// if new turn is the computer, turn is player & wants to minimise his result 
