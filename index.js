@@ -439,7 +439,7 @@ disableBoardButtons() {
 				board[squareNumber]=turn;
 				//boardState[squareNumber]=turn;
 				boardState=board.slice(0);
-				console.log("square taken - board is now "+board+", boardState is now "+boardState);
+				console.log("square taken - board is now "+this.state.board+", boardState is now "+this.state.boardState);
 				$("#square"+squareNumber).text(turn);
 				enableBoardButtons();
 				changeTurns();
