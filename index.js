@@ -356,19 +356,19 @@ class Main extends React.Component {
 			
 			// check the status of the board, if no result swap players
 			changeTurns() {
-				console.log("changing turn, from "+turn);
+				console.log("changing turn, from "+this.turn);
   				if (winner("X", board)||winner("O", board)) {
     					doVictory();
   				} else if (matchDrawn(board)) {
     					doDraw();
-				} else if (turn==player1) {
-					turn=player2;
+				} else if (this.turn==player1) {
+					this.turn=player2;
 					//this.setState({aiInPlay:!aiInPlay});
 					if (onePlayerGame) {
 						doComputerAI(miniMaxGame);
 					}
-				} else if (turn==player2) {
-					turn=player1;
+				} else if (this.turn==player2) {
+					this.turn=player1;
 				}
 			}
 
@@ -440,11 +440,11 @@ disableBoardButtons() {
 			}
 
 			takeSquare(squareNumber) {
-				board[squareNumber]=turn;
+				board[squareNumber]=this.turn;
 				//boardState[squareNumber]=turn;
 				this.setState({boardState:this.state.board.slice(0)});
 				console.log("square taken - board is now "+this.state.board+", boardState is now "+this.state.boardState);
-				$("#square"+squareNumber).text(turn);
+				$("#square"+squareNumber).text(this.turn);
 				enableBoardButtons();
 				changeTurns();
 			}
@@ -457,37 +457,37 @@ disableBoardButtons() {
 					setTimeout(function() {
 						// if a win is possible on the computer's move, take the win  
 						
-						if (this.state.board[0]==turn&&this.state.board[1]==turn&&this.state.board[2]==0) {
+						if (this.state.board[0]==this.turn&&this.state.board[1]==this.turn&&this.state.board[2]==0) {
 							takeSquare(2);
-						} else if (this.state.board[0]==0&&this.state.board[1]==turn&&this.state.board[2]==turn) {
+						} else if (this.state.board[0]==0&&this.state.board[1]==this.turn&&this.state.board[2]==this.turn) {
 							takeSquare(0);
-						} else if (this.state.board[0]==turn&&this.state.board[1]==0&&this.state.board[2]==turn) {
+						} else if (this.state.board[0]==this.turn&&this.state.board[1]==0&&this.state.board[2]==this.turn) {
 							takeSquare(1);
-						} else if (this.state.board[3]==turn&&this.state.board[4]==turn&&this.state.board[5]==0) {
+						} else if (this.state.board[3]==this.turn&&this.state.board[4]==this.turn&&this.state.board[5]==0) {
 							takeSquare(5);
-						} else if (this.state.board[3]==0&&this.state.board[4]==turn&&this.state.board[5]==turn) {
+						} else if (this.state.board[3]==0&&this.state.board[4]==this.turn&&this.state.board[5]==this.turn) {
 							takeSquare(3);
-						} else if (this.state.board[3]==turn&&this.state.board[4]==0&&this.state.board[5]==turn) {
+						} else if (this.state.board[3]==this.turn&&this.state.board[4]==0&&this.state.board[5]==this.turn) {
 							takeSquare(4);
-						} else if (this.state.board[6]==turn&&this.state.board[7]==turn&&this.state.board[8]==0) {
+						} else if (this.state.board[6]==this.turn&&this.state.board[7]==this.turn&&this.state.board[8]==0) {
 							takeSquare(8);
-						} else if (this.state.board[6]==0&&this.state.board[7]==turn&&this.state.board[8]==turn) {
+						} else if (this.state.board[6]==0&&this.state.board[7]==this.turn&&this.state.board[8]==this.turn) {
 							takeSquare(6);
-						} else if (this.state.board[6]==turn&&this.state.board[7]==0&&this.state.board[8]==turn) {
+						} else if (this.state.board[6]==this.turn&&this.state.board[7]==0&&this.state.board[8]==this.turn) {
 							takeSquare(7);
-						} else if (this.state.board[0]==turn&&this.state.board[3]==0&&this.state.board[6]==turn) {
+						} else if (this.state.board[0]==this.turn&&this.state.board[3]==0&&this.state.board[6]==this.turn) {
 							takeSquare(3);
-						} else if (this.state.board[0]==0&&this.state.board[3]==turn&&this.state.board[6]==turn) {
+						} else if (this.state.board[0]==0&&this.state.board[3]==this.turn&&this.state.board[6]==this.turn) {
 							takeSquare(0);
-						} else if (this.state.board[0]==turn&&this.state.board[3]==turn&&this.state.board[6]==0) {
+						} else if (this.state.board[0]==this.turn&&this.state.board[3]==this.turn&&this.state.board[6]==0) {
 							takeSquare(6);
-						} else if (this.state.board[1]==turn&&this.state.board[4]==0&&this.state.board[7]==turn) {
+						} else if (this.state.board[1]==this.turn&&this.state.board[4]==0&&this.state.board[7]==this.turn) {
 							takeSquare(4);
-						} else if (this.state.board[1]==0&&this.state.board[4]==turn&&this.state.board[7]==turn) {
+						} else if (this.state.board[1]==0&&this.state.board[4]==this.turn&&this.state.board[7]==this.turn) {
 							takeSquare(1);
-						} else if (this.state.board[1]==turn&&this.state.board[4]==turn&&this.state.board[7]==0) {
+						} else if (this.state.board[1]==this.turn&&this.state.board[4]==this.turn&&this.state.board[7]==0) {
 							takeSquare(7);
-						} else if (this.state.board[2]==turn&&this.state.board[5]==0&&this.state.board[8]==turn) {
+						} else if (this.state.board[2]==this.turn&&this.state.board[5]==0&&this.state.board[8]==this.turn) {
 							takeSquare(5);
 						} else if (this.state.board[2]==0&&this.state.board[5]==turn&&this.state.board[8]==turn) {
 							takeSquare(2);
