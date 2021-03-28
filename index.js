@@ -20,7 +20,7 @@ class Main extends React.Component {
     		};
 		
 		//this.doComputerAI= this.doComputerAI.bind(this);
-		//this.takeSquare = this.takeSquare.bind(this);
+		this.takeSquare = this.takeSquare.bind(this);
         	
         	// global variables
 		this.turn="";
