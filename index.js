@@ -540,7 +540,7 @@ disableBoardButtons() {
 							takeSquare(2);
 						} else if (this.state.board[0]!=turn&&this.state.board[0]!=0&&this.state.board[4]!=turn&&this.state.board[4]!=0&&this.state.board[8]==0) {
 							takeSquare(8);
-						} else if (this.state.board[0]!=turn&&this.state.board[0]!=0&&vboard[4]==0&&this.state.board[8]!=turn&&this.state.board[8]!=0) {
+						} else if (this.state.board[0]!=turn&&this.state.board[0]!=0&&this.state.board[4]==0&&this.state.board[8]!=turn&&this.state.board[8]!=0) {
 							takeSquare(4);
 						} else if (this.state.board[0]==0&&this.state.board[4]!=0&&this.state.board[4]!=turn&&this.state.board[8]!=turn&&this.state.board[8]!=0) {
 							takeSquare(0);
