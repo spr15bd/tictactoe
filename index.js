@@ -64,9 +64,9 @@ class Main extends React.Component {
     						<a id="choose-o" onClick={() => this.choosePlayer("O")}>O</a>
 					</div>
 			);
-			/*imageDisplayed.push(
+			imageDisplayed.push(
 				<img src="https://8bvjog-db3pap001.files.1drv.com/y4m3NWJJOBI7QHptRE2J5YOzx19zJU3rNs2j9S7wG2x9RTS7hXwL1gnXwyA0MBeW8CRyQ699a8CmGR-nnmQKmHkyG4i0V7w-l53X9AmvjNiWaTQbu7Zp4jMrnpRVIrr42fi6Zh9B2xAOtbxXOwnY_HLVLrbMCRxN5WMAdhrkwZnaHfD_7rEJPgwnqRRT9C_lDeeMc2KdjNHyQRymtGMs-UjGw?width=100% height=100%&cropmode=none"></img>
-			);*/
+			);
 			console.log("board[0] is "+this.state.board[0]);
 		} else if (this.state.inPlay) {
 			choices.push(	<div>	
@@ -249,6 +249,7 @@ class Main extends React.Component {
   
 	playGame() { 
 		console.log("Chose Player "+this.state.playerOne);
+		console.log("Inplay state is "+this.state.inPlay);
   				//$("h2").hide();
   				//$("#choose-x").hide();
   				//$("#choose-o").hide();
