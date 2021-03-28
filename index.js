@@ -562,7 +562,7 @@ disableBoardButtons() {
 						} else {
 							var emptySquares=[];
 							for (var x=0; x<9; x+=2) {
-								if (this.state.board[x]==0) {
+								if (board[x]==0) {
 									emptySquares.push(x);
 								}
 							}
@@ -574,7 +574,7 @@ disableBoardButtons() {
 							} else {
 								var emptySquares=[];
 								for (var x=1; x<8; x+=2) {
-									if (this.state.board[x]==0) {
+									if (board[x]==0) {
 										emptySquares.push(x);
 									}
 								}
