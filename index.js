@@ -80,12 +80,12 @@ class Main extends React.Component {
 						<a id="square8"></a>
 					</div>
 			); 
-			/*imageDisplayed.push(
-				<img src="https://8lvjog-db3pap001.files.1drv.com/y4maLqZBnVA48r6inDcZV4ALGUE-aRn2LggjvNxaNaHLtk-VU1XAvRILb4Z8BiCNIxxoMekyNkr1HRpkjeVy3A2vkUDEntuQcdSFOufHEVxNvPIqedMFNbeflXkcOkwNRph1FMbeFbCzVqlBstEWiwvdGLmG_-oWscN22bzi_00RNFhqXeGrwtpQiOUOtzxUW1kj1Z1sApUqCyBd8FtZp3VkA?width=435&height=435&cropmode=none"></img>
-			);*/
 			imageDisplayed.push(
-				<img src="https://8bvjog-db3pap001.files.1drv.com/y4m3NWJJOBI7QHptRE2J5YOzx19zJU3rNs2j9S7wG2x9RTS7hXwL1gnXwyA0MBeW8CRyQ699a8CmGR-nnmQKmHkyG4i0V7w-l53X9AmvjNiWaTQbu7Zp4jMrnpRVIrr42fi6Zh9B2xAOtbxXOwnY_HLVLrbMCRxN5WMAdhrkwZnaHfD_7rEJPgwnqRRT9C_lDeeMc2KdjNHyQRymtGMs-UjGw?width=100% height=100%&cropmode=none"></img>
+				<img src="https://8lvjog-db3pap001.files.1drv.com/y4maLqZBnVA48r6inDcZV4ALGUE-aRn2LggjvNxaNaHLtk-VU1XAvRILb4Z8BiCNIxxoMekyNkr1HRpkjeVy3A2vkUDEntuQcdSFOufHEVxNvPIqedMFNbeflXkcOkwNRph1FMbeFbCzVqlBstEWiwvdGLmG_-oWscN22bzi_00RNFhqXeGrwtpQiOUOtzxUW1kj1Z1sApUqCyBd8FtZp3VkA?width=435&height=435&cropmode=none"></img>
 			);
+			/*imageDisplayed.push(
+				<img src="https://8bvjog-db3pap001.files.1drv.com/y4m3NWJJOBI7QHptRE2J5YOzx19zJU3rNs2j9S7wG2x9RTS7hXwL1gnXwyA0MBeW8CRyQ699a8CmGR-nnmQKmHkyG4i0V7w-l53X9AmvjNiWaTQbu7Zp4jMrnpRVIrr42fi6Zh9B2xAOtbxXOwnY_HLVLrbMCRxN5WMAdhrkwZnaHfD_7rEJPgwnqRRT9C_lDeeMc2KdjNHyQRymtGMs-UjGw?width=100% height=100%&cropmode=none"></img>
+			);*/
 		}
 		
         	boardDisplay.push(
@@ -213,7 +213,8 @@ class Main extends React.Component {
 		this.setState(	{	playerOne:str,
 					playerTwo:str=="X"?"O":"X"
 				});
-    		console.log(this.state.playerOne);			
+    		console.log(this.state.playerOne);	
+		this.setState({inPlay:true});
     		this.playGame();
 	}
 
@@ -569,7 +570,7 @@ disableBoardButtons() {
 							var y=emptySquares.length;
 							if (y>0) {
 								var z=Math.floor(Math.random()*y);
-								takeSquare(emptySquares[z]);
+								this.takeSquare(emptySquares[z]);
 								// if no corners or central positions are available, take one of the remaining four positions randomly
 							} else {
 								var emptySquares=[];
@@ -581,7 +582,7 @@ disableBoardButtons() {
 								var y=emptySquares.length;
 								if (y>0) {
 									var z=Math.floor(Math.random()*y);
-									takeSquare(emptySquares[z]);
+									this.takeSquare(emptySquares[z]);
 								}
 							}
 						}   
