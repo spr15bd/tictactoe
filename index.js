@@ -506,7 +506,7 @@ disableBoardButtons() {
 							takeSquare(1);
 						} else if (this.state.board[0]==0&&this.state.board[1]!=turn&&this.state.board[1]!=0&&this.state.board[2]!=turn&&this.state.board[2]!=0) {
 							takeSquare(0);
-						} else if (this.state.board[3]!=turn&&this.state.board[3]!=0&&this.state.board[4]!=turn&this.state.&board[4]!=0&&this.state.board[5]==0) {
+						} else if (this.state.board[3]!=turn&&this.state.board[3]!=0&&this.state.board[4]!=turn&this.state.board[4]!=0&&this.state.board[5]==0) {
 							takeSquare(5);
 						} else if (this.state.board[3]!=turn&&this.state.board[3]!=0&&this.state.board[4]==0&&this.state.board[4]!=turn&&this.state.board[5]!=0) {
 							takeSquare(4);
