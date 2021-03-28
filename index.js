@@ -453,6 +453,7 @@ disableBoardButtons() {
 				if (!miniMaxGame) {
 					setTimeout(function() {
 						// if a win is possible on the computer's move, take the win  
+						console.log("Board is: "+this.state.board);
 						if (this.state.board[0]==turn&&this.state.board[1]==turn&&this.state.board[2]==0) {
 							takeSquare(2);
 						} else if (this.state.board[0]==0&&this.state.board[1]==turn&&this.state.board[2]==turn) {
