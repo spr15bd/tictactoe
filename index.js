@@ -234,7 +234,7 @@ class Main extends React.Component {
   				for (var x=0; x<9;x++){
     					$("#square"+x).hide();
   				}
-  				board=[0,0,0,0,0,0,0,0,0];
+  				this.setState({board:[0,0,0,0,0,0,0,0,0]});
   				for (var i=0; i<9; i++) {
     					$("#square"+i).text(" ");
   				}
@@ -451,108 +451,108 @@ disableBoardButtons() {
 				if (!miniMaxGame) {
 					setTimeout(function() {
 						// if a win is possible on the computer's move, take the win  
-						if (board[0]==turn&&board[1]==turn&&board[2]==0) {
+						if (this.state.board[0]==turn&&this.state.board[1]==turn&&this.state.board[2]==0) {
 							takeSquare(2);
-						} else if (board[0]==0&&board[1]==turn&&board[2]==turn) {
+						} else if (this.state.board[0]==0&&this.state.board[1]==turn&&this.state.board[2]==turn) {
 							takeSquare(0);
-						} else if (board[0]==turn&&board[1]==0&&board[2]==turn) {
+						} else if (this.state.board[0]==turn&&this.state.board[1]==0&&this.state.board[2]==turn) {
 							takeSquare(1);
-						} else if (board[3]==turn&&board[4]==turn&&board[5]==0) {
+						} else if (this.state.board[3]==turn&&this.state.board[4]==turn&&this.state.board[5]==0) {
 							takeSquare(5);
-						} else if (board[3]==0&&board[4]==turn&&board[5]==turn) {
+						} else if (this.state.board[3]==0&&this.state.board[4]==turn&&this.state.board[5]==turn) {
 							takeSquare(3);
-						} else if (board[3]==turn&&board[4]==0&&board[5]==turn) {
+						} else if (this.state.board[3]==turn&&this.state.board[4]==0&&this.state.board[5]==turn) {
 							takeSquare(4);
-						} else if (board[6]==turn&&board[7]==turn&&board[8]==0) {
+						} else if (this.state.board[6]==turn&&this.state.board[7]==turn&&this.state.board[8]==0) {
 							takeSquare(8);
-						} else if (board[6]==0&&board[7]==turn&&board[8]==turn) {
+						} else if (this.state.board[6]==0&&this.state.board[7]==turn&&this.state.board[8]==turn) {
 							takeSquare(6);
-						} else if (board[6]==turn&&board[7]==0&&board[8]==turn) {
+						} else if (this.state.board[6]==turn&&this.state.board[7]==0&&this.state.board[8]==turn) {
 							takeSquare(7);
-						} else if (board[0]==turn&&board[3]==0&&board[6]==turn) {
+						} else if (this.state.board[0]==turn&&this.state.board[3]==0&&this.state.board[6]==turn) {
 							takeSquare(3);
-						} else if (board[0]==0&&board[3]==turn&&board[6]==turn) {
+						} else if (this.state.board[0]==0&&this.state.board[3]==turn&&this.state.board[6]==turn) {
 							takeSquare(0);
-						} else if (board[0]==turn&&board[3]==turn&&board[6]==0) {
+						} else if (this.state.board[0]==turn&&this.state.board[3]==turn&&this.state.board[6]==0) {
 							takeSquare(6);
-						} else if (board[1]==turn&&board[4]==0&&board[7]==turn) {
+						} else if (this.state.board[1]==turn&&this.state.board[4]==0&&this.state.board[7]==turn) {
 							takeSquare(4);
-						} else if (board[1]==0&&board[4]==turn&&board[7]==turn) {
+						} else if (this.state.board[1]==0&&this.state.board[4]==turn&&this.state.board[7]==turn) {
 							takeSquare(1);
-						} else if (board[1]==turn&&board[4]==turn&&board[7]==0) {
+						} else if (this.state.board[1]==turn&&this.state.board[4]==turn&&this.state.board[7]==0) {
 							takeSquare(7);
-						} else if (board[2]==turn&&board[5]==0&&board[8]==turn) {
+						} else if (this.state.board[2]==turn&&this.state.board[5]==0&&this.state.board[8]==turn) {
 							takeSquare(5);
-						} else if (board[2]==0&&board[5]==turn&&board[8]==turn) {
+						} else if (this.state.board[2]==0&&this.state.board[5]==turn&&this.state.board[8]==turn) {
 							takeSquare(2);
-						} else if (board[2]==turn&&board[5]==turn&&board[8]==0) {
+						} else if (this.state.board[2]==turn&&this.state.board[5]==turn&&this.state.board[8]==0) {
 							takeSquare(8);
-						} else if (board[0]==turn&&board[4]==0&&board[8]==turn) {
+						} else if (this.state.board[0]==turn&&this.state.board[4]==0&&this.state.board[8]==turn) {
 							takeSquare(4);
-						} else if (board[0]==0&&board[4]==turn&&board[8]==turn) {
+						} else if (this.state.board[0]==0&&this.state.board[4]==turn&&this.state.board[8]==turn) {
 							takeSquare(0);
-						} else if (board[0]==turn&&board[4]==turn&&board[8]==0) {
+						} else if (this.state.board[0]==turn&&this.state.board[4]==turn&&this.state.board[8]==0) {
 							takeSquare(8);
-						} else if (board[2]==turn&&board[4]==0&&board[6]==turn) {
+						} else if (this.state.board[2]==turn&&this.state.board[4]==0&&this.state.board[6]==turn) {
 							takeSquare(4);
-						} else if (board[2]==0&&board[4]==turn&&board[6]==turn) {
+						} else if (this.state.board[2]==0&&this.state.board[4]==turn&&this.state.board[6]==turn) {
 							takeSquare(2);
-						} else if (board[2]==turn&&board[4]==turn&&board[6]==0) {
+						} else if (this.state.board[2]==turn&&this.state.board[4]==turn&&this.state.board[6]==0) {
 							takeSquare(6);
 						// if the human player is one move from a possible win attempt to stop the win
-						} else if (board[0]!=turn&&board[0]!=0&&board[1]!=turn&&board[1]!=0&&board[2]==0) {
+						} else if (this.state.board[0]!=turn&&this.state.board[0]!=0&&this.state.board[1]!=turn&&this.state.board[1]!=0&&this.state.board[2]==0) {
 							takeSquare(2);
-						} else if (board[0]!=turn&&board[0]!=0&&board[1]==0&&board[2]!=turn&&board[2]!=0) {
+						} else if (this.state.board[0]!=turn&&this.state.board[0]!=0&&this.state.board[1]==0&&this.state.board[2]!=turn&&this.state.board[2]!=0) {
 							takeSquare(1);
-						} else if (board[0]==0&&board[1]!=turn&&board[1]!=0&&board[2]!=turn&&board[2]!=0) {
+						} else if (this.state.board[0]==0&&this.state.board[1]!=turn&&this.state.board[1]!=0&&this.state.board[2]!=turn&&this.state.board[2]!=0) {
 							takeSquare(0);
-						} else if (board[3]!=turn&&board[3]!=0&&board[4]!=turn&&board[4]!=0&&board[5]==0) {
+						} else if (this.state.board[3]!=turn&&this.state.board[3]!=0&&this.state.board[4]!=turn&this.state.&board[4]!=0&&this.state.board[5]==0) {
 							takeSquare(5);
-						} else if (board[3]!=turn&&board[3]!=0&&board[4]==0&&board[4]!=turn&&board[5]!=0) {
+						} else if (this.state.board[3]!=turn&&this.state.board[3]!=0&&this.state.board[4]==0&&this.state.board[4]!=turn&&this.state.board[5]!=0) {
 							takeSquare(4);
-						} else if (board[3]==0&&board[4]!=turn&&board[4]!=0&&board[5]!=turn&&board[5]!=0) {
+						} else if (this.state.board[3]==0&&this.state.board[4]!=turn&&this.state.board[4]!=0&&this.state.board[5]!=turn&&this.state.board[5]!=0) {
 							takeSquare(3);
-						} else if (board[6]!=turn&&board[6]!=0&&board[7]!=turn&&board[7]!=0&&board[8]==0) {
+						} else if (this.state.board[6]!=turn&&this.state.board[6]!=0&&this.state.board[7]!=turn&&this.state.board[7]!=0&&this.state.board[8]==0) {
 							takeSquare(8);
-						} else if (board[6]!=turn&&board[6]!=0&&board[7]==0&&board[8]!=turn&&board[8]!=0) {
+						} else if (this.state.board[6]!=turn&&this.state.board[6]!=0&&this.state.board[7]==0&&this.state.board[8]!=turn&&this.state.board[8]!=0) {
 							takeSquare(7);
-						} else if (board[6]==0&&board[7]!=turn&&board[7]!=0&&board[8]!=turn&&board[8]!=0) {
+						} else if (this.state.board[6]==0&&this.state.board[7]!=turn&&this.state.board[7]!=0&&this.state.board[8]!=turn&&this.state.board[8]!=0) {
 							takeSquare(6);
-						} else if (board[0]!=turn&&board[0]!=0&&board[3]!=turn&&board[3]!=0&&board[6]==0) {
+						} else if (this.state.board[0]!=turn&&this.state.board[0]!=0&&this.state.board[3]!=turn&&this.state.board[3]!=0&&this.state.board[6]==0) {
 							takeSquare(6);
-						} else if (board[0]!=turn&&board[0]!=0&&board[3]==0&&board[6]!=turn&&board[6]!=0) {
+						} else if (this.state.board[0]!=turn&&this.state.board[0]!=0&&this.state.board[3]==0&&this.state.board[6]!=turn&&this.state.board[6]!=0) {
 							takeSquare(3);
-						} else if (board[0]==0&&board[3]!=turn&&board[3]!=0&&board[6]!=turn&&board[6]!=0) {
+						} else if (this.state.board[0]==0&&this.state.board[3]!=turn&&this.state.board[3]!=0&&this.state.board[6]!=turn&&this.state.board[6]!=0) {
 							takeSquare(0);
-						} else if (board[1]!=turn&&board[1]!=0&&board[4]!=turn&&board[4]!=0&&board[7]==0) {
+						} else if (this.state.board[1]!=turn&&this.state.board[1]!=0&&this.state.board[4]!=turn&&this.state.board[4]!=0&&this.state.board[7]==0) {
 							takeSquare(7);
-						} else if (board[1]!=turn&&board[1]!=0&&board[4]==0&&board[4]!=turn&&board[7]!=0) {
+						} else if (this.state.board[1]!=turn&&this.state.board[1]!=0&&this.state.board[4]==0&&this.state.board[4]!=turn&&this.state.board[7]!=0) {
 							takeSquare(4);
-						} else if (board[1]==0&&board[4]!=turn&&board[4]!=0&&board[7]!=turn&&board[7]!=0) {
+						} else if (this.state.board[1]==0&&this.state.board[4]!=turn&&this.state.board[4]!=0&&this.state.board[7]!=turn&&this.state.board[7]!=0) {
 							takeSquare(1);
-						} else if (board[2]!=turn&&board[2]!=0&&board[5]!=turn&&board[5]!=0&&board[8]==0) {
+						} else if (this.state.board[2]!=turn&&this.state.board[2]!=0&&this.state.board[5]!=turn&&this.state.board[5]!=0&&this.state.board[8]==0) {
 							takeSquare(8);
-						} else if (board[2]!=turn&&board[2]!=0&&board[5]==0&&board[8]!=turn&&board[8]!=0) {
+						} else if (this.state.board[2]!=turn&&this.state.board[2]!=0&&this.state.board[5]==0&&this.state.board[8]!=turn&&this.state.board[8]!=0) {
 							takeSquare(5);
-						} else if (board[2]==0&&board[5]!=turn&&board[5]!=0&&board[8]!=turn&&board[8]!=0) {
+						} else if (this.state.board[2]==0&&this.state.board[5]!=turn&&this.state.board[5]!=0&&this.state.board[8]!=turn&&this.state.board[8]!=0) {
 							takeSquare(2);
-						} else if (board[0]!=turn&&board[0]!=0&&board[4]!=turn&&board[4]!=0&&board[8]==0) {
+						} else if (this.state.board[0]!=turn&&this.state.board[0]!=0&&this.state.board[4]!=turn&&this.state.board[4]!=0&&this.state.board[8]==0) {
 							takeSquare(8);
-						} else if (board[0]!=turn&&board[0]!=0&&board[4]==0&&board[8]!=turn&&board[8]!=0) {
+						} else if (this.state.board[0]!=turn&&this.state.board[0]!=0&&vboard[4]==0&&this.state.board[8]!=turn&&this.state.board[8]!=0) {
 							takeSquare(4);
-						} else if (board[0]==0&&board[4]!=0&&board[4]!=turn&&board[8]!=turn&&board[8]!=0) {
+						} else if (this.state.board[0]==0&&this.state.board[4]!=0&&this.state.board[4]!=turn&&this.state.board[8]!=turn&&this.state.board[8]!=0) {
 							takeSquare(0);
-						} else if (board[2]!=turn&&board[2]!=0&&board[4]!=turn&&board[4]!=0&&board[6]==0) {
+						} else if (this.state.board[2]!=turn&&this.state.board[2]!=0&&this.state.board[4]!=turn&&this.state.board[4]!=0&&this.state.board[6]==0) {
 							takeSquare(6);
-						} else if (board[2]!=turn&&board[2]!=0&&board[4]==0&&board[6]!=turn&&board[6]!=0) {
+						} else if (this.state.board[2]!=turn&&this.state.board[2]!=0&&this.state.board[4]==0&&this.state.board[6]!=turn&&this.state.board[6]!=0) {
 							takeSquare(4);
-						} else if (board[2]==0&&board[4]!=0&&board[4]!=turn&&board[6]!=turn&&board[6]!=0) {
+						} else if (this.state.board[2]==0&&this.state.board[4]!=0&&this.state.board[4]!=turn&&this.state.board[6]!=turn&&this.state.board[6]!=0) {
 							takeSquare(2);
 							// otherwise, try and take either a corner or the central position
 						} else {
 							var emptySquares=[];
 							for (var x=0; x<9; x+=2) {
-								if (board[x]==0) {
+								if (this.state.board[x]==0) {
 									emptySquares.push(x);
 								}
 							}
@@ -564,7 +564,7 @@ disableBoardButtons() {
 							} else {
 								var emptySquares=[];
 								for (var x=1; x<8; x+=2) {
-									if (board[x]==0) {
+									if (this.state.board[x]==0) {
 										emptySquares.push(x);
 									}
 								}
@@ -577,9 +577,9 @@ disableBoardButtons() {
 						}   
 					}, 1000);
 				} else {
-					console.log("board: "+board+", boardState: "+boardState+", "+turn+"'s turn, minimax at top level, player "+turn);
+					console.log("board: "+this.state.board+", boardState: "+this.state.boardState+", "+turn+"'s turn, minimax at top level, player "+turn);
 					//mm=[];
-					boardState=board.slice(0);
+					this.state.boardState=this.state.board.slice(0);
 					//result=-100;
 					//start the minimax algorithm at the top level, level 0
 					
@@ -590,7 +590,7 @@ disableBoardButtons() {
 						takeSquare(Math.floor(Math.random()*9));
 						firstMove = false;
 					} else if (secondMove) {
-						if (board[4]==0) {
+						if (this.state.board[4]==0) {
 							takeSquare(4);	
 						} else {
 							takeSquare(5);	
@@ -637,15 +637,15 @@ disableBoardButtons() {
 				var latestResult=turn==player1?100:-100;
 				var bestSquare=0;
 				var newTurn;
-				console.log("new minimax on player "+turn+", depth is "+depth+", boardState: "+boardState);
+				console.log("new minimax on player "+turn+", depth is "+depth+", boardState: "+this.state.boardState);
 				
 				for (var i=0; i < 9; i++) {
 					//boardState=board.slice(0);
-					if (boardState[i]==0) {
+					if (this.state.boardState[i]==0) {
 						console.log("minimax stage i= "+i+", about to set sq "+i+" to "+turn+", depth "+depth+", and check for win");
-						boardState[i]=turn;
+						this.state.boardState[i]=turn;
 						// check for win - if X win return +1, if O win return -1
-						if (winner(turn, boardState)) {
+						if (winner(turn, this.state.boardState)) {
 							console.log("winner will be "+turn);
 							//latestResult = turn==player2?1:-1;
 							latestResult = turn==player2?1:-1;
@@ -654,7 +654,7 @@ disableBoardButtons() {
 							//bestSquare=i;
 							//result = latestResult;
 							//return result;
-						}  else if (matchDrawn(boardState)) {
+						}  else if (matchDrawn(this.state.boardState)) {
 							// if no win
 							console.log("full board - match drawn");
 							//boardState=board.slice(0);
@@ -691,7 +691,7 @@ disableBoardButtons() {
 							//return latestResult;
 						}
 						
-						boardState[i] = 0;
+						this.state.boardState[i] = 0;
 						console.log("minimax stage i= "+i+", depth "+depth+", reset sq to 0");
 					}
 					if (turn==player2 && latestResult>result) {		// if new turn is the computer, turn is player & wants to minimise his result 
