@@ -461,11 +461,11 @@ disableBoardButtons() {
 					setTimeout(function() {
 						// if a win is possible on the computer's move, take the win  
 						
-						if (this.state.board[0]==this.turn&&this.state.board[1]==this.turn&&this.state.board[2]==0) {
+						if (board[0]==this.turn&&board[1]==this.turn&&board[2]==0) {
 							takeSquare(2);
-						} else if (this.state.board[0]==0&&this.state.board[1]==this.turn&&this.state.board[2]==this.turn) {
+						} else if (board[0]==0&&board[1]==this.turn&&board[2]==this.turn) {
 							takeSquare(0);
-						} else if (this.state.board[0]==this.turn&&this.state.board[1]==0&&this.state.board[2]==this.turn) {
+						} else if (board[0]==this.turn&&board[1]==0&&board[2]==this.turn) {
 							takeSquare(1);
 						} else if (this.state.board[3]==this.turn&&this.state.board[4]==this.turn&&this.state.board[5]==0) {
 							takeSquare(5);
