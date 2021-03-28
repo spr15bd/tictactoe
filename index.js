@@ -693,7 +693,10 @@ disableBoardButtons() {
 							//return latestResult;
 						}
 						
-						this.setState({boardState[i]:0});
+						let newArray = this.state.boardState;
+						newArray[i] = 0;
+						this.setState({boardState:newArray});
+						
 						console.log("minimax stage i= "+i+", depth "+depth+", reset sq to 0");
 					}
 					if (turn==player2 && latestResult>result) {		// if new turn is the computer, turn is player & wants to minimise his result 
