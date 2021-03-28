@@ -548,15 +548,15 @@ disableBoardButtons() {
 							takeSquare(2);
 						} else if (board[0]!=this.turn&&board[0]!=0&&board[4]!=this.turn&&board[4]!=0&&board[8]==0) {
 							takeSquare(8);
-						} else if (this.state.board[0]!=turn&&this.state.board[0]!=0&&this.state.board[4]==0&&this.state.board[8]!=turn&&this.state.board[8]!=0) {
+						} else if (board[0]!=this.turn&&board[0]!=0&&board[4]==0&&board[8]!=this.turn&&board[8]!=0) {
 							takeSquare(4);
-						} else if (this.state.board[0]==0&&this.state.board[4]!=0&&this.state.board[4]!=turn&&this.state.board[8]!=turn&&this.state.board[8]!=0) {
+						} else if (board[0]==0&&board[4]!=0&&board[4]!=this.turn&&board[8]!=this.turn&&board[8]!=0) {
 							takeSquare(0);
-						} else if (this.state.board[2]!=turn&&this.state.board[2]!=0&&this.state.board[4]!=turn&&this.state.board[4]!=0&&this.state.board[6]==0) {
+						} else if (board[2]!=this.turn&&board[2]!=0&&board[4]!=this.turn&&board[4]!=0&&board[6]==0) {
 							takeSquare(6);
-						} else if (this.state.board[2]!=turn&&this.state.board[2]!=0&&this.state.board[4]==0&&this.state.board[6]!=turn&&this.state.board[6]!=0) {
+						} else if (board[2]!=this.turn&&board[2]!=0&&board[4]==0&&board[6]!=this.turn&&board[6]!=0) {
 							takeSquare(4);
-						} else if (this.state.board[2]==0&&this.state.board[4]!=0&&this.state.board[4]!=turn&&this.state.board[6]!=turn&&this.state.board[6]!=0) {
+						} else if (board[2]==0&&board[4]!=0&&board[4]!=this.turn&&board[6]!=this.turn&&board[6]!=0) {
 							takeSquare(2);
 							// otherwise, try and take either a corner or the central position
 						} else {
@@ -587,7 +587,7 @@ disableBoardButtons() {
 						}   
 					}, 1000);
 				} else {
-					console.log("board: "+this.state.board+", boardState: "+this.state.boardState+", "+turn+"'s turn, minimax at top level, player "+turn);
+					console.log("board: "+this.state.board+", boardState: "+this.state.boardState+", "+this.turn+"'s turn, minimax at top level, player "+this.turn);
 					//mm=[];
 					this.setState({boardState:this.state.board.slice(0)});
 					//result=-100;
@@ -607,7 +607,7 @@ disableBoardButtons() {
 						}
 						secondMove = false;
 					} else {
-						square = miniMax(turn, 0).bestSquare;	
+						square = miniMax(this.turn, 0).bestSquare;	
 						
 						setTimeout(function() {
 						//console.log(turn +" took square "+bestSquare);
@@ -643,8 +643,8 @@ disableBoardButtons() {
 				//		check for winner
 				//		if no win minimax on other player
 				
-				var result=turn==player1?100:-100;
-				var latestResult=turn==player1?100:-100;
+				var result=this.turn==player1?100:-100;
+				var latestResult=this.turn==player1?100:-100;
 				var bestSquare=0;
 				var newTurn;
 				console.log("new minimax on player "+turn+", depth is "+depth+", boardState: "+this.state.boardState);
