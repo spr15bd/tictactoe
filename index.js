@@ -452,6 +452,10 @@ disableBoardButtons() {
 			doComputerAI(miniMaxGame) {
 				this.setState({aiInPlay:true});
 				console.log("Board[3] is: "+this.state.board[3]);
+				let board = [];
+				for (var i=0; i<9; i++) {
+					board[i]=this.state.board[i];	
+				}
 				//this.disableBoardButtons();TEMPORARILY DESABLED 27TH MARCH 2021
 				if (!miniMaxGame) {
 					setTimeout(function() {
