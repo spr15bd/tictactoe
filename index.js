@@ -18,6 +18,8 @@ class Main extends React.Component {
 			square:0,
 			timeout:0
     		};
+		
+		this.doComputerAI= this.doComputerAI.bind(this);
         	
         	// global variables
 		this.turn="";
