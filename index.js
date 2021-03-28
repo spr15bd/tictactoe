@@ -493,60 +493,60 @@ disableBoardButtons() {
 							takeSquare(7);
 						} else if (board[2]==this.turn&&board[5]==0&&board[8]==this.turn) {
 							takeSquare(5);
-						} else if (board[2]==0&&board[5]==turn&&board[8]==turn) {
+						} else if (board[2]==0&&board[5]==this.turn&&board[8]==this.turn) {
 							takeSquare(2);
-						} else if (board[2]==turn&&board[5]==turn&&board[8]==0) {
+						} else if (board[2]==this.turn&&board[5]==this.turn&&board[8]==0) {
 							takeSquare(8);
-						} else if (board[0]==turn&&board[4]==0&&board[8]==turn) {
+						} else if (board[0]==this.turn&&board[4]==0&&board[8]==this.turn) {
 							takeSquare(4);
-						} else if (board[0]==0&&board[4]==turn&&board[8]==turn) {
+						} else if (board[0]==0&&board[4]==this.turn&&board[8]==this.turn) {
 							takeSquare(0);
-						} else if (board[0]==turn&&board[4]==turn&&board[8]==0) {
+						} else if (board[0]==this.turn&&board[4]==this.turn&&board[8]==0) {
 							takeSquare(8);
-						} else if (board[2]==turn&&board[4]==0&&board[6]==turn) {
+						} else if (board[2]==this.turn&&board[4]==0&&board[6]==this.turn) {
 							takeSquare(4);
-						} else if (board[2]==0&&board[4]==turn&&board[6]==turn) {
+						} else if (board[2]==0&&board[4]==this.turn&&board[6]==this.turn) {
 							takeSquare(2);
-						} else if (board[2]==turn&&board[4]==turn&&board[6]==0) {
+						} else if (board[2]==this.turn&&board[4]==this.turn&&board[6]==0) {
 							takeSquare(6);
 						// if the human player is one move from a possible win attempt to stop the win
-						} else if (board[0]!=turn&&board[0]!=0&&board[1]!=turn&&board[1]!=0&&board[2]==0) {
+						} else if (board[0]!=this.turn&&board[0]!=0&&board[1]!=this.turn&&board[1]!=0&&board[2]==0) {
 							takeSquare(2);
-						} else if (board[0]!=turn&&board[0]!=0&&board[1]==0&&board[2]!=turn&&board[2]!=0) {
+						} else if (board[0]!=this.turn&&board[0]!=0&&board[1]==0&&board[2]!=this.turn&&board[2]!=0) {
 							takeSquare(1);
-						} else if (board[0]==0&&board[1]!=turn&&board[1]!=0&&board[2]!=turn&&board[2]!=0) {
+						} else if (board[0]==0&&board[1]!=this.turn&&board[1]!=0&&board[2]!=this.turn&&board[2]!=0) {
 							takeSquare(0);
-						} else if (board[3]!=turn&&board[3]!=0&&board[4]!=turn&&board[4]!=0&&board[5]==0) {
+						} else if (board[3]!=this.turn&&board[3]!=0&&board[4]!=this.turn&&board[4]!=0&&board[5]==0) {
 							takeSquare(5);
-						} else if (board[3]!=turn&&board[3]!=0&&board[4]==0&&board[4]!=turn&&board[5]!=0) {
+						} else if (board[3]!=this.turn&&board[3]!=0&&board[4]==0&&board[4]!=this.turn&&board[5]!=0) {
 							takeSquare(4);
-						} else if (board[3]==0&&board[4]!=turn&&board[4]!=0&&board[5]!=turn&&board[5]!=0) {
+						} else if (board[3]==0&&board[4]!=this.turn&&board[4]!=0&&board[5]!=this.turn&&board[5]!=0) {
 							takeSquare(3);
-						} else if (board[6]!=turn&&board[6]!=0&&board[7]!=turn&&board[7]!=0&&board[8]==0) {
+						} else if (board[6]!=this.turn&&board[6]!=0&&board[7]!=this.turn&&board[7]!=0&&board[8]==0) {
 							takeSquare(8);
-						} else if (board[6]!=turn&&board[6]!=0&&board[7]==0&&board[8]!=turn&&board[8]!=0) {
+						} else if (board[6]!=this.turn&&board[6]!=0&&board[7]==0&&board[8]!=this.turn&&board[8]!=0) {
 							takeSquare(7);
-						} else if (board[6]==0&&board[7]!=turn&&board[7]!=0&&board[8]!=turn&&board[8]!=0) {
+						} else if (board[6]==0&&board[7]!=this.turn&&board[7]!=0&&board[8]!=this.turn&&board[8]!=0) {
 							takeSquare(6);
-						} else if (this.state.board[0]!=turn&&this.state.board[0]!=0&&this.state.board[3]!=turn&&this.state.board[3]!=0&&this.state.board[6]==0) {
+						} else if (board[0]!=this.turn&&board[0]!=0&&board[3]!=this.turn&&board[3]!=0&&board[6]==0) {
 							takeSquare(6);
-						} else if (this.state.board[0]!=turn&&this.state.board[0]!=0&&this.state.board[3]==0&&this.state.board[6]!=turn&&this.state.board[6]!=0) {
+						} else if (board[0]!=this.turn&&board[0]!=0&&board[3]==0&&board[6]!=this.turn&&board[6]!=0) {
 							takeSquare(3);
-						} else if (this.state.board[0]==0&&this.state.board[3]!=turn&&this.state.board[3]!=0&&this.state.board[6]!=turn&&this.state.board[6]!=0) {
+						} else if (board[0]==0&&board[3]!=this.turn&&board[3]!=0&&board[6]!=this.turn&&board[6]!=0) {
 							takeSquare(0);
-						} else if (this.state.board[1]!=turn&&this.state.board[1]!=0&&this.state.board[4]!=turn&&this.state.board[4]!=0&&this.state.board[7]==0) {
+						} else if (board[1]!=this.turn&&board[1]!=0&&board[4]!=this.turn&&board[4]!=0&&board[7]==0) {
 							takeSquare(7);
-						} else if (this.state.board[1]!=turn&&this.state.board[1]!=0&&this.state.board[4]==0&&this.state.board[4]!=turn&&this.state.board[7]!=0) {
+						} else if (board[1]!=this.turn&&board[1]!=0&&board[4]==0&&board[4]!=this.turn&&board[7]!=0) {
 							takeSquare(4);
-						} else if (this.state.board[1]==0&&this.state.board[4]!=turn&&this.state.board[4]!=0&&this.state.board[7]!=turn&&this.state.board[7]!=0) {
+						} else if (board[1]==0&&board[4]!=this.turn&&board[4]!=0&&board[7]!=this.turn&&board[7]!=0) {
 							takeSquare(1);
-						} else if (this.state.board[2]!=turn&&this.state.board[2]!=0&&this.state.board[5]!=turn&&this.state.board[5]!=0&&this.state.board[8]==0) {
+						} else if (board[2]!=this.turn&&board[2]!=0&&board[5]!=this.turn&&board[5]!=0&&board[8]==0) {
 							takeSquare(8);
-						} else if (this.state.board[2]!=turn&&this.state.board[2]!=0&&this.state.board[5]==0&&this.state.board[8]!=turn&&this.state.board[8]!=0) {
+						} else if (board[2]!=this.turn&&board[2]!=0&&board[5]==0&&board[8]!=this.turn&&board[8]!=0) {
 							takeSquare(5);
-						} else if (this.state.board[2]==0&&this.state.board[5]!=turn&&this.state.board[5]!=0&&this.state.board[8]!=turn&&this.state.board[8]!=0) {
+						} else if (board[2]==0&&board[5]!=this.turn&&board[5]!=0&&board[8]!=this.turn&&board[8]!=0) {
 							takeSquare(2);
-						} else if (this.state.board[0]!=turn&&this.state.board[0]!=0&&this.state.board[4]!=turn&&this.state.board[4]!=0&&this.state.board[8]==0) {
+						} else if (board[0]!=this.turn&&board[0]!=0&&board[4]!=this.turn&&board[4]!=0&&board[8]==0) {
 							takeSquare(8);
 						} else if (this.state.board[0]!=turn&&this.state.board[0]!=0&&this.state.board[4]==0&&this.state.board[8]!=turn&&this.state.board[8]!=0) {
 							takeSquare(4);
