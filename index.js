@@ -213,7 +213,8 @@ class Main extends React.Component {
 		console.log("in choosePlayer ");
 		this.setState(	{	playerOne:str,
 					playerTwo:str=="X"?"O":"X",
-				 	inPlay:true
+				 	inPlay:true,
+				 	xOrYOptionsDisplayed: false
 				});
     		console.log(this.state.playerOne);	
 		//this.setState({inPlay:true});
