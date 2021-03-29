@@ -23,7 +23,9 @@ class Main extends React.Component {
 		this.takeSquare = this.takeSquare.bind(this);
         	
         	// global variables
+		
 		this.turn="";
+		/*
         	let firstMove = false;
 		let secondMove = false;
 		let onePlayerGame=false;
@@ -33,6 +35,7 @@ class Main extends React.Component {
 		//var boardState=[0,0,0,0,0,0,0,0,0];
 		var square;
 		var timeout;
+		*/
  	}
     	render() {
 		
