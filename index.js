@@ -584,7 +584,7 @@ disableBoardButtons() {
 							var y=emptySquares.length;
 							if (y>0) {
 								var z=Math.floor(Math.random()*y);
-								takeSquare(emptySquares[z]);
+								this.takeSquare(emptySquares[z]);
 								// if no corners or central positions are available, take one of the remaining four positions randomly
 							} else {
 								var emptySquares=[];
@@ -596,7 +596,7 @@ disableBoardButtons() {
 								var y=emptySquares.length;
 								if (y>0) {
 									var z=Math.floor(Math.random()*y);
-									takeSquare(emptySquares[z]);
+									this.takeSquare(emptySquares[z]);
 								}
 							}
 						}   
