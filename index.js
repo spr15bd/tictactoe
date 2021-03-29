@@ -44,6 +44,7 @@ class Main extends React.Component {
 		let board = [];
         	let twoPlayer= [];
 		let imageDisplayed=[];
+		let back = [];
         	if (this.state.titleDisplayed) {
             		heading.push(<h2>How do you want to play?</h2>);
             		choices.push(	<div>	
@@ -57,6 +58,7 @@ class Main extends React.Component {
 			);
 			
         	} else if (this.state.xOrYOptionsDisplayed) {
+			back.push(<a id="back" onClick={() => this.back()}>Back</a>);
 			console.log("X Or O Options screen");
 			heading.push(<h2>Choose X or O</h2>);
             		choices.push(	<div>	
@@ -103,7 +105,7 @@ class Main extends React.Component {
     					<a id="game-over"></a>
     					
 					
-    					<a id="back" onClick={() => this.back()}>Back</a>
+					{back}
     					
   				</div>
 			</div>			
