@@ -722,11 +722,11 @@ disableBoardButtons() {
 						
 						console.log("minimax stage i= "+i+", depth "+depth+", reset sq to 0");
 					}
-					if (turn==player2 && latestResult>result) {		// if new turn is the computer, turn is player & wants to minimise his result 
+					if (this.turn==player2 && latestResult>result) {		// if new turn is the computer, turn is player & wants to minimise his result 
 						console.log(player2+ " in play, result bettered, best sq "+i);
 						result=latestResult;
 						bestSquare=i;
-					} else if (turn==player1 && latestResult<result) {
+					} else if (this.turn==player1 && latestResult<result) {
 						console.log(player1+" in play, result bettered, best sq "+i);
 						result=latestResult;
 						bestSquare=i;
