@@ -250,28 +250,26 @@ class Main extends React.Component {
 	playGame() { 
 		console.log("Chose Player "+this.state.playerOne);
 		console.log("Inplay state is "+this.state.inPlay);
-  				//$("h2").hide();
-  				//$("#choose-x").hide();
-  				//$("#choose-o").hide();
- 				//$("#back").hide();
-  				//$("img").attr("src","https://8lvjog-db3pap001.files.1drv.com/y4maLqZBnVA48r6inDcZV4ALGUE-aRn2LggjvNxaNaHLtk-VU1XAvRILb4Z8BiCNIxxoMekyNkr1HRpkjeVy3A2vkUDEntuQcdSFOufHEVxNvPIqedMFNbeflXkcOkwNRph1FMbeFbCzVqlBstEWiwvdGLmG_-oWscN22bzi_00RNFhqXeGrwtpQiOUOtzxUW1kj1Z1sApUqCyBd8FtZp3VkA?width=435&height=435&cropmode=none");
-  				//$("#reset").show();
-  				$("#player-one").show();
-  				$("#player-two").show();
-  				$("#player-one-score").show();
-  				$("#player-two-score").show();
-  				if (Math.random(0,1)<0.5) {
-    					this.turn=this.state.playerOne;
-					this.state.secondMove = true;
-  				} else {
-    					this.turn=this.state.playerTwo;
-					this.state.firstMove = true;
-    					if (this.state.onePlayerGame) {
-						this.doComputerAI(this.state.miniMaxGame);
-    					}
-						   
-					
-  				}
+  		//$("h2").hide();
+  		//$("#choose-x").hide();
+  		//$("#choose-o").hide();
+ 		//$("#back").hide();
+  		//$("img").attr("src","https://8lvjog-db3pap001.files.1drv.com/y4maLqZBnVA48r6inDcZV4ALGUE-aRn2LggjvNxaNaHLtk-VU1XAvRILb4Z8BiCNIxxoMekyNkr1HRpkjeVy3A2vkUDEntuQcdSFOufHEVxNvPIqedMFNbeflXkcOkwNRph1FMbeFbCzVqlBstEWiwvdGLmG_-oWscN22bzi_00RNFhqXeGrwtpQiOUOtzxUW1kj1Z1sApUqCyBd8FtZp3VkA?width=435&height=435&cropmode=none");
+  		//$("#reset").show();
+  		$("#player-one").show();
+  		$("#player-two").show();
+  		$("#player-one-score").show();
+  		$("#player-two-score").show();
+  		if (Math.random(0,1)<0.5) {
+    			this.turn=this.state.playerOne;
+			this.state.secondMove = true;
+  		} else {
+    			this.turn=this.state.playerTwo;
+			this.state.firstMove = true;
+    			if (this.state.onePlayerGame) {
+				this.doComputerAI(this.state.miniMaxGame);
+    			}
+		}
 				/*
   				for (var x=0; x<9;x++){
     					$("#square"+x).show();
@@ -358,111 +356,111 @@ class Main extends React.Component {
     					resetAll();
   				});
 				*/
-			}
+	}
 			
-			// check the status of the board, if no result swap players
-			changeTurns() {
-				console.log("changing turn, from "+this.turn);
-  				if (winner("X", board)||winner("O", board)) {
-    					doVictory();
-  				} else if (matchDrawn(board)) {
-    					doDraw();
-				} else if (this.turn==player1) {
-					this.turn=player2;
-					//this.setState({aiInPlay:!aiInPlay});
-					if (onePlayerGame) {
-						doComputerAI(miniMaxGame);
-					}
-				} else if (this.turn==player2) {
-					this.turn=player1;
-				}
+	// check the status of the board, if no result swap players
+	changeTurns() {
+		console.log("changing turn, from "+this.turn);
+  		if (winner("X", board)||winner("O", board)) {
+    			doVictory();
+  		} else if (matchDrawn(board)) {
+    			doDraw();
+		} else if (this.turn==player1) {
+			this.turn=player2;
+			//this.setState({aiInPlay:!aiInPlay});
+			if (onePlayerGame) {
+				doComputerAI(miniMaxGame);
 			}
+		} else if (this.turn==player2) {
+			this.turn=player1;
+		}
+	}
 
-			winner(turn, board) {
-				if ((board[0]===board[1]&&board[1]===board[2]&&board[0]===turn)||
-				(board[3]===board[4]&&board[4]===board[5]&&board[3]===turn)||
-				(board[6]===board[7]&&board[7]===board[8]&&board[6]===turn)||
-				(board[0]===board[3]&&board[3]===board[6]&&board[0]===turn)||
-				(board[1]===board[4]&&board[4]===board[7]&&board[1]===turn)||
-				(board[2]===board[5]&&board[5]===board[8]&&board[2]===turn)||
-				(board[0]===board[4]&&board[4]===board[8]&&board[0]===turn)||
-				(board[6]===board[4]&&board[4]===board[2]&&board[6]===turn)) {
-					//console.log(turn+" is winner");
-					return true;  
-				}
-			}
+	winner(turn, board) {
+		if ((board[0]===board[1]&&board[1]===board[2]&&board[0]===turn)||
+		(board[3]===board[4]&&board[4]===board[5]&&board[3]===turn)||
+		(board[6]===board[7]&&board[7]===board[8]&&board[6]===turn)||
+		(board[0]===board[3]&&board[3]===board[6]&&board[0]===turn)||
+		(board[1]===board[4]&&board[4]===board[7]&&board[1]===turn)||
+		(board[2]===board[5]&&board[5]===board[8]&&board[2]===turn)||
+		(board[0]===board[4]&&board[4]===board[8]&&board[0]===turn)||
+		(board[6]===board[4]&&board[4]===board[2]&&board[6]===turn)) {
+			//console.log(turn+" is winner");
+			return true;  
+		}
+	}
 
-			matchDrawn(board) {
-				if (board[0]!=0&&board[1]!=0&&board[2]!=0&&board[3]!=0&&board[4]!=0&&board[5]!=0&&board[6]!=0&&board[7]!=0&&board[8]!=0) {
-					return true;
-				}
-			}
+	matchDrawn(board) {
+		if (board[0]!=0&&board[1]!=0&&board[2]!=0&&board[3]!=0&&board[4]!=0&&board[5]!=0&&board[6]!=0&&board[7]!=0&&board[8]!=0) {
+			return true;
+		}
+	}
 
-			doVictory() {
-				$("#game-over").text(turn+" wins");
-				$("#game-over").show();
-				if (turn==player1) {
-					playerOneWins++;
-				} else {
-					playerTwoWins++;
-				}
-				$("#player-one-score").text(playerOneWins);
-				$("#player-two-score").text(playerTwoWins);
-				disableBoardButtons();
-				timeout = setTimeout(function() {
-					resetBoard();
-					enableBoardButtons();
-					$("#game-over").fadeOut();
-					playGame();
-				}, 5000);
-			}
+	doVictory() {
+		$("#game-over").text(turn+" wins");
+		$("#game-over").show();
+		if (turn==player1) {
+			playerOneWins++;
+		} else {
+			playerTwoWins++;
+		}
+		$("#player-one-score").text(playerOneWins);
+		$("#player-two-score").text(playerTwoWins);
+		disableBoardButtons();
+		timeout = setTimeout(function() {
+			resetBoard();
+			enableBoardButtons();
+			$("#game-over").fadeOut();
+			playGame();
+		}, 5000);
+	}
 
-			doDraw() {
-				$("#game-over").text("Match drawn");
-				$("#game-over").show();
-				disableBoardButtons();
-				timeout = setTimeout(function() {
-					resetBoard();
-					$("#game-over").fadeOut();
-					enableBoardButtons();
-					playGame();
-				}, 5000);
-			}
+	doDraw() {
+		$("#game-over").text("Match drawn");
+		$("#game-over").show();
+		disableBoardButtons();
+		timeout = setTimeout(function() {
+			resetBoard();
+			$("#game-over").fadeOut();
+			enableBoardButtons();
+			playGame();
+		}, 5000);
+	}
 
-			resetBoard() {
-				this.setState({board:[0,0,0,0,0,0,0,0,0]});
-				this.setState({boardState:this.state.board.slice(0)});
-				for (var i=0; i<9; i++) {
-					$("#square"+i).text("");
-				}
-			}
+	resetBoard() {
+		this.setState({board:[0,0,0,0,0,0,0,0,0]});
+		this.setState({boardState:this.state.board.slice(0)});
+		for (var i=0; i<9; i++) {
+			$("#square"+i).text("");
+		}
+	}
 
-disableBoardButtons() {
-				$("body").append("<div id=\"over\" style=\"position: absolute;top:45px;left:0;width: 100%;height:100%;z-index:2;opacity:0.4;filter: alpha(opacity = 50)\"></div>");
-			}
+	disableBoardButtons() {
+		$("body").append("<div id=\"over\" style=\"position: absolute;top:45px;left:0;width: 100%;height:100%;z-index:2;opacity:0.4;filter: alpha(opacity = 50)\"></div>");
+	}
 
-			enableBoardButtons() {
-				$("#over").remove();
-			}
+	enableBoardButtons() {
+		$("#over").remove();
+	}
 
-			takeSquare(squareNumber) {
-				this.state.board[squareNumber]=this.turn;
-				//boardState[squareNumber]=turn;
-				this.setState({boardState:this.state.board.slice(0)});
-				console.log("square taken - board is now "+this.state.board+", boardState is now "+this.state.boardState);
-				$("#square"+squareNumber).text(this.turn);
-				enableBoardButtons();
-				changeTurns();
-			}
+	takeSquare(squareNumber) {
+		this.state.board[squareNumber]=this.turn;
+		//boardState[squareNumber]=turn;
+		this.setState({boardState:this.state.board.slice(0)});
+		console.log("square taken - board is now "+this.state.board+", boardState is now "+this.state.boardState);
+		$("#square"+squareNumber).text(this.turn);
+		enableBoardButtons();
+		changeTurns();
+	}
 
-			playerTakeSquare(squareNumber) {
-				if (this.state.board[squareNumber]==0) {
-      					//this.
-      					this.state.board[squareNumber]=this.turn;
-					this.state.boardState[0]=this.turn;
-      					this.changeTurns();
-    				}
-			}
+	playerTakeSquare(squareNumber) {
+		if (this.state.board[squareNumber]==0) {
+      			//this.
+      			this.state.board[squareNumber]=this.turn;
+			this.state.boardState[0]=this.turn;
+      			this.changeTurns();
+    		}
+	}
 
 			doComputerAI(miniMaxGame) {
 				this.setState({aiInPlay:true});
