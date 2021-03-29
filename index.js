@@ -20,7 +20,7 @@ class Main extends React.Component {
     		};
 		
 		//this.doComputerAI= this.doComputerAI.bind(this);
-		//this.takeSquare = this.takeSquare.bind(this);
+		this.takeSquare = this.takeSquare.bind(this);
         	
         	// global variables
 		this.turn="";
@@ -584,7 +584,7 @@ disableBoardButtons() {
 							var y=emptySquares.length;
 							if (y>0) {
 								var z=Math.floor(Math.random()*y);
-								takeSquare(3);
+								takeSquare(emptySquares[z]);
 								// if no corners or central positions are available, take one of the remaining four positions randomly
 							} else {
 								var emptySquares=[];
