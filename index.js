@@ -72,23 +72,20 @@ class Main extends React.Component {
 			console.log("board[0] is "+this.state.board[0]);
 		} else if (this.state.inPlay) {
 			choices.push(	<div>	
-						<a id="square0"></a>
-						<a id="square1"></a>
-						<a id="square2"></a>
-						<a id="square3"></a>
-						<a id="square4"></a>
-						<a id="square5"></a>
-						<a id="square6"></a>
-						<a id="square7"></a>
-						<a id="square8"></a>
+						<a id="square0" onClick={() => this.playerTakeSquare(0)}>{this.state.board[0]==0?"":this.state.board[0]}</a>
+						<a id="square1" onClick={() => this.playerTakeSquare(1)}>{this.state.board[1]==0?"":this.state.board[1]}</a>
+						<a id="square2" onClick={() => this.playerTakeSquare(2)}>{this.state.board[2]==0?"":this.state.board[2]}</a>
+						<a id="square3" onClick={() => this.playerTakeSquare(3)}>{this.state.board[3]==0?"":this.state.board[3]}</a>
+						<a id="square4" onClick={() => this.playerTakeSquare(4)}>{this.state.board[4]==0?"":this.state.board[4]}</a>
+						<a id="square5" onClick={() => this.playerTakeSquare(5)}>{this.state.board[5]==0?"":this.state.board[5]}</a>
+						<a id="square6" onClick={() => this.playerTakeSquare(6)}>{this.state.board[6]==0?"":this.state.board[6]}</a>
+						<a id="square7" onClick={() => this.playerTakeSquare(7)}>{this.state.board[7]==0?"":this.state.board[7]}</a>
+						<a id="square8" onClick={() => this.playerTakeSquare(8)}>{this.state.board[8]==0?"":this.state.board[8]}</a>
 					</div>
 			); 
 			imageDisplayed.push(
 				<img src="https://8lvjog-db3pap001.files.1drv.com/y4maLqZBnVA48r6inDcZV4ALGUE-aRn2LggjvNxaNaHLtk-VU1XAvRILb4Z8BiCNIxxoMekyNkr1HRpkjeVy3A2vkUDEntuQcdSFOufHEVxNvPIqedMFNbeflXkcOkwNRph1FMbeFbCzVqlBstEWiwvdGLmG_-oWscN22bzi_00RNFhqXeGrwtpQiOUOtzxUW1kj1Z1sApUqCyBd8FtZp3VkA?width=435&height=435&cropmode=none"></img>
 			);
-			/*imageDisplayed.push(
-				<img src="https://8bvjog-db3pap001.files.1drv.com/y4m3NWJJOBI7QHptRE2J5YOzx19zJU3rNs2j9S7wG2x9RTS7hXwL1gnXwyA0MBeW8CRyQ699a8CmGR-nnmQKmHkyG4i0V7w-l53X9AmvjNiWaTQbu7Zp4jMrnpRVIrr42fi6Zh9B2xAOtbxXOwnY_HLVLrbMCRxN5WMAdhrkwZnaHfD_7rEJPgwnqRRT9C_lDeeMc2KdjNHyQRymtGMs-UjGw?width=100% height=100%&cropmode=none"></img>
-			);*/
 		}
 		
         	boardDisplay.push(
@@ -275,6 +272,7 @@ class Main extends React.Component {
 						   
 					
   				}
+				/*
   				for (var x=0; x<9;x++){
     					$("#square"+x).show();
   				}
@@ -359,6 +357,7 @@ class Main extends React.Component {
     					playerOne="", playerTwo="", playerOneWins=0, playerTwoWins=0;
     					resetAll();
   				});
+				*/
 			}
 			
 			// check the status of the board, if no result swap players
@@ -454,6 +453,15 @@ disableBoardButtons() {
 				$("#square"+squareNumber).text(this.turn);
 				enableBoardButtons();
 				changeTurns();
+			}
+
+			playerTakeSquare(squareNumber) {
+				if (this.state.board[squareNumber]==0) {
+      					//this.
+      					this.state.board[squareNumber]=this.turn;
+					this.state.boardState[0]=this.turn;
+      					this.changeTurns();
+    				}
 			}
 
 			doComputerAI(miniMaxGame) {
