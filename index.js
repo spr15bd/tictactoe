@@ -219,7 +219,7 @@ class Main extends React.Component {
 				 	xOrYOptionsDisplayed: false
 				});
     		console.log(this.state.playerOne);	
-		//this.setState({inPlay:true});
+		this.takeSquare(2);
     		this.playGame();
 	}
 
