@@ -443,7 +443,7 @@ class Main extends React.Component {
 		$("#over").remove();
 	}
 
-	takeSquare(squareNumber) {
+	takeSquare((squareNumber) => {
 		this.state.board[squareNumber]=this.turn;
 		//boardState[squareNumber]=turn;
 		this.setState({boardState:this.state.board.slice(0)});
@@ -451,7 +451,7 @@ class Main extends React.Component {
 		$("#square"+squareNumber).text(this.turn);
 		enableBoardButtons();
 		changeTurns();
-	}
+	})
 
 	playerTakeSquare(squareNumber) {
 		if (this.state.board[squareNumber]==0) {
