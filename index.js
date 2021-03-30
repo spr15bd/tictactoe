@@ -219,7 +219,7 @@ class Main extends React.Component {
 				 	xOrYOptionsDisplayed: false
 				});
     		console.log(this.state.playerOne);	
-		//this.takeSquare(2);
+		this.takeSquare(2);
     		this.playGame();
 	}
 
@@ -447,6 +447,7 @@ class Main extends React.Component {
 	}
 
 	takeSquare = (squareNumber) => {
+		console.log("Taking square.");
 		this.state.board[squareNumber]=this.turn;
 		//boardState[squareNumber]=turn;
 		this.setState({boardState:this.state.board.slice(0)});
