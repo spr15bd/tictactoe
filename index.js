@@ -219,7 +219,7 @@ class Main extends React.Component {
 				 	xOrYOptionsDisplayed: false
 				});
     		console.log(this.state.playerOne);	
-		this.takeSquare(2);
+		//this.takeSquare(2);
     		this.playGame();
 	}
 
@@ -466,283 +466,278 @@ class Main extends React.Component {
     		}
 	}
 
-			doComputerAI = (miniMaxGame) => {
-				this.setState({aiInPlay:true});
-				console.log("Board[3] is: "+this.state.board[3]);
-				let board = [];
-				for (var i=0; i<9; i++) {
-					board[i]=this.state.board[i];	
-				}
-				//this.disableBoardButtons();TEMPORARILY DESABLED 27TH MARCH 2021
-				if (!miniMaxGame) {
-					setTimeout(function() {
-						// if a win is possible on the computer's move, take the win  
-						
-						if (board[0]==this.turn&&board[1]==this.turn&&board[2]==0) {
-							takeSquare(2);
-						} else if (board[0]==0&&board[1]==this.turn&&board[2]==this.turn) {
-							takeSquare(0);
-						} else if (board[0]==this.turn&&board[1]==0&&board[2]==this.turn) {
-							takeSquare(1);
-						} else if (board[3]==this.turn&&board[4]==this.turn&&board[5]==0) {
-							takeSquare(5);
-						} else if (board[3]==0&&board[4]==this.turn&&board[5]==this.turn) {
-							takeSquare(3);
-						} else if (board[3]==this.turn&&board[4]==0&&board[5]==this.turn) {
-							takeSquare(4);
-						} else if (board[6]==this.turn&&board[7]==this.turn&&board[8]==0) {
-							takeSquare(8);
-						} else if (board[6]==0&&board[7]==this.turn&&board[8]==this.turn) {
-							takeSquare(6);
-						} else if (board[6]==this.turn&&board[7]==0&&board[8]==this.turn) {
-							takeSquare(7);
-						} else if (board[0]==this.turn&&board[3]==0&&board[6]==this.turn) {
-							takeSquare(3);
-						} else if (board[0]==0&&board[3]==this.turn&&board[6]==this.turn) {
-							takeSquare(0);
-						} else if (board[0]==this.turn&&board[3]==this.turn&&board[6]==0) {
-							takeSquare(6);
-						} else if (board[1]==this.turn&&board[4]==0&&board[7]==this.turn) {
-							takeSquare(4);
-						} else if (board[1]==0&&board[4]==this.turn&&board[7]==this.turn) {
-							takeSquare(1);
-						} else if (board[1]==this.turn&&board[4]==this.turn&&board[7]==0) {
-							takeSquare(7);
-						} else if (board[2]==this.turn&&board[5]==0&&board[8]==this.turn) {
-							takeSquare(5);
-						} else if (board[2]==0&&board[5]==this.turn&&board[8]==this.turn) {
-							takeSquare(2);
-						} else if (board[2]==this.turn&&board[5]==this.turn&&board[8]==0) {
-							takeSquare(8);
-						} else if (board[0]==this.turn&&board[4]==0&&board[8]==this.turn) {
-							takeSquare(4);
-						} else if (board[0]==0&&board[4]==this.turn&&board[8]==this.turn) {
-							takeSquare(0);
-						} else if (board[0]==this.turn&&board[4]==this.turn&&board[8]==0) {
-							takeSquare(8);
-						} else if (board[2]==this.turn&&board[4]==0&&board[6]==this.turn) {
-							takeSquare(4);
-						} else if (board[2]==0&&board[4]==this.turn&&board[6]==this.turn) {
-							takeSquare(2);
-						} else if (board[2]==this.turn&&board[4]==this.turn&&board[6]==0) {
-							takeSquare(6);
-						// if the human player is one move from a possible win attempt to stop the win
-						} else if (board[0]!=this.turn&&board[0]!=0&&board[1]!=this.turn&&board[1]!=0&&board[2]==0) {
-							takeSquare(2);
-						} else if (board[0]!=this.turn&&board[0]!=0&&board[1]==0&&board[2]!=this.turn&&board[2]!=0) {
-							takeSquare(1);
-						} else if (board[0]==0&&board[1]!=this.turn&&board[1]!=0&&board[2]!=this.turn&&board[2]!=0) {
-							takeSquare(0);
-						} else if (board[3]!=this.turn&&board[3]!=0&&board[4]!=this.turn&&board[4]!=0&&board[5]==0) {
-							takeSquare(5);
-						} else if (board[3]!=this.turn&&board[3]!=0&&board[4]==0&&board[4]!=this.turn&&board[5]!=0) {
-							takeSquare(4);
-						} else if (board[3]==0&&board[4]!=this.turn&&board[4]!=0&&board[5]!=this.turn&&board[5]!=0) {
-							takeSquare(3);
-						} else if (board[6]!=this.turn&&board[6]!=0&&board[7]!=this.turn&&board[7]!=0&&board[8]==0) {
-							takeSquare(8);
-						} else if (board[6]!=this.turn&&board[6]!=0&&board[7]==0&&board[8]!=this.turn&&board[8]!=0) {
-							takeSquare(7);
-						} else if (board[6]==0&&board[7]!=this.turn&&board[7]!=0&&board[8]!=this.turn&&board[8]!=0) {
-							takeSquare(6);
-						} else if (board[0]!=this.turn&&board[0]!=0&&board[3]!=this.turn&&board[3]!=0&&board[6]==0) {
-							takeSquare(6);
-						} else if (board[0]!=this.turn&&board[0]!=0&&board[3]==0&&board[6]!=this.turn&&board[6]!=0) {
-							takeSquare(3);
-						} else if (board[0]==0&&board[3]!=this.turn&&board[3]!=0&&board[6]!=this.turn&&board[6]!=0) {
-							takeSquare(0);
-						} else if (board[1]!=this.turn&&board[1]!=0&&board[4]!=this.turn&&board[4]!=0&&board[7]==0) {
-							takeSquare(7);
-						} else if (board[1]!=this.turn&&board[1]!=0&&board[4]==0&&board[4]!=this.turn&&board[7]!=0) {
-							takeSquare(4);
-						} else if (board[1]==0&&board[4]!=this.turn&&board[4]!=0&&board[7]!=this.turn&&board[7]!=0) {
-							takeSquare(1);
-						} else if (board[2]!=this.turn&&board[2]!=0&&board[5]!=this.turn&&board[5]!=0&&board[8]==0) {
-							takeSquare(8);
-						} else if (board[2]!=this.turn&&board[2]!=0&&board[5]==0&&board[8]!=this.turn&&board[8]!=0) {
-							takeSquare(5);
-						} else if (board[2]==0&&board[5]!=this.turn&&board[5]!=0&&board[8]!=this.turn&&board[8]!=0) {
-							takeSquare(2);
-						} else if (board[0]!=this.turn&&board[0]!=0&&board[4]!=this.turn&&board[4]!=0&&board[8]==0) {
-							takeSquare(8);
-						} else if (board[0]!=this.turn&&board[0]!=0&&board[4]==0&&board[8]!=this.turn&&board[8]!=0) {
-							takeSquare(4);
-						} else if (board[0]==0&&board[4]!=0&&board[4]!=this.turn&&board[8]!=this.turn&&board[8]!=0) {
-							takeSquare(0);
-						} else if (board[2]!=this.turn&&board[2]!=0&&board[4]!=this.turn&&board[4]!=0&&board[6]==0) {
-							takeSquare(6);
-						} else if (board[2]!=this.turn&&board[2]!=0&&board[4]==0&&board[6]!=this.turn&&board[6]!=0) {
-							takeSquare(4);
-						} else if (board[2]==0&&board[4]!=0&&board[4]!=this.turn&&board[6]!=this.turn&&board[6]!=0) {
-							takeSquare(2);
-							// otherwise, try and take either a corner or the central position
-						} else {
-							var emptySquares=[];
-							for (var x=0; x<9; x+=2) {
-								if (board[x]==0) {
-									emptySquares.push(x);
-								}
-							}
-							var y=emptySquares.length;
-							if (y>0) {
-								var z=Math.floor(Math.random()*y);
-								this.takeSquare(emptySquares[z]);
-								// if no corners or central positions are available, take one of the remaining four positions randomly
-							} else {
-								var emptySquares=[];
-								for (var x=1; x<8; x+=2) {
-									if (board[x]==0) {
-										emptySquares.push(x);
-									}
-								}
-								var y=emptySquares.length;
-								if (y>0) {
-									var z=Math.floor(Math.random()*y);
-									this.takeSquare(emptySquares[z]);
-								}
-							}
-						}   
-					}, 1000);
+	doComputerAI = (miniMaxGame) => {
+		this.setState({aiInPlay:true});
+		console.log("Board[3] is: "+this.state.board[3]);
+		let board = [];
+		for (var i=0; i<9; i++) {
+			board[i]=this.state.board[i];	
+		}
+		//this.disableBoardButtons();TEMPORARILY DESABLED 27TH MARCH 2021
+		if (!miniMaxGame) {
+			setTimeout(function() {
+				// if a win is possible on the computer's move, take the win  
+				if (board[0]==this.turn&&board[1]==this.turn&&board[2]==0) {
+					takeSquare(2);
+				} else if (board[0]==0&&board[1]==this.turn&&board[2]==this.turn) {
+					takeSquare(0);
+				} else if (board[0]==this.turn&&board[1]==0&&board[2]==this.turn) {
+					takeSquare(1);
+				} else if (board[3]==this.turn&&board[4]==this.turn&&board[5]==0) {
+					takeSquare(5);
+				} else if (board[3]==0&&board[4]==this.turn&&board[5]==this.turn) {
+					takeSquare(3);
+				} else if (board[3]==this.turn&&board[4]==0&&board[5]==this.turn) {
+					takeSquare(4);
+				} else if (board[6]==this.turn&&board[7]==this.turn&&board[8]==0) {
+					takeSquare(8);
+				} else if (board[6]==0&&board[7]==this.turn&&board[8]==this.turn) {
+					takeSquare(6);
+				} else if (board[6]==this.turn&&board[7]==0&&board[8]==this.turn) {
+					takeSquare(7);
+				} else if (board[0]==this.turn&&board[3]==0&&board[6]==this.turn) {
+					takeSquare(3);
+				} else if (board[0]==0&&board[3]==this.turn&&board[6]==this.turn) {
+					takeSquare(0);
+				} else if (board[0]==this.turn&&board[3]==this.turn&&board[6]==0) {
+					takeSquare(6);
+				} else if (board[1]==this.turn&&board[4]==0&&board[7]==this.turn) {
+					takeSquare(4);
+				} else if (board[1]==0&&board[4]==this.turn&&board[7]==this.turn) {
+					takeSquare(1);
+				} else if (board[1]==this.turn&&board[4]==this.turn&&board[7]==0) {
+					takeSquare(7);
+				} else if (board[2]==this.turn&&board[5]==0&&board[8]==this.turn) {
+					takeSquare(5);
+				} else if (board[2]==0&&board[5]==this.turn&&board[8]==this.turn) {
+					takeSquare(2);
+				} else if (board[2]==this.turn&&board[5]==this.turn&&board[8]==0) {
+					takeSquare(8);
+				} else if (board[0]==this.turn&&board[4]==0&&board[8]==this.turn) {
+					takeSquare(4);
+				} else if (board[0]==0&&board[4]==this.turn&&board[8]==this.turn) {
+					takeSquare(0);
+				} else if (board[0]==this.turn&&board[4]==this.turn&&board[8]==0) {
+					takeSquare(8);
+				} else if (board[2]==this.turn&&board[4]==0&&board[6]==this.turn) {
+					takeSquare(4);
+				} else if (board[2]==0&&board[4]==this.turn&&board[6]==this.turn) {
+					takeSquare(2);
+				} else if (board[2]==this.turn&&board[4]==this.turn&&board[6]==0) {
+					takeSquare(6);
+				// if the human player is one move from a possible win attempt to stop the win
+				} else if (board[0]!=this.turn&&board[0]!=0&&board[1]!=this.turn&&board[1]!=0&&board[2]==0) {
+					takeSquare(2);
+				} else if (board[0]!=this.turn&&board[0]!=0&&board[1]==0&&board[2]!=this.turn&&board[2]!=0) {
+					takeSquare(1);
+				} else if (board[0]==0&&board[1]!=this.turn&&board[1]!=0&&board[2]!=this.turn&&board[2]!=0) {
+					takeSquare(0);
+				} else if (board[3]!=this.turn&&board[3]!=0&&board[4]!=this.turn&&board[4]!=0&&board[5]==0) {
+					takeSquare(5);
+				} else if (board[3]!=this.turn&&board[3]!=0&&board[4]==0&&board[4]!=this.turn&&board[5]!=0) {
+					takeSquare(4);
+				} else if (board[3]==0&&board[4]!=this.turn&&board[4]!=0&&board[5]!=this.turn&&board[5]!=0) {
+					takeSquare(3);
+				} else if (board[6]!=this.turn&&board[6]!=0&&board[7]!=this.turn&&board[7]!=0&&board[8]==0) {
+					takeSquare(8);
+				} else if (board[6]!=this.turn&&board[6]!=0&&board[7]==0&&board[8]!=this.turn&&board[8]!=0) {
+					takeSquare(7);
+				} else if (board[6]==0&&board[7]!=this.turn&&board[7]!=0&&board[8]!=this.turn&&board[8]!=0) {
+					takeSquare(6);
+				} else if (board[0]!=this.turn&&board[0]!=0&&board[3]!=this.turn&&board[3]!=0&&board[6]==0) {
+					takeSquare(6);
+				} else if (board[0]!=this.turn&&board[0]!=0&&board[3]==0&&board[6]!=this.turn&&board[6]!=0) {
+					takeSquare(3);
+				} else if (board[0]==0&&board[3]!=this.turn&&board[3]!=0&&board[6]!=this.turn&&board[6]!=0) {
+					takeSquare(0);
+				} else if (board[1]!=this.turn&&board[1]!=0&&board[4]!=this.turn&&board[4]!=0&&board[7]==0) {
+					takeSquare(7);
+				} else if (board[1]!=this.turn&&board[1]!=0&&board[4]==0&&board[4]!=this.turn&&board[7]!=0) {
+					takeSquare(4);
+				} else if (board[1]==0&&board[4]!=this.turn&&board[4]!=0&&board[7]!=this.turn&&board[7]!=0) {
+					takeSquare(1);
+				} else if (board[2]!=this.turn&&board[2]!=0&&board[5]!=this.turn&&board[5]!=0&&board[8]==0) {
+					takeSquare(8);
+				} else if (board[2]!=this.turn&&board[2]!=0&&board[5]==0&&board[8]!=this.turn&&board[8]!=0) {
+					takeSquare(5);
+				} else if (board[2]==0&&board[5]!=this.turn&&board[5]!=0&&board[8]!=this.turn&&board[8]!=0) {
+					takeSquare(2);
+				} else if (board[0]!=this.turn&&board[0]!=0&&board[4]!=this.turn&&board[4]!=0&&board[8]==0) {
+					takeSquare(8);
+				} else if (board[0]!=this.turn&&board[0]!=0&&board[4]==0&&board[8]!=this.turn&&board[8]!=0) {
+					takeSquare(4);
+				} else if (board[0]==0&&board[4]!=0&&board[4]!=this.turn&&board[8]!=this.turn&&board[8]!=0) {
+					takeSquare(0);
+				} else if (board[2]!=this.turn&&board[2]!=0&&board[4]!=this.turn&&board[4]!=0&&board[6]==0) {
+					takeSquare(6);
+				} else if (board[2]!=this.turn&&board[2]!=0&&board[4]==0&&board[6]!=this.turn&&board[6]!=0) {
+					takeSquare(4);
+				} else if (board[2]==0&&board[4]!=0&&board[4]!=this.turn&&board[6]!=this.turn&&board[6]!=0) {
+					takeSquare(2);
+					// otherwise, try and take either a corner or the central position
 				} else {
-					console.log("board: "+this.state.board+", boardState: "+this.state.boardState+", "+this.turn+"'s turn, minimax at top level, player "+this.turn);
-					//mm=[];
-					this.setState({boardState:this.state.board.slice(0)});
-					//result=-100;
-					//start the minimax algorithm at the top level, level 0
-					
-					
-						//minimaxScore = miniMax(turn, 0);
-					if (firstMove) {
-						//console.log(Math.floor(Math.random()*9));
-						takeSquare(Math.floor(Math.random()*9));
-						firstMove = false;
-					} else if (secondMove) {
-						if (this.state.board[4]==0) {
-							takeSquare(4);	
-						} else {
-							takeSquare(5);	
+					var emptySquares=[];
+					for (var x=0; x<9; x+=2) {
+						if (board[x]==0) {
+							emptySquares.push(x);
 						}
-						secondMove = false;
+					}
+					var y=emptySquares.length;
+					if (y>0) {
+						var z=Math.floor(Math.random()*y);
+						this.takeSquare(emptySquares[z]);
+						// if no corners or central positions are available, take one of the remaining four positions randomly
 					} else {
-						square = miniMax(this.turn, 0).bestSquare;	
-						
-						setTimeout(function() {
-						//console.log(turn +" took square "+bestSquare);
-							takeSquare(square);
-							
-						}, 1000);
-					}
-					
-					
-					/*	
-					console.log("minimax score: "+minimaxScore);	
-					var bestScore=-1;
-					var bestSquare;
-					for (var i=0; i < 9; i++) {
-						if (board[i]!="X" && board[i] != "O") {	// if I find an empty square
-							if (minimaxScore[i] > bestScore) {	
-								bestScore = minimaxScore[i];
-								bestSquare = i;
-							
+						var emptySquares=[];
+						for (var x=1; x<8; x+=2) {
+							if (board[x]==0) {
+								emptySquares.push(x);
 							}
-						}	
-					
-					}
-					*/
-						
-					
-				}
-			}
-			miniMax(turn, depth) {
-				//minimax algorithm
-				//for loop over 9 sq
-				//	add player2 (ai) to next available sq
-				//		check for winner
-				//		if no win minimax on other player
-				
-				var result=this.turn==player1?100:-100;
-				var latestResult=this.turn==player1?100:-100;
-				var bestSquare=0;
-				var newTurn;
-				console.log("new minimax on player "+turn+", depth is "+depth+", boardState: "+this.state.boardState);
-				
-				for (var i=0; i < 9; i++) {
-					//boardState=board.slice(0);
-					if (this.state.boardState[i]==0) {
-						console.log("minimax stage i= "+i+", about to set sq "+i+" to "+turn+", depth "+depth+", and check for win");
-						this.state.boardState[i]=turn;
-						// check for win - if X win return +1, if O win return -1
-						if (winner(turn, this.state.boardState)) {
-							console.log("winner will be "+turn);
-							//latestResult = turn==player2?1:-1;
-							latestResult = turn==player2?1:-1;
-							//depth++;
-							//boardState[i]=0;
-							//bestSquare=i;
-							//result = latestResult;
-							//return result;
-						}  else if (matchDrawn(this.state.boardState)) {
-							// if no win
-							console.log("full board - match drawn");
-							//boardState=board.slice(0);
-							latestResult = 0;
-							//depth++;
-							//boardState[i]=0;
-							/*if (latestResult>result) {
-								console.log("result bettered, best sq "+i);
-								result=latestResult;
-								//bestSquare=i;
-							}*/
-							//result = latestResult;
-							//return result;
-						} else {
-							console.log("winner unknown, changing turn in minimax");
-							//result=-1;
-							newTurn=turn=="X"?"O":"X";
-							depth++;
-							//var newResult;
-							//iterate over all remaining spaces on the board
-							//bestSquare = i;
-							
-							latestResult = miniMax(newTurn,  depth).result;
-							
-							console.log("minimax stage "+i+", depth is "+depth+", returned up from "+newTurn+", turn is "+turn+", latestResult "+latestResult);
-							
-							//if (newResult==null) continue;
-							//else if (newResult >=result) result=newResult;
-							/*if (latestResult>=result) {
-								result=latestResult;
-								bestSquare=i;
-							}*/
-							//console.log("returning minimax at level "+level+", result was "+result);
-							//return latestResult;
 						}
-						
-						let newArray = this.state.boardState;
-						newArray[i] = 0;
-						this.setState({boardState:newArray});
-						
-						console.log("minimax stage i= "+i+", depth "+depth+", reset sq to 0");
+						var y=emptySquares.length;
+						if (y>0) {
+							var z=Math.floor(Math.random()*y);
+							this.takeSquare(emptySquares[z]);
+						}
 					}
-					if (this.turn==player2 && latestResult>result) {		// if new turn is the computer, turn is player & wants to minimise his result 
-						console.log(player2+ " in play, result bettered, best sq "+i);
-						result=latestResult;
-						bestSquare=i;
-					} else if (this.turn==player1 && latestResult<result) {
-						console.log(player1+" in play, result bettered, best sq "+i);
-						result=latestResult;
-						bestSquare=i;
-					}
+				}   
+			}, 1000);
+		} else {
+			console.log("board: "+this.state.board+", boardState: "+this.state.boardState+", "+this.turn+"'s turn, minimax at top level, player "+this.turn);
+			this.setState({boardState:this.state.board.slice(0)});
+			//result=-100;
+			//start the minimax algorithm at the top level, level 0
 					
-					//console.log("outside recursion");
-					
-					
+			//minimaxScore = miniMax(turn, 0);
+			if (firstMove) {
+				//console.log(Math.floor(Math.random()*9));
+				takeSquare(Math.floor(Math.random()*9));
+				firstMove = false;
+			} else if (secondMove) {
+				if (this.state.board[4]==0) {
+					takeSquare(4);	
+				} else {
+					takeSquare(5);	
 				}
-				console.log("Finished minimax at depth "+depth+", about to return result of "+result+", best sq is "+bestSquare);
-				//boardState=board.slice(0);
-				
-				return {result, bestSquare};
+				secondMove = false;
+			} else {
+				square = miniMax(this.turn, 0).bestSquare;	
+						
+				setTimeout(function() {
+				//console.log(turn +" took square "+bestSquare);
+					takeSquare(square);
+							
+				}, 1000);
 			}
+					
+					
+			/*	
+			console.log("minimax score: "+minimaxScore);	
+			var bestScore=-1;
+			var bestSquare;
+			for (var i=0; i < 9; i++) {
+				if (board[i]!="X" && board[i] != "O") {	// if I find an empty square
+					if (minimaxScore[i] > bestScore) {	
+						bestScore = minimaxScore[i];
+						bestSquare = i;
+							
+					}
+				}	
+					
+			}
+			*/
+		}
+	}
+	miniMax(turn, depth) {
+		//minimax algorithm
+		//for loop over 9 sq
+		//	add player2 (ai) to next available sq
+		//		check for winner
+		//		if no win minimax on other player
+				
+		var result=this.turn==player1?100:-100;
+		var latestResult=this.turn==player1?100:-100;
+		var bestSquare=0;
+		var newTurn;
+		console.log("new minimax on player "+turn+", depth is "+depth+", boardState: "+this.state.boardState);
+				
+		for (var i=0; i < 9; i++) {
+			//boardState=board.slice(0);
+			if (this.state.boardState[i]==0) {
+				console.log("minimax stage i= "+i+", about to set sq "+i+" to "+turn+", depth "+depth+", and check for win");
+				this.state.boardState[i]=turn;
+				// check for win - if X win return +1, if O win return -1
+				if (winner(turn, this.state.boardState)) {
+					console.log("winner will be "+turn);
+					//latestResult = turn==player2?1:-1;
+					latestResult = turn==player2?1:-1;
+					//depth++;
+					//boardState[i]=0;
+					//bestSquare=i;
+					//result = latestResult;
+					//return result;
+				}  else if (matchDrawn(this.state.boardState)) {
+					// if no win
+					console.log("full board - match drawn");
+					//boardState=board.slice(0);
+					latestResult = 0;
+					//depth++;
+					//boardState[i]=0;
+					/*if (latestResult>result) {
+						console.log("result bettered, best sq "+i);
+						result=latestResult;
+						//bestSquare=i;
+					}*/
+					//result = latestResult;
+					//return result;
+				} else {
+					console.log("winner unknown, changing turn in minimax");
+					//result=-1;
+					newTurn=turn=="X"?"O":"X";
+					depth++;
+					//var newResult;
+					//iterate over all remaining spaces on the board
+					//bestSquare = i;
+							
+					latestResult = miniMax(newTurn,  depth).result;
+							
+					console.log("minimax stage "+i+", depth is "+depth+", returned up from "+newTurn+", turn is "+turn+", latestResult "+latestResult);
+							
+					//if (newResult==null) continue;
+					//else if (newResult >=result) result=newResult;
+					/*if (latestResult>=result) {
+						result=latestResult;
+						bestSquare=i;
+					}*/
+					//console.log("returning minimax at level "+level+", result was "+result);
+					//return latestResult;
+				}
+						
+				let newArray = this.state.boardState;
+				newArray[i] = 0;
+				this.setState({boardState:newArray});
+						
+				console.log("minimax stage i= "+i+", depth "+depth+", reset sq to 0");
+			}
+			if (this.turn==player2 && latestResult>result) {		// if new turn is the computer, turn is player & wants to minimise his result 
+				console.log(player2+ " in play, result bettered, best sq "+i);
+				result=latestResult;
+				bestSquare=i;
+			} else if (this.turn==player1 && latestResult<result) {
+				console.log(player1+" in play, result bettered, best sq "+i);
+				result=latestResult;
+				bestSquare=i;
+			}
+					
+			//console.log("outside recursion");
+					
+					
+		}
+		console.log("Finished minimax at depth "+depth+", about to return result of "+result+", best sq is "+bestSquare);
+		//boardState=board.slice(0);
+				
+		return {result, bestSquare};
+	}
 }
 ReactDOM.render (
     <Main />, 
