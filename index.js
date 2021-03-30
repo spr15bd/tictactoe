@@ -586,7 +586,7 @@ class Main extends React.Component {
 					if (y>0) {
 						var z=Math.floor(Math.random()*y);
 						console.log("This in doComputerAI() refers to "+this);
-						this.Main.takeSquare(emptySquares[z]);
+						this.takeSquare(emptySquares[z]);
 						// if no corners or central positions are available, take one of the remaining four positions randomly
 					} else {
 						var emptySquares=[];
@@ -602,7 +602,7 @@ class Main extends React.Component {
 						}
 					}
 				}   
-			}, 1000);
+			}.bind(this), 1000);
 		} else {
 			console.log("board: "+this.state.board+", boardState: "+this.state.boardState+", "+this.turn+"'s turn, minimax at top level, player "+this.turn);
 			this.setState({boardState:this.state.board.slice(0)});
