@@ -448,20 +448,22 @@ class Main extends React.Component {
 
 	takeSquare = (squareNumber) => {
 		console.log("Taking square.");
-		this.state.board[squareNumber]=this.turn;
-		//boardState[squareNumber]=turn;
+		let newBoard = this.state.board;
+		newBoard[squareNumber] = this.turn;
+      		this.setState({board:newBoard});
 		this.setState({boardState:this.state.board.slice(0)});
 		console.log("square taken - board is now "+this.state.board+", boardState is now "+this.state.boardState);
-		$("#square"+squareNumber).text(this.turn);
-		enableBoardButtons();
-		changeTurns();
+		//$("#square"+squareNumber).text(this.turn);
+		this.enableBoardButtons();
+		this.changeTurns();
 	}
 
 	playerTakeSquare(squareNumber) {
 		if (this.state.board[squareNumber]==0) {
-      			//this.
-      			this.state.board[squareNumber]=this.turn;
-			this.state.boardState[0]=this.turn;
+      			let newBoard = this.state.board;
+			newBoard[squareNumber] = this.turn;
+      			this.setState({board:newBoard});
+			//this.state.boardState[0]=this.turn;
       			this.changeTurns();
     		}
 	}
