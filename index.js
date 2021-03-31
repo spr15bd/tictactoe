@@ -364,18 +364,18 @@ class Main extends React.Component {
 	// check the status of the board, if no result swap players
 	changeTurns() {
 		console.log("changing turn, from "+this.turn);
-  		if (winner("X", board)||winner("O", board)) {
-    			doVictory();
-  		} else if (matchDrawn(board)) {
-    			doDraw();
-		} else if (this.turn==player1) {
-			this.turn=player2;
+  		if (this.winner("X", this.state.board)||this.winner("O", this.state.board)) {
+    			this.doVictory();
+  		} else if (this.matchDrawn(this.state.board)) {
+    			this.doDraw();
+		} else if (this.turn==this.state.playerOne) {
+			this.turn=this.state.playerTwo;
 			//this.setState({aiInPlay:!aiInPlay});
-			if (onePlayerGame) {
-				doComputerAI(miniMaxGame);
+			if (this.state.onePlayerGame) {
+				this.doComputerAI(this.state.miniMaxGame);
 			}
-		} else if (this.turn==player2) {
-			this.turn=player1;
+		} else if (this.turn==this.state.playerTwo) {
+			this.turn=this.state.playerOne;
 		}
 	}
 
@@ -402,7 +402,7 @@ class Main extends React.Component {
 	doVictory() {
 		$("#game-over").text(turn+" wins");
 		$("#game-over").show();
-		if (turn==player1) {
+		if (this.turn==this.state.playerOne) {
 			playerOneWins++;
 		} else {
 			playerTwoWins++;
