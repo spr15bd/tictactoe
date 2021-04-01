@@ -75,15 +75,15 @@ class Main extends React.Component {
 			console.log("board[0] is "+this.state.board[0]);
 		} else if (this.state.inPlay) {
 			choices.push(	<div>	
-						<a id="square0" onClick={() => this.playerTakeSquare(0)}>{this.state.board[0]==0?"":this.state.board[0]}</a>
-						<a id="square1" onClick={() => this.playerTakeSquare(1)}>{this.state.board[1]==0?"":this.state.board[1]}</a>
-						<a id="square2" onClick={() => this.playerTakeSquare(2)}>{this.state.board[2]==0?"":this.state.board[2]}</a>
-						<a id="square3" onClick={() => this.playerTakeSquare(3)}>{this.state.board[3]==0?"":this.state.board[3]}</a>
-						<a id="square4" onClick={() => this.playerTakeSquare(4)}>{this.state.board[4]==0?"":this.state.board[4]}</a>
-						<a id="square5" onClick={() => this.playerTakeSquare(5)}>{this.state.board[5]==0?"":this.state.board[5]}</a>
-						<a id="square6" onClick={() => this.playerTakeSquare(6)}>{this.state.board[6]==0?"":this.state.board[6]}</a>
-						<a id="square7" onClick={() => this.playerTakeSquare(7)}>{this.state.board[7]==0?"":this.state.board[7]}</a>
-						<a id="square8" onClick={() => this.playerTakeSquare(8)}>{this.state.board[8]==0?"":this.state.board[8]}</a>
+						<a id="square0" onClick={() => this.playerTakeSquare(0)}>{this.state.board[0]}</a>
+						<a id="square1" onClick={() => this.playerTakeSquare(1)}>{this.state.board[1]}</a>
+						<a id="square2" onClick={() => this.playerTakeSquare(2)}>{this.state.board[2]}</a>
+						<a id="square3" onClick={() => this.playerTakeSquare(3)}>{this.state.board[3]}</a>
+						<a id="square4" onClick={() => this.playerTakeSquare(4)}>{this.state.board[4]}</a>
+						<a id="square5" onClick={() => this.playerTakeSquare(5)}>{this.state.board[5]}</a>
+						<a id="square6" onClick={() => this.playerTakeSquare(6)}>{this.state.board[6]}</a>
+						<a id="square7" onClick={() => this.playerTakeSquare(7)}>{this.state.board[7]}</a>
+						<a id="square8" onClick={() => this.playerTakeSquare(8)}>{this.state.board[8]}</a>
 					</div>
 			); 
 			imageDisplayed.push(
