@@ -462,6 +462,7 @@ class Main extends React.Component {
 		if (this.state.board[squareNumber]==0) {
       			let newBoard = this.state.board;
 			newBoard[squareNumber] = this.turn;
+			console.log("NewBoard is "+newBoard);
       			this.setState({board:newBoard});
 			//this.state.boardState[0]=this.turn;
       			this.changeTurns();
