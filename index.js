@@ -471,7 +471,7 @@ class Main extends React.Component {
 
 	doComputerAI = (miniMaxGame) => {
 		this.setState({aiInPlay:true});
-		console.log("Board[3] is: "+this.state.board[3]);
+		console.log("Board[3] is: "+this.state.board[3]+", this.state.playerOne is "+this.state.playerOne);
 		let board = [];
 		for (var i=0; i<9; i++) {
 			board[i]=this.state.board[i];	
