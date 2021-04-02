@@ -218,8 +218,7 @@ class Main extends React.Component {
 				 	inPlay:true,
 				 	xOrYOptionsDisplayed: false
 				});
-    		console.log(this.state.playerOne);	
-		//this.takeSquare(2);
+    		console.log(this.state.playerOne);
     		this.playGame();
 	}
 
@@ -265,6 +264,7 @@ class Main extends React.Component {
   		$("#player-two-score").show();
   		if (Math.random(0,1)<0.5) {
     			this.turn=this.state.playerOne;
+			console.log("Player One is "+this.turn);
 			this.state.secondMove = true;
   		} else {
     			this.turn=this.state.playerTwo;
