@@ -217,9 +217,9 @@ class Main extends React.Component {
 					playerTwo:str=="X"?"O":"X",
 				 	inPlay:true,
 				 	xOrYOptionsDisplayed: false
-				}, () => console.log("choosePlayer(str): this.state.playerOne updated to "+this.state.playerOne));
+				}, () => this.playGame());
     		console.log("choosePlayer(str): Player One is "+this.state.playerOne);
-    		this.playGame();
+    		
 	}
 
 	back() {
