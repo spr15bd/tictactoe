@@ -521,44 +521,44 @@ class Main extends React.Component {
 				} else if (board[0]==0&&board[4]==this.turn&&board[8]==this.turn) {
 					this.takeSquare(0);
 				} else if (board[0]==this.turn&&board[4]==this.turn&&board[8]==0) {
-					takeSquare(8);
+					this.takeSquare(8);
 				} else if (board[2]==this.turn&&board[4]==0&&board[6]==this.turn) {
-					takeSquare(4);
+					this.takeSquare(4);
 				} else if (board[2]==0&&board[4]==this.turn&&board[6]==this.turn) {
-					takeSquare(2);
+					this.takeSquare(2);
 				} else if (board[2]==this.turn&&board[4]==this.turn&&board[6]==0) {
-					takeSquare(6);
+					this.takeSquare(6);
 				// if the human player is one move from a possible win attempt to stop the win
 				} else if (board[0]!=this.turn&&board[0]!=0&&board[1]!=this.turn&&board[1]!=0&&board[2]==0) {
-					takeSquare(2);
+					this.takeSquare(2);
 				} else if (board[0]!=this.turn&&board[0]!=0&&board[1]==0&&board[2]!=this.turn&&board[2]!=0) {
-					takeSquare(1);
+					this.takeSquare(1);
 				} else if (board[0]==0&&board[1]!=this.turn&&board[1]!=0&&board[2]!=this.turn&&board[2]!=0) {
-					takeSquare(0);
+					this.takeSquare(0);
 				} else if (board[3]!=this.turn&&board[3]!=0&&board[4]!=this.turn&&board[4]!=0&&board[5]==0) {
-					takeSquare(5);
+					this.takeSquare(5);
 				} else if (board[3]!=this.turn&&board[3]!=0&&board[4]==0&&board[4]!=this.turn&&board[5]!=0) {
-					takeSquare(4);
+					this.takeSquare(4);
 				} else if (board[3]==0&&board[4]!=this.turn&&board[4]!=0&&board[5]!=this.turn&&board[5]!=0) {
-					takeSquare(3);
+					this.takeSquare(3);
 				} else if (board[6]!=this.turn&&board[6]!=0&&board[7]!=this.turn&&board[7]!=0&&board[8]==0) {
-					takeSquare(8);
+					this.takeSquare(8);
 				} else if (board[6]!=this.turn&&board[6]!=0&&board[7]==0&&board[8]!=this.turn&&board[8]!=0) {
-					takeSquare(7);
+					this.takeSquare(7);
 				} else if (board[6]==0&&board[7]!=this.turn&&board[7]!=0&&board[8]!=this.turn&&board[8]!=0) {
-					takeSquare(6);
+					this.takeSquare(6);
 				} else if (board[0]!=this.turn&&board[0]!=0&&board[3]!=this.turn&&board[3]!=0&&board[6]==0) {
-					takeSquare(6);
+					this.takeSquare(6);
 				} else if (board[0]!=this.turn&&board[0]!=0&&board[3]==0&&board[6]!=this.turn&&board[6]!=0) {
-					takeSquare(3);
+					this.takeSquare(3);
 				} else if (board[0]==0&&board[3]!=this.turn&&board[3]!=0&&board[6]!=this.turn&&board[6]!=0) {
-					takeSquare(0);
+					this.takeSquare(0);
 				} else if (board[1]!=this.turn&&board[1]!=0&&board[4]!=this.turn&&board[4]!=0&&board[7]==0) {
-					takeSquare(7);
+					this.takeSquare(7);
 				} else if (board[1]!=this.turn&&board[1]!=0&&board[4]==0&&board[4]!=this.turn&&board[7]!=0) {
-					takeSquare(4);
+					this.takeSquare(4);
 				} else if (board[1]==0&&board[4]!=this.turn&&board[4]!=0&&board[7]!=this.turn&&board[7]!=0) {
-					takeSquare(1);
+					this.takeSquare(1);
 				} else if (board[2]!=this.turn&&board[2]!=0&&board[5]!=this.turn&&board[5]!=0&&board[8]==0) {
 					takeSquare(8);
 				} else if (board[2]!=this.turn&&board[2]!=0&&board[5]==0&&board[8]!=this.turn&&board[8]!=0) {
