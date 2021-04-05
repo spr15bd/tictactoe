@@ -560,23 +560,23 @@ class Main extends React.Component {
 				} else if (board[1]==0&&board[4]!=this.turn&&board[4]!=0&&board[7]!=this.turn&&board[7]!=0) {
 					this.takeSquare(1);
 				} else if (board[2]!=this.turn&&board[2]!=0&&board[5]!=this.turn&&board[5]!=0&&board[8]==0) {
-					takeSquare(8);
+					this.takeSquare(8);
 				} else if (board[2]!=this.turn&&board[2]!=0&&board[5]==0&&board[8]!=this.turn&&board[8]!=0) {
-					takeSquare(5);
+					this.takeSquare(5);
 				} else if (board[2]==0&&board[5]!=this.turn&&board[5]!=0&&board[8]!=this.turn&&board[8]!=0) {
-					takeSquare(2);
+					this.takeSquare(2);
 				} else if (board[0]!=this.turn&&board[0]!=0&&board[4]!=this.turn&&board[4]!=0&&board[8]==0) {
-					takeSquare(8);
+					this.takeSquare(8);
 				} else if (board[0]!=this.turn&&board[0]!=0&&board[4]==0&&board[8]!=this.turn&&board[8]!=0) {
-					takeSquare(4);
+					this.takeSquare(4);
 				} else if (board[0]==0&&board[4]!=0&&board[4]!=this.turn&&board[8]!=this.turn&&board[8]!=0) {
-					takeSquare(0);
+					this.takeSquare(0);
 				} else if (board[2]!=this.turn&&board[2]!=0&&board[4]!=this.turn&&board[4]!=0&&board[6]==0) {
-					takeSquare(6);
+					this.takeSquare(6);
 				} else if (board[2]!=this.turn&&board[2]!=0&&board[4]==0&&board[6]!=this.turn&&board[6]!=0) {
-					takeSquare(4);
+					this.takeSquare(4);
 				} else if (board[2]==0&&board[4]!=0&&board[4]!=this.turn&&board[6]!=this.turn&&board[6]!=0) {
-					takeSquare(2);
+					this.takeSquare(2);
 					// otherwise, try and take either a corner or the central position
 				} else {
 					var emptySquares=[];
