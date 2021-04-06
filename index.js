@@ -75,8 +75,8 @@ class Main extends React.Component {
 			console.log("board[0] is "+this.state.board[0]);
 		} else if (this.state.inPlay) {
 			choices.push(	<div>	
-						<a id="square0" onClick={() => this.playerTakeSquare(0)}>{this.state.board[0]}</a>
-						<a id="square1" onClick={() => this.playerTakeSquare(1)}>{this.state.board[1]}</a>
+						<a id="square0" onClick={() => this.playerTakeSquare(0)}>{this.state.board[0]=="0"?"":this.state.board[0]}</a>
+						<a id="square1" onClick={() => this.playerTakeSquare(1)}>{this.state.board[1]=="0"?"":this.state.board[1]}</a>
 						<a id="square2" onClick={() => this.playerTakeSquare(2)}>{this.state.board[2]}</a>
 						<a id="square3" onClick={() => this.playerTakeSquare(3)}>{this.state.board[3]}</a>
 						<a id="square4" onClick={() => this.playerTakeSquare(4)}>{this.state.board[4]}</a>
