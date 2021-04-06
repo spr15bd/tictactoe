@@ -446,7 +446,7 @@ class Main extends React.Component {
 		$("#over").remove();
 	}
 
-	takeSquare = (squareNumber) => {
+	takeSquare(squareNumber) {
 		console.log("Taking square.");
 		let newBoard = this.state.board;
 		newBoard[squareNumber] = this.turn;
@@ -454,12 +454,13 @@ class Main extends React.Component {
 		this.setState({boardState:this.state.board.slice(0)});
 		console.log("square taken - board is now "+this.state.board+", boardState is now "+this.state.boardState);
 		//$("#square"+squareNumber).text(this.turn);
-		this.enableBoardButtons();
+		//this.enableBoardButtons();TEMPORARILY DISABLED 06/04/21
 		this.changeTurns();
 	}
 
 	playerTakeSquare(squareNumber) {
-		if (this.state.board[squareNumber]==0) {
+		// player can take a square only of the square is currently emply and it's their turn, not the computer
+		if (this.state.board[squareNumber]==0 && this.turn == this.state.playerOne) {
       			let newBoard = this.state.board;
 			newBoard[squareNumber] = this.turn;
 			console.log("NewBoard is "+newBoard);
