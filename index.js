@@ -421,13 +421,13 @@ class Main extends React.Component {
 	doDraw() {
 		$("#game-over").text("Match drawn");
 		$("#game-over").show();
-		disableBoardButtons();
+		//disableBoardButtons();
 		timeout = setTimeout(function() {
 			resetBoard();
 			$("#game-over").fadeOut();
-			enableBoardButtons();
+			//enableBoardButtons();
 			playGame();
-		}, 5000);
+		}.bind(this), 5000);
 	}
 
 	resetBoard() {
@@ -614,9 +614,9 @@ class Main extends React.Component {
 			//start the minimax algorithm at the top level, level 0
 					
 			//minimaxScore = miniMax(turn, 0);
-			if (firstMove) {
+			if (this.state.firstMove) {
 				//console.log(Math.floor(Math.random()*9));
-				takeSquare(Math.floor(Math.random()*9));
+				this.takeSquare(Math.floor(Math.random()*9));
 				firstMove = false;
 			} else if (secondMove) {
 				if (this.state.board[4]==0) {
