@@ -421,14 +421,15 @@ class Main extends React.Component {
 	}
 
 	doDraw() {
-		$("#game-over").text("Match drawn");
-		$("#game-over").show();
+		//$("#game-over").text("Match drawn");
+		//$("#game-over").show();
+		this.state.message="Match drawn");
 		//disableBoardButtons();
-		timeout = setTimeout(function() {
-			resetBoard();
+		setTimeout(function() {
+			this.resetBoard();
 			$("#game-over").fadeOut();
 			//enableBoardButtons();
-			playGame();
+			this.playGame();
 		}.bind(this), 5000);
 	}
 
