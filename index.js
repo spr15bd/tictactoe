@@ -16,7 +16,8 @@ class Main extends React.Component {
 			board:[0,0,0,0,0,0,0,0,0],
 			boardState:[0,0,0,0,0,0,0,0,0],
 			square:0,
-			timeout:0
+			timeout:0,
+			message=""
     		};
 		
 		//this.doComputerAI= this.doComputerAI.bind(this);
@@ -74,6 +75,7 @@ class Main extends React.Component {
 			);
 			console.log("board[0] is "+this.state.board[0]);
 		} else if (this.state.inPlay) {
+			message.push(this.state.message);
 			choices.push(	<div>	
 						<a id="square0" onClick={() => this.playerTakeSquare(0)}>{this.state.board[0]=="0"?"":this.state.board[0]}</a>
 						<a id="square1" onClick={() => this.playerTakeSquare(1)}>{this.state.board[1]=="0"?"":this.state.board[1]}</a>
@@ -102,7 +104,7 @@ class Main extends React.Component {
     					<a id="reset">Reset</a>
                     			{heading}
     					{choices}
-    					<a id="game-over"></a>
+    					<a id="game-over">{message}</a>
     					
 					
 					{back}
