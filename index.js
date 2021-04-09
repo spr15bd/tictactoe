@@ -17,7 +17,7 @@ class Main extends React.Component {
 			boardState:[0,0,0,0,0,0,0,0,0],
 			square:0,
 			timeout:0,
-			message=""
+			message:""
     		};
 		
 		//this.doComputerAI= this.doComputerAI.bind(this);
