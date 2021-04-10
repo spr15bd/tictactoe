@@ -405,7 +405,7 @@ class Main extends React.Component {
 	}
 
 	doVictory() {
-		this.state.message="Match drawn";
+		this.state.message=this.turn+" won";
 		if (this.turn==this.state.playerOne) {
 			this.state.playerOneWins++;
 		} else {
