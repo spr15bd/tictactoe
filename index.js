@@ -416,7 +416,7 @@ class Main extends React.Component {
 		//disableBoardButtons();
 		setTimeout(function() {
 			this.resetBoard();
-			$("#game-over").fadeOut();
+			//$("#game-over").fadeOut();
 			this.playGame();
 		}.bind(this), 5000);
 	}
