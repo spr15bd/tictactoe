@@ -403,21 +403,19 @@ class Main extends React.Component {
 	}
 
 	doVictory() {
-		$("#game-over").text(turn+" wins");
-		$("#game-over").show();
+		this.state.message="Match drawn";
 		if (this.turn==this.state.playerOne) {
-			playerOneWins++;
+			this.state.playerOneWins++;
 		} else {
-			playerTwoWins++;
+			this.state.playerTwoWins++;
 		}
-		$("#player-one-score").text(playerOneWins);
-		$("#player-two-score").text(playerTwoWins);
-		disableBoardButtons();
-		timeout = setTimeout(function() {
-			resetBoard();
-			enableBoardButtons();
+		$("#player-one-score").text(this.state.playerOneWins);
+		$("#player-two-score").text(this.state.playerTwoWins);
+		//disableBoardButtons();
+		setTimeout(function() {
+			this.resetBoard();
 			$("#game-over").fadeOut();
-			playGame();
+			this.playGame();
 		}, 5000);
 	}
 
