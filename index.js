@@ -416,7 +416,7 @@ class Main extends React.Component {
 		//disableBoardButtons();
 		setTimeout(function() {
 			this.resetBoard();
-			//$("#game-over").fadeOut();
+			this.state.message = "";
 			this.playGame();
 		}.bind(this), 5000);
 	}
@@ -428,8 +428,7 @@ class Main extends React.Component {
 		//disableBoardButtons();
 		setTimeout(function() {
 			this.resetBoard();
-			//$("#game-over").fadeOut();
-			//enableBoardButtons();
+			this.state.message="";
 			this.playGame();
 		}.bind(this), 5000);
 	}
