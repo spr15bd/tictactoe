@@ -13,6 +13,8 @@ class Main extends React.Component {
 			miniMaxGame:false,
 			playerOne:"",
 			playerTwo:"",
+			playerOneWins:0,
+			playerTwoWins:0,
 			board:[0,0,0,0,0,0,0,0,0],
 			boardState:[0,0,0,0,0,0,0,0,0],
 			square:0,
@@ -416,7 +418,7 @@ class Main extends React.Component {
 			this.resetBoard();
 			$("#game-over").fadeOut();
 			this.playGame();
-		}, 5000);
+		}.bind(this), 5000);
 	}
 
 	doDraw() {
