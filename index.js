@@ -403,7 +403,9 @@ class Main extends React.Component {
 	}
 
 	doVictory() {
-		this.state.message=this.turn+" won";
+		this.setState({
+			message:this.turn+" won"
+		});
 		if (this.turn==this.state.playerOne) {
 			this.state.playerOneWins++;
 		} else {
@@ -420,9 +422,9 @@ class Main extends React.Component {
 	}
 
 	doDraw() {
-		//$("#game-over").text("Match drawn");
-		//$("#game-over").show();
-		this.state.message="Match drawn";
+		this.setState({
+			message:"Match drawn"
+		});
 		//disableBoardButtons();
 		setTimeout(function() {
 			this.resetBoard();
