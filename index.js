@@ -51,6 +51,7 @@ class Main extends React.Component {
         	let twoPlayer= [];
 		let imageDisplayed=[];
 		let back = [];
+		let reset = [];
 		
         	if (this.state.titleDisplayed) {
             		heading.push(<h2>How do you want to play?</h2>);
@@ -94,6 +95,7 @@ class Main extends React.Component {
 			imageDisplayed.push(
 				<img src="https://8lvjog-db3pap001.files.1drv.com/y4maLqZBnVA48r6inDcZV4ALGUE-aRn2LggjvNxaNaHLtk-VU1XAvRILb4Z8BiCNIxxoMekyNkr1HRpkjeVy3A2vkUDEntuQcdSFOufHEVxNvPIqedMFNbeflXkcOkwNRph1FMbeFbCzVqlBstEWiwvdGLmG_-oWscN22bzi_00RNFhqXeGrwtpQiOUOtzxUW1kj1Z1sApUqCyBd8FtZp3VkA?width=435&height=435&cropmode=none"></img>
 			);
+			reset.push(	<a id="reset">Reset</a>);
 		}
 		
         	boardDisplay.push(
@@ -104,7 +106,7 @@ class Main extends React.Component {
     					<label id="player-two">Player 2</label>
     					<label id="player-one-score">0</label>
     					<label id="player-two-score">0</label>
-    					<a id="reset">Reset</a>
+					{reset}
                     			{heading}
     					{choices}
     					<a id="game-over">{this.state.message}</a>
