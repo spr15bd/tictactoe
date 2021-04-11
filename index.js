@@ -407,9 +407,9 @@ class Main extends React.Component {
 			message:this.turn+" won"
 		});
 		if (this.turn==this.state.playerOne) {
-			this.state.playerOneWins++;
+			this.setState({playerOneWins:this.state.playerOneWins+1});
 		} else {
-			this.state.playerTwoWins++;
+			this.setState({playerTwoWins:this.state.playerTwoWins+1});
 		}
 		//$("#player-one-score").text(this.state.playerOneWins);
 		//$("#player-two-score").text(this.state.playerTwoWins);
