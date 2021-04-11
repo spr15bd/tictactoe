@@ -409,8 +409,8 @@ class Main extends React.Component {
 		} else {
 			this.state.playerTwoWins++;
 		}
-		$("#player-one-score").text(this.state.playerOneWins);
-		$("#player-two-score").text(this.state.playerTwoWins);
+		//$("#player-one-score").text(this.state.playerOneWins);
+		//$("#player-two-score").text(this.state.playerTwoWins);
 		//disableBoardButtons();
 		setTimeout(function() {
 			this.resetBoard();
