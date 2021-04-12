@@ -104,8 +104,8 @@ class Main extends React.Component {
 					{imageDisplayed}
     					<label id="player-one">Player 1</label>
     					<label id="player-two">Player 2</label>
-    					<label id="player-one-score">0</label>
-    					<label id="player-two-score">0</label>
+    					<label id="player-one-score">{this.state.playerOneWins}</label>
+    					<label id="player-two-score">{this.state.playerTwoWins}</label>
 					{reset}
                     			{heading}
     					{choices}
