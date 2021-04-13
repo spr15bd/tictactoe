@@ -41,10 +41,7 @@ class Main extends React.Component {
 		*/
  	}
     	render() {
-		
-		
-		
-        	let boardDisplay = [];
+		let boardDisplay = [];
         	let heading = [];
         	let choices = [];
 		let board = [];
@@ -240,16 +237,18 @@ class Main extends React.Component {
 		this.setState({	
 			firstMove:false,
 			secondMove:false,
-			miniMaxGame:false
+			miniMaxGame:false,
+			titleDisplayed:true,
+			inPlay:false
 		});
 		//playerOne="", playerTwo="", playerOneWins=0, playerTwoWins=0;
-  		$("#player-one-score, #player-two-score").text("0");
+  		//$("#player-one-score, #player-two-score").text("0");
   		//$("img").attr("src","https://8bvjog-db3pap001.files.1drv.com/y4m3NWJJOBI7QHptRE2J5YOzx19zJU3rNs2j9S7wG2x9RTS7hXwL1gnXwyA0MBeW8CRyQ699a8CmGR-nnmQKmHkyG4i0V7w-l53X9AmvjNiWaTQbu7Zp4jMrnpRVIrr42fi6Zh9B2xAOtbxXOwnY_HLVLrbMCRxN5WMAdhrkwZnaHfD_7rEJPgwnqRRT9C_lDeeMc2KdjNHyQRymtGMs-UjGw?width=435&height=435&cropmode=none");
-  		$("h2").css({"text-align":"center", "position":"absolute", "left":"70px","top":"100px","display":"none"});
-  		$("h2, #one-player, #two-player").css({"display":"none"});
-  		$("h2").text("How do you want to play?");
-  		$("h2, #one-player, #one-player-minimax, #two-player").fadeIn(1000);
-  		this.setState({board:[0,0,0,0,0,0,0,0,0]});
+  		//$("h2").css({"text-align":"center", "position":"absolute", "left":"70px","top":"100px","display":"none"});
+  		//$("h2, #one-player, #two-player").css({"display":"none"});
+  		//$("h2").text("How do you want to play?");
+  		//$("h2, #one-player, #one-player-minimax, #two-player").fadeIn(1000);
+  		//this.setState({board:[0,0,0,0,0,0,0,0,0]});
 	}	
   
 	playGame() { 
