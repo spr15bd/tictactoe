@@ -239,7 +239,9 @@ class Main extends React.Component {
 			secondMove:false,
 			miniMaxGame:false,
 			titleDisplayed:true,
-			inPlay:false
+			inPlay:false,
+			playerOneWins:0,
+			playerTwoWins:0
 		});
 		//playerOne="", playerTwo="", playerOneWins=0, playerTwoWins=0;
   		//$("#player-one-score, #player-two-score").text("0");
