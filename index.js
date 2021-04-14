@@ -241,7 +241,8 @@ class Main extends React.Component {
 			titleDisplayed:true,
 			inPlay:false,
 			playerOneWins:0,
-			playerTwoWins:0
+			playerTwoWins:0,
+			board:[0,0,0,0,0,0,0,0,0]
 		});
 		//playerOne="", playerTwo="", playerOneWins=0, playerTwoWins=0;
   		//$("#player-one-score, #player-two-score").text("0");
