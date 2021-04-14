@@ -28,17 +28,6 @@ class Main extends React.Component {
         	// global variables
 		
 		this.turn="";
-		/*
-        	let firstMove = false;
-		let secondMove = false;
-		let onePlayerGame=false;
-		let miniMaxGame=false;
-		let playerOne="", playerTwo="", playerOneWins=0, playerTwoWins=0;
-		//var board=[0,0,0,0,0,0,0,0,0];
-		//var boardState=[0,0,0,0,0,0,0,0,0];
-		var square;
-		var timeout;
-		*/
  	}
     	render() {
 		let boardDisplay = [];
@@ -619,14 +608,18 @@ class Main extends React.Component {
 			if (this.state.firstMove) {
 				//console.log(Math.floor(Math.random()*9));
 				this.takeSquare(Math.floor(Math.random()*9));
-				firstMove = false;
+				this.setState({
+					firstMove:false
+				});
 			} else if (secondMove) {
 				if (this.state.board[4]==0) {
 					takeSquare(4);	
 				} else {
 					takeSquare(5);	
 				}
-				secondMove = false;
+				this.setState({
+					secondMove:false
+				});
 			} else {
 				square = miniMax(this.turn, 0).bestSquare;	
 						
