@@ -621,13 +621,13 @@ class Main extends React.Component {
 					secondMove:false
 				});
 			} else {
-				square = miniMax(this.turn, 0).bestSquare;	
+				square = this.miniMax(this.turn, 0).bestSquare;	
 						
 				setTimeout(function() {
 				//console.log(turn +" took square "+bestSquare);
 					takeSquare(square);
 							
-				}, 1000);
+				}.bind(this), 1000);
 			}
 					
 					
