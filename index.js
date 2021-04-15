@@ -611,7 +611,7 @@ class Main extends React.Component {
 				this.setState({
 					firstMove:false
 				});
-			} else if (secondMove) {
+			} else if (this.state.secondMove) {
 				if (this.state.board[4]==0) {
 					takeSquare(4);	
 				} else {
