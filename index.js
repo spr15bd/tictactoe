@@ -613,15 +613,15 @@ class Main extends React.Component {
 				});
 			} else if (this.state.secondMove) {
 				if (this.state.board[4]==0) {
-					takeSquare(4);	
+					this.takeSquare(4);	
 				} else {
-					takeSquare(5);	
+					this.takeSquare(5);	
 				}
 				this.setState({
 					secondMove:false
 				});
 			} else {
-				square = this.miniMax(this.turn, 0).bestSquare;	
+				let square = this.miniMax(this.turn, 0).bestSquare;	
 						
 				setTimeout(function() {
 				//console.log(turn +" took square "+bestSquare);
