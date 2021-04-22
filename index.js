@@ -719,11 +719,11 @@ class Main extends React.Component {
 						
 				console.log("minimax stage i= "+i+", depth "+depth+", reset sq to 0");
 			}
-			if (this.turn==this.state.playerTwo && latestResult>result) {		// if new turn is the computer, turn is player & wants to minimise his result 
+			if (turn==this.state.playerTwo && latestResult>result) {		// if new turn is the computer, turn is player & wants to minimise his result 
 				console.log(this.state.playerTwo+ " in play, result bettered, best sq "+i);
 				result=latestResult;
 				bestSquare=i;
-			} else if (this.turn==this.state.playerOne && latestResult<result) {
+			} else if (turn==this.state.playerOne && latestResult<result) {
 				console.log(this.state.playerOne+" in play, result bettered, best sq "+i);
 				result=latestResult;
 				bestSquare=i;
