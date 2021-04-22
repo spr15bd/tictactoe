@@ -655,8 +655,8 @@ class Main extends React.Component {
 		//		check for winner
 		//		if no win minimax on other player
 				
-		var result=this.turn==this.state.playerOne?100:-100;
-		var latestResult=this.turn==this.state.playerOne?100:-100;
+		var result=turn==this.state.playerOne?100:-100;
+		var latestResult=turn==this.state.playerOne?100:-100;
 		var bestSquare=0;
 		var newTurn;
 		console.log("new minimax on player "+turn+", depth is "+depth+", boardState: "+this.state.boardState);
