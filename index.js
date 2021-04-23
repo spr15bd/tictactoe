@@ -441,12 +441,16 @@ class Main extends React.Component {
 		console.log("Taking square.");
 		let newBoard = this.state.board;
 		newBoard[squareNumber] = this.turn;
-      		this.setState({board:newBoard});
-		this.setState({boardState:this.state.board.slice(0)});
+      		this.setState({board:newBoard}, function() {
+			this.setState({boardState:this.state.board.slice(0)}, function() {
+				this.changeTurns();
+			});
+		});
+		
 		console.log("square taken - board is now "+this.state.board+", boardState is now "+this.state.boardState);
 		//$("#square"+squareNumber).text(this.turn);
 		//this.enableBoardButtons();TEMPORARILY DISABLED 06/04/21
-		this.changeTurns();
+		
 	}
 
 	playerTakeSquare(squareNumber) {
