@@ -665,7 +665,11 @@ class Main extends React.Component {
 			//boardState=board.slice(0);
 			if (this.state.boardState[i]==0) {
 				console.log("minimax stage i= "+i+", about to set sq "+i+" to "+turn+", depth "+depth+", and check for win");
-				this.state.boardState[i]=turn;
+				//is.state.boardState[i]=turn;
+				let newBoard = this.state.boardState;
+				newBoard[i] = turn;
+				this.setState({boardState:newBoard});
+				
 				// check for win - if X win return +1, if O win return -1
 				if (this.winner(turn, this.state.boardState)) {
 					console.log("winner will be "+turn);
