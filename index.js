@@ -611,18 +611,22 @@ class Main extends React.Component {
 			//minimaxScore = miniMax(turn, 0);
 			if (this.state.firstMove) {
 				//console.log(Math.floor(Math.random()*9));
-				this.takeSquare(Math.floor(Math.random()*9));
+				
 				this.setState({
 					firstMove:false
+				}, function() {
+					this.takeSquare(Math.floor(Math.random()*9));	
 				});
 			} else if (this.state.secondMove) {
-				if (this.state.board[4]==0) {
-					this.takeSquare(4);	
-				} else {
-					this.takeSquare(5);	
-				}
+				
 				this.setState({
 					secondMove:false
+				}, function() {
+					if (this.state.board[4]==0) {
+						this.takeSquare(4);	
+					} else {
+						this.takeSquare(5);	
+					}
 				});
 			} else {
 				let square = this.miniMax(this.turn, 0).bestSquare;	
