@@ -625,7 +625,7 @@ class Main extends React.Component {
 						
 				setTimeout(function() {
 				//console.log(turn +" took square "+bestSquare);
-					takeSquare(square);
+					this.takeSquare(square);
 							
 				}.bind(this), 1000);
 			}
