@@ -721,19 +721,21 @@ class Main extends React.Component {
 					this.setState({boardState:newArray});
 
 					console.log("minimax stage i= "+i+", depth "+depth+", reset sq to 0");
+					
+					if (turn==this.state.playerTwo && latestResult>result) {		// if new turn is the computer, turn is player & wants to minimise his result 
+						console.log(this.state.playerTwo+ " in play, result bettered, best sq "+i);
+						result=latestResult;
+						bestSquare=i;
+					} else if (turn==this.state.playerOne && latestResult<result) {
+						console.log(this.state.playerOne+" in play, result bettered, best sq "+i);
+						result=latestResult;
+						bestSquare=i;
+					}
 				});
 				
 				
 			}
-			if (turn==this.state.playerTwo && latestResult>result) {		// if new turn is the computer, turn is player & wants to minimise his result 
-				console.log(this.state.playerTwo+ " in play, result bettered, best sq "+i);
-				result=latestResult;
-				bestSquare=i;
-			} else if (turn==this.state.playerOne && latestResult<result) {
-				console.log(this.state.playerOne+" in play, result bettered, best sq "+i);
-				result=latestResult;
-				bestSquare=i;
-			}
+			
 					
 			//console.log("outside recursion");
 					
