@@ -442,7 +442,7 @@ class Main extends React.Component {
 		let newBoard = this.state.board;
 		newBoard[squareNumber] = this.turn;
       		this.setState({board:newBoard}, function() {
-			this.setState({boardState:this.state.board.slice(0)}, function() {
+			this.setState({boardState:newBoard.slice(0)}, function() {
 				this.changeTurns();
 			});
 		});
@@ -606,7 +606,8 @@ class Main extends React.Component {
 			}.bind(this), 1000);
 		} else {
 			console.log("board: "+this.state.board+", boardState: "+this.state.boardState+", "+this.turn+"'s turn, minimax at top level, player "+this.turn);
-			this.setState({boardState:this.state.board.slice(0)}, function() {
+			let board=this.state.board.slice(0);
+			this.setState({boardState:board}, function() {
 				//result=-100;
 				//start the minimax algorithm at the top level, level 0
 
@@ -676,6 +677,7 @@ class Main extends React.Component {
 		for (var i=0; i < 9; i++) {
 			//boardState=board.slice(0);
 			let boardState=this.state.boardState;
+			
 			if (boardState[i]==0) {
 				console.log("minimax stage i= "+i+", about to set sq "+i+" to "+turn+", depth "+depth+", and check for win");
 				//is.state.boardState[i]=turn;
