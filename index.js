@@ -753,13 +753,13 @@ class Main extends React.Component {
 			
 					
 			//console.log("outside recursion");
-					
+			if (i==8) return {result, bestSquare};		
 					
 		}
 		console.log("Finished minimax at depth "+depth+", about to return result of "+result+", best sq is "+bestSquare);
 		//boardState=board.slice(0);
 				
-		return {result, bestSquare};
+		
 	}
 }
 ReactDOM.render (
