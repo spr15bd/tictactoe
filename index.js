@@ -679,12 +679,12 @@ class Main extends React.Component {
 			if (boardState[i]==0) {
 				console.log("minimax stage i= "+i+", about to set sq "+i+" to "+turn+", depth "+depth+", and check for win");
 				//is.state.boardState[i]=turn;
-				let newBoard = this.state.boardState;
-				newBoard[i] = turn;
-				this.setState({boardState:newBoard}, function() {
+				//let newBoard = this.state.boardState;
+				boardState[i] = turn;
+				this.setState({boardState:boardState}, function() {
 					// check for win - if X win return +1, if O win return -1
 					console.log("minimax: checking for a win");
-					if (this.winner(turn, newBoard)) {
+					if (this.winner(turn, boardState)) {
 						console.log("winner will be "+turn);
 						//latestResult = turn==player2?1:-1;
 						latestResult = turn==this.state.playerTwo?1:-1;
@@ -693,7 +693,7 @@ class Main extends React.Component {
 						//bestSquare=i;
 						//result = latestResult;
 						//return result;
-					}  else if (this.matchDrawn(newBoard)) {
+					}  else if (this.matchDrawn(boardState)) {
 						// if no win
 						console.log("full board - match drawn");
 						//boardState=board.slice(0);
