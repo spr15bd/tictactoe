@@ -715,7 +715,7 @@ class Main extends React.Component {
 						//iterate over all remaining spaces on the board
 						//bestSquare = i;
 
-						latestResult = this.miniMax(newTurn,  depth).result;
+						latestResult = miniMax(newTurn,  depth).result;
 
 						console.log("minimax stage "+i+", depth is "+depth+", returned up from "+newTurn+", turn is "+turn+", latestResult "+latestResult);
 
