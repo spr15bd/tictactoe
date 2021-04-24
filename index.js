@@ -683,82 +683,83 @@ class Main extends React.Component {
 				//is.state.boardState[i]=turn;
 				//let newBoard = this.state.boardState;
 				boardState[i] = turn;
-				this.setState({boardState:boardState}, function() {
-					// check for win - if X win return +1, if O win return -1
-					console.log("minimax: checking for a win");
-					if (this.winner(turn, boardState)) {
-						console.log("winner will be "+turn);
-						//latestResult = turn==player2?1:-1;
-						latestResult = turn==this.state.playerTwo?1:-1;
-						//depth++;
-						//boardState[i]=0;
+				this.setState({boardState:boardState});
+				
+				// check for win - if X win return +1, if O win return -1
+				console.log("minimax: checking for a win");
+				if (this.winner(turn, boardState)) {
+					console.log("winner will be "+turn);
+					//latestResult = turn==player2?1:-1;
+					latestResult = turn==this.state.playerTwo?1:-1;
+					//depth++;
+					//boardState[i]=0;
+					//bestSquare=i;
+					//result = latestResult;
+					//return result;
+				}  else if (this.matchDrawn(boardState)) {
+					// if no win
+					console.log("full board - match drawn");
+					//boardState=board.slice(0);
+					latestResult = 0;
+					//depth++;
+					//boardState[i]=0;
+					/*if (latestResult>result) {
+						console.log("result bettered, best sq "+i);
+						result=latestResult;
 						//bestSquare=i;
-						//result = latestResult;
-						//return result;
-					}  else if (this.matchDrawn(boardState)) {
-						// if no win
-						console.log("full board - match drawn");
-						//boardState=board.slice(0);
-						latestResult = 0;
-						//depth++;
-						//boardState[i]=0;
-						/*if (latestResult>result) {
-							console.log("result bettered, best sq "+i);
-							result=latestResult;
-							//bestSquare=i;
-						}*/
-						//result = latestResult;
-						//return result;
-					} else {
-						console.log("winner unknown, changing turn in minimax");
-						//result=-1;
-						newTurn=turn=="X"?"O":"X";
-						depth++;
-						//var newResult;
-						//iterate over all remaining spaces on the board
-						//bestSquare = i;
+					}*/
+					//result = latestResult;
+					//return result;
+				} else {
+					console.log("winner unknown, changing turn in minimax");
+					//result=-1;
+					newTurn=turn=="X"?"O":"X";
+					depth++;
+					//var newResult;
+					//iterate over all remaining spaces on the board
+					//bestSquare = i;
 
-						latestResult = miniMax(newTurn,  depth).result;
+					latestResult = miniMax(newTurn,  depth).result;
 
-						console.log("minimax stage "+i+", depth is "+depth+", returned up from "+newTurn+", turn is "+turn+", latestResult "+latestResult);
+					console.log("minimax stage "+i+", depth is "+depth+", returned up from "+newTurn+", turn is "+turn+", latestResult "+latestResult);
 
-						//if (newResult==null) continue;
-						//else if (newResult >=result) result=newResult;
-						/*if (latestResult>=result) {
-							result=latestResult;
-							bestSquare=i;
-						}*/
-						//console.log("returning minimax at level "+level+", result was "+result);
-						//return latestResult;
-					}
+					//if (newResult==null) continue;
+					//else if (newResult >=result) result=newResult;
+					/*if (latestResult>=result) {
+						result=latestResult;
+						bestSquare=i;
+					}*/
+					//console.log("returning minimax at level "+level+", result was "+result);
+					//return latestResult;
+				}
 
-					//let newArray = newBoard;
-					boardState[i] = 0;
-					this.setState({boardState:boardState}, function() {
-						console.log("minimax stage i= "+i+", depth "+depth+", reset sq to 0");
+				//let newArray = newBoard;
+				boardState[i] = 0;
+				this.setState({boardState:boardState});  
+				console.log("minimax stage i= "+i+", depth "+depth+", reset sq to 0");
 					
-						if (turn==this.state.playerTwo && latestResult>result) {		// if new turn is the computer, turn is player & wants to minimise his result 
-							console.log(this.state.playerTwo+ " in play, result bettered, best sq "+i);
-							result=latestResult;
-							bestSquare=i;
-						} else if (turn==this.state.playerOne && latestResult<result) {
-							console.log(this.state.playerOne+" in play, result bettered, best sq "+i);
-							result=latestResult;
-							bestSquare=i;
-						}
-					});
-
-					
-				});
-				
-				
+				if (turn==this.state.playerTwo && latestResult>result) {		// if new turn is the computer, turn is player & wants to minimise his result 
+					console.log(this.state.playerTwo+ " in play, result bettered, best sq "+i);
+					result=latestResult;
+					bestSquare=i;
+				} else if (turn==this.state.playerOne && latestResult<result) {
+					console.log(this.state.playerOne+" in play, result bettered, best sq "+i);
+					result=latestResult;
+					bestSquare=i;
+				}
 			}
-			
-					
-			//console.log("outside recursion");
-				
+
 					
 		}
+				
+				
+		
+			
+					
+		//console.log("outside recursion");
+				
+					
+		
 		console.log("Finished minimax at depth "+depth+", about to return result of "+result+", best sq is "+bestSquare);
 		//boardState=board.slice(0);
 		
