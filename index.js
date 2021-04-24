@@ -731,8 +731,8 @@ class Main extends React.Component {
 					}
 
 					//let newArray = newBoard;
-					newBoard[i] = 0;
-					this.setState({boardState:newBoard}, function() {
+					boardState[i] = 0;
+					this.setState({boardState:boardState}, function() {
 						console.log("minimax stage i= "+i+", depth "+depth+", reset sq to 0");
 					
 						if (turn==this.state.playerTwo && latestResult>result) {		// if new turn is the computer, turn is player & wants to minimise his result 
