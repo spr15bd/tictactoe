@@ -438,7 +438,7 @@ class Main extends React.Component {
 	}
 
 	takeSquare(squareNumber) {
-		console.log("Taking square.");
+		console.log("Taking square "+squareNumber);
 		let newBoard = this.state.board;
 		newBoard[squareNumber] = this.turn;
       		this.setState({board:newBoard}, function() {
