@@ -683,6 +683,7 @@ class Main extends React.Component {
 				newBoard[i] = turn;
 				this.setState({boardState:newBoard}, function() {
 					// check for win - if X win return +1, if O win return -1
+					console.log("minimax: checking for a win");
 					if (this.winner(turn, newBoard)) {
 						console.log("winner will be "+turn);
 						//latestResult = turn==player2?1:-1;
