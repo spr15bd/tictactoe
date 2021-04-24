@@ -673,7 +673,8 @@ class Main extends React.Component {
 				
 		for (var i=0; i < 9; i++) {
 			//boardState=board.slice(0);
-			if (this.state.boardState[i]==0) {
+			let boardState=this.state.boardState;
+			if (boardState[i]==0) {
 				console.log("minimax stage i= "+i+", about to set sq "+i+" to "+turn+", depth "+depth+", and check for win");
 				//is.state.boardState[i]=turn;
 				let newBoard = this.state.boardState;
