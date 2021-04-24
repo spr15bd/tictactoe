@@ -606,39 +606,41 @@ class Main extends React.Component {
 			}.bind(this), 1000);
 		} else {
 			console.log("board: "+this.state.board+", boardState: "+this.state.boardState+", "+this.turn+"'s turn, minimax at top level, player "+this.turn);
-			this.setState({boardState:this.state.board.slice(0)});
-			//result=-100;
-			//start the minimax algorithm at the top level, level 0
-					
-			//minimaxScore = miniMax(turn, 0);
-			if (this.state.firstMove) {
-				//console.log(Math.floor(Math.random()*9));
-				
-				this.setState({
-					firstMove:false
-				}, function() {
-					this.takeSquare(Math.floor(Math.random()*9));	
-				});
-			} else if (this.state.secondMove) {
-				
-				this.setState({
-					secondMove:false
-				}, function() {
-					if (this.state.board[4]==0) {
-						this.takeSquare(4);	
-					} else {
-						this.takeSquare(5);	
-					}
-				});
-			} else {
-				let square = this.miniMax(this.turn, 0).bestSquare;	
-						
-				setTimeout(function() {
-				//console.log(turn +" took square "+bestSquare);
-					this.takeSquare(square);
-							
-				}.bind(this), 1000);
-			}
+			this.setState({boardState:this.state.board.slice(0)}, function() {
+				//result=-100;
+				//start the minimax algorithm at the top level, level 0
+
+				//minimaxScore = miniMax(turn, 0);
+				if (this.state.firstMove) {
+					//console.log(Math.floor(Math.random()*9));
+
+					this.setState({
+						firstMove:false
+					}, function() {
+						this.takeSquare(Math.floor(Math.random()*9));	
+					});
+				} else if (this.state.secondMove) {
+
+					this.setState({
+						secondMove:false
+					}, function() {
+						if (this.state.board[4]==0) {
+							this.takeSquare(4);	
+						} else {
+							this.takeSquare(5);	
+						}
+					});
+				} else {
+					let square = this.miniMax(this.turn, 0).bestSquare;	
+
+					setTimeout(function() {
+					//console.log(turn +" took square "+bestSquare);
+						this.takeSquare(square);
+
+					}.bind(this), 1000);
+				}
+			});
+			
 					
 					
 			/*	
