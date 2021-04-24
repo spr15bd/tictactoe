@@ -666,7 +666,7 @@ class Main extends React.Component {
 		//	add player2 (ai) to next available sq
 		//		check for winner
 		//		if no win minimax on other player
-				
+		let finished;	
 		var result=turn==this.state.playerOne?100:-100;
 		var latestResult=turn==this.state.playerOne?100:-100;
 		var bestSquare=0;
@@ -751,15 +751,17 @@ class Main extends React.Component {
 				
 			}
 			
-					
+			finished=true;		
 			//console.log("outside recursion");
-			if (i==8) return {result, bestSquare};		
+				
 					
 		}
 		console.log("Finished minimax at depth "+depth+", about to return result of "+result+", best sq is "+bestSquare);
 		//boardState=board.slice(0);
-				
-		
+		if (finished) {
+			finished=false;
+			return {result, bestSquare};			
+		}
 	}
 }
 ReactDOM.render (
