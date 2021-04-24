@@ -759,7 +759,7 @@ class Main extends React.Component {
 		console.log("Finished minimax at depth "+depth+", about to return result of "+result+", best sq is "+bestSquare);
 		//boardState=board.slice(0);
 		
-			
+		console.log("minimax returns bestSquare of "+bestSquare);	
 		return {result, bestSquare};			
 		
 	}
