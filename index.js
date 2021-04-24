@@ -683,7 +683,7 @@ class Main extends React.Component {
 				newBoard[i] = turn;
 				this.setState({boardState:newBoard}, function() {
 					// check for win - if X win return +1, if O win return -1
-					if (this.winner(turn, this.state.boardState)) {
+					if (this.winner(turn, newBoard)) {
 						console.log("winner will be "+turn);
 						//latestResult = turn==player2?1:-1;
 						latestResult = turn==this.state.playerTwo?1:-1;
@@ -692,7 +692,7 @@ class Main extends React.Component {
 						//bestSquare=i;
 						//result = latestResult;
 						//return result;
-					}  else if (this.matchDrawn(this.state.boardState)) {
+					}  else if (this.matchDrawn(newBoard)) {
 						// if no win
 						console.log("full board - match drawn");
 						//boardState=board.slice(0);
@@ -729,9 +729,9 @@ class Main extends React.Component {
 						//return latestResult;
 					}
 
-					let newArray = this.state.boardState;
-					newArray[i] = 0;
-					this.setState({boardState:newArray}, function() {
+					//let newArray = newBoard;
+					newBoard[i] = 0;
+					this.setState({boardState:newBoard}, function() {
 						console.log("minimax stage i= "+i+", depth "+depth+", reset sq to 0");
 					
 						if (turn==this.state.playerTwo && latestResult>result) {		// if new turn is the computer, turn is player & wants to minimise his result 
