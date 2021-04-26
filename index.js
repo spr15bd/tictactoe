@@ -441,12 +441,17 @@ class Main extends React.Component {
 		console.log("Taking square "+squareNumber);
 		let newBoard = this.state.board;
 		newBoard[squareNumber] = this.turn;
-      		this.setState({board:newBoard}, function() {
+      		/*this.setState({board:newBoard}, function() {
 			this.setState({boardState:newBoard.slice(0)}, function() {
 				this.changeTurns();
 			});
 		});
-		
+		*/
+		this.setState({board:newBoard}, function() {
+			this.setState({boardState:newBoard.slice(0)});
+		});
+		this.changeTurns();
+				
 		console.log("square taken - board is now "+this.state.board+", boardState is now "+this.state.boardState);
 		//$("#square"+squareNumber).text(this.turn);
 		//this.enableBoardButtons();TEMPORARILY DISABLED 06/04/21
@@ -459,9 +464,13 @@ class Main extends React.Component {
       			let newBoard = this.state.board;
 			newBoard[squareNumber] = this.turn;
 			console.log("NewBoard is "+newBoard);
-      			this.setState({board:newBoard}, function() {
-				this.changeTurns();	
+      			/*this.setState({board:newBoard}, function() {
+					
 			});
+			*/
+			this.setState({board:newBoard});
+			this.setState({boardState:newBoard.slice(0)});
+			this.changeTurns();
 			//this.state.boardState[0]=this.turn;
       			
     		}
