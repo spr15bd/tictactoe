@@ -252,10 +252,10 @@ class Main extends React.Component {
  		//$("#back").hide();
   		//$("img").attr("src","https://8lvjog-db3pap001.files.1drv.com/y4maLqZBnVA48r6inDcZV4ALGUE-aRn2LggjvNxaNaHLtk-VU1XAvRILb4Z8BiCNIxxoMekyNkr1HRpkjeVy3A2vkUDEntuQcdSFOufHEVxNvPIqedMFNbeflXkcOkwNRph1FMbeFbCzVqlBstEWiwvdGLmG_-oWscN22bzi_00RNFhqXeGrwtpQiOUOtzxUW1kj1Z1sApUqCyBd8FtZp3VkA?width=435&height=435&cropmode=none");
   		//$("#reset").show();
-  		$("#player-one").show();
-  		$("#player-two").show();
-  		$("#player-one-score").show();
-  		$("#player-two-score").show();
+  		//$("#player-one").show();
+  		//$("#player-two").show();
+  		//$("#player-one-score").show();
+  		//$("#player-two-score").show();
   		if (Math.random(0,1)<0.5) {
     			this.turn=this.state.playerOne;
 			console.log("Player One (and this.turn) is "+this.turn);
