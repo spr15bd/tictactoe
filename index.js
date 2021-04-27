@@ -642,7 +642,7 @@ class Main extends React.Component {
 					}
 				});
 			} else {
-				let square = this.miniMax(this.turn, 0).bestSquare;	
+				let square = this.miniMax(this.turn, 0, this.state.board.slice(0)).bestSquare;	
 
 				setTimeout(function() {
 				//console.log(turn +" took square "+bestSquare);
@@ -667,7 +667,7 @@ class Main extends React.Component {
 			*/
 		}
 	}
-	miniMax(turn, depth) {
+	miniMax(turn, depth, boardState) {
 		//minimax algorithm
 		//for loop over 9 sq
 		//	add player2 (ai) to next available sq
@@ -679,7 +679,7 @@ class Main extends React.Component {
 		var bestSquare=0;
 		var newTurn;
 		console.log("new minimax on player "+turn+", depth is "+depth+", boardState: "+this.state.boardState);
-		let boardState=this.boardState;
+		//let boardState=this.boardState;
 		
 		for (var i=0; i < 9; i++) {
 			//boardState=board.slice(0);
@@ -729,7 +729,7 @@ class Main extends React.Component {
 					//iterate over all remaining spaces on the board
 					//bestSquare = i;
 
-					latestResult = this.miniMax(newTurn,  depth).result;
+					latestResult = this.miniMax(newTurn,  depth, boardState).result;
 
 					console.log("minimax stage "+i+", depth is "+depth+", returned up from "+newTurn+", turn is "+turn+", latestResult "+latestResult);
 
