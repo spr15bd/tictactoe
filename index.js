@@ -680,17 +680,21 @@ class Main extends React.Component {
 		var bestSquare=0;
 		var newTurn;
 		console.log("new minimax on player "+turn+", depth is "+depth+", boardState: "+this.state.boardState);
-				
+		let boardState=this.state.boardState;
+		
 		for (var i=0; i < 9; i++) {
 			//boardState=board.slice(0);
-			let boardState=this.state.boardState;
+			//let boardState=this.state.boardState;
 			
 			if (boardState[i]==0) {
 				console.log("minimax stage i= "+i+", about to set sq "+i+" to "+turn+", depth "+depth+", and check for win");
 				//is.state.boardState[i]=turn;
 				//let newBoard = this.state.boardState;
 				boardState[i] = turn;
-				this.setState({boardState:boardState});
+				
+				
+				//this.setState({boardState:boardState});
+				
 				
 				// check for win - if X win return +1, if O win return -1
 				console.log("minimax: checking for a win");
@@ -742,7 +746,11 @@ class Main extends React.Component {
 
 				//let newArray = newBoard;
 				boardState[i] = 0;
-				this.setState({boardState:boardState});  
+				
+				
+				//this.setState({boardState:boardState});  
+				
+				
 				console.log("minimax stage i= "+i+", depth "+depth+", reset sq to 0");
 					
 				if (turn==this.state.playerTwo && latestResult>result) {		// if new turn is the computer, turn is player & wants to minimise his result 
