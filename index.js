@@ -465,7 +465,7 @@ class Main extends React.Component {
 					this.changeTurns();
 				});
 			});
-			*/
+			
 			//this.setState({board:newBoard});
 			//this.setState({boardState:newBoard.slice(0)});
 			//this.changeTurns();
