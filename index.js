@@ -443,7 +443,7 @@ class Main extends React.Component {
 		let newBoard = this.state.board;
 		newBoard[squareNumber] = this.turn;
       		this.setState({board:newBoard});
-		this.boardState = newBoard.slice(0);
+		//this.boardState = newBoard.slice(0);
 			//this.setState({boardState:newBoard.slice(0)}, function() {
 				this.changeTurns();
 			//});
@@ -461,9 +461,9 @@ class Main extends React.Component {
 		if (this.state.board[squareNumber]==0 && this.turn == this.state.playerOne) {
       			let newBoard = this.state.board;
 			newBoard[squareNumber] = this.turn;
-			console.log("NewBoard is "+newBoard);
+			//console.log("NewBoard is "+newBoard);
       			this.setState({board:newBoard});
-			this.boardState=newBoard.slice(0);
+			//this.boardState=newBoard.slice(0);
 				//this.setState({boardState:newBoard.slice(0)}, function() {
 			this.changeTurns();		
 				//});
