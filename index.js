@@ -26,7 +26,7 @@ class Main extends React.Component {
 		//this.takeSquare = this.takeSquare.bind(this);
         	
         	// global variables
-		
+		this.boardState=[0,0,0,0,0,0,0,0,0];
 		this.turn="";
  	}
     	render() {
@@ -233,6 +233,7 @@ class Main extends React.Component {
 			playerTwoWins:0,
 			board:[0,0,0,0,0,0,0,0,0]
 		});
+		this.boardState=[0,0,0,0,0,0,0,0,0];
 		//playerOne="", playerTwo="", playerOneWins=0, playerTwoWins=0;
   		//$("#player-one-score, #player-two-score").text("0");
   		//$("img").attr("src","https://8bvjog-db3pap001.files.1drv.com/y4m3NWJJOBI7QHptRE2J5YOzx19zJU3rNs2j9S7wG2x9RTS7hXwL1gnXwyA0MBeW8CRyQ699a8CmGR-nnmQKmHkyG4i0V7w-l53X9AmvjNiWaTQbu7Zp4jMrnpRVIrr42fi6Zh9B2xAOtbxXOwnY_HLVLrbMCRxN5WMAdhrkwZnaHfD_7rEJPgwnqRRT9C_lDeeMc2KdjNHyQRymtGMs-UjGw?width=435&height=435&cropmode=none");
@@ -426,7 +427,7 @@ class Main extends React.Component {
 
 	resetBoard() {
 		this.setState({board:[0,0,0,0,0,0,0,0,0]});
-		this.setState({boardState:this.state.board.slice(0)});
+		this.boardState=[0,0,0,0,0,0,0,0,0];
 	}
 
 	disableBoardButtons() {
@@ -441,11 +442,12 @@ class Main extends React.Component {
 		console.log("Taking square "+squareNumber);
 		let newBoard = this.state.board;
 		newBoard[squareNumber] = this.turn;
-      		this.setState({board:newBoard}, function() {
-			this.setState({boardState:newBoard.slice(0)}, function() {
+      		this.setState({board:newBoard});
+		this.boardState = newBoard.slice(0);
+			//this.setState({boardState:newBoard.slice(0)}, function() {
 				this.changeTurns();
-			});
-		});
+			//});
+		
 		
 				
 		console.log("square taken - board is now "+this.state.board+", boardState is now "+this.state.boardState);
@@ -460,11 +462,12 @@ class Main extends React.Component {
       			let newBoard = this.state.board;
 			newBoard[squareNumber] = this.turn;
 			console.log("NewBoard is "+newBoard);
-      			this.setState({board:newBoard}, function() {
-				this.setState({boardState:newBoard.slice(0)}, function() {
-					this.changeTurns();
-				});
-			});
+      			this.setState({board:newBoard});
+			this.boardState=newBoard.slice(0);
+				//this.setState({boardState:newBoard.slice(0)}, function() {
+			this.changeTurns();		
+				//});
+			
 			
 			//this.setState({board:newBoard});
 			//this.setState({boardState:newBoard.slice(0)});
@@ -612,45 +615,41 @@ class Main extends React.Component {
 				}   
 			}.bind(this), 1000);
 		} else {
-			console.log("board: "+this.state.board+", boardState: "+this.state.boardState+", "+this.turn+"'s turn, minimax at top level, player "+this.turn);
-			let board=this.state.board.slice(0);
-			this.setState({boardState:board}, function() {
-				//result=-100;
-				//start the minimax algorithm at the top level, level 0
-
-				//minimaxScore = miniMax(turn, 0);
-				if (this.state.firstMove) {
-					//console.log(Math.floor(Math.random()*9));
-
-					this.setState({
-						firstMove:false
-					}, function() {
-						this.takeSquare(Math.floor(Math.random()*9));	
-					});
-				} else if (this.state.secondMove) {
-
-					this.setState({
-						secondMove:false
-					}, function() {
-						if (this.state.board[4]==0) {
-							this.takeSquare(4);	
-						} else {
-							this.takeSquare(5);	
-						}
-					});
-				} else {
-					let square = this.miniMax(this.turn, 0).bestSquare;	
-
-					setTimeout(function() {
-					//console.log(turn +" took square "+bestSquare);
-						this.takeSquare(square);
-
-					}.bind(this), 1000);
-				}
-			});
+			console.log("board: "+this.state.board+", boardState: "+this.boardState+", "+this.turn+"'s turn, minimax at top level, player "+this.turn);
+			this.boardState=this.state.board.slice(0);
 			
-					
-					
+			//result=-100;
+			//start the minimax algorithm at the top level, level 0
+
+			//minimaxScore = miniMax(turn, 0);
+			if (this.state.firstMove) {
+				//console.log(Math.floor(Math.random()*9));
+
+				this.setState({
+					firstMove:false
+				}, function() {
+					this.takeSquare(Math.floor(Math.random()*9));	
+				});
+			} else if (this.state.secondMove) {
+
+				this.setState({
+					secondMove:false
+				}, function() {
+					if (this.state.board[4]==0) {
+						this.takeSquare(4);	
+					} else {
+						this.takeSquare(5);	
+					}
+				});
+			} else {
+				let square = this.miniMax(this.turn, 0).bestSquare;	
+
+				setTimeout(function() {
+				//console.log(turn +" took square "+bestSquare);
+					this.takeSquare(square);
+
+				}.bind(this), 1000);
+			}
 			/*	
 			console.log("minimax score: "+minimaxScore);	
 			var bestScore=-1;
@@ -680,7 +679,7 @@ class Main extends React.Component {
 		var bestSquare=0;
 		var newTurn;
 		console.log("new minimax on player "+turn+", depth is "+depth+", boardState: "+this.state.boardState);
-		let boardState=this.state.boardState;
+		let boardState=this.boardState;
 		
 		for (var i=0; i < 9; i++) {
 			//boardState=board.slice(0);
