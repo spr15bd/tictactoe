@@ -700,7 +700,7 @@ class Main extends React.Component {
 				if (this.winner(turn, boardState)) {
 					console.log("winner will be "+turn);
 					//latestResult = turn==player2?1:-1;
-					latestResult = turn==this.state.playerTwo?1:-1;
+					latestResult = turn==this.state.playerTwo?10-depth:depth-10;
 					//depth++;
 					//boardState[i]=0;
 					//bestSquare=i;
