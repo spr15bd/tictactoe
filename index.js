@@ -731,7 +731,7 @@ class Main extends React.Component {
 
 					latestResult = this.miniMax(newTurn,  depth, boardState).result;
 
-					console.log("minimax stage "+i+", depth is "+depth+", returned up from "+newTurn+", turn is "+turn+", latestResult "+latestResult);
+					console.log("minimax stage "+i+", depth is "+depth+", returned up from "+newTurn+", turn is "+turn+", latestResult "+latestResult+", virtual board: "+boardState);
 
 					//if (newResult==null) continue;
 					//else if (newResult >=result) result=newResult;
