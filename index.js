@@ -721,9 +721,9 @@ class Main extends React.Component {
 					//return result;
 				} else {
 					newTurn=turn=="X"?"O":"X";
-					depth++;
+					//depth++;
 					
-					latestResult = this.miniMax(newTurn,  depth, boardState).result;
+					latestResult = this.miniMax(newTurn,  depth+1, boardState).result;
 					
 					//console.log("minimax stage "+i+", depth is "+depth+", returned up from "+newTurn+", turn is "+turn+", latestResult "+latestResult+", virtual board: "+boardState);
 
@@ -737,7 +737,7 @@ class Main extends React.Component {
 				//this.setState({boardState:boardState});  
 				
 				
-				if (depth==1) console.log("minimax stage i= "+i+", depth "+depth+",latestResult is "+latestResult+", reset sq to 0");
+				if (depth==0) console.log("minimax stage i= "+i+", depth "+depth+",latestResult is "+latestResult+", reset sq to 0");
 					
 				if (turn==this.state.playerTwo && latestResult>result) {		// if new turn is the computer, turn is player & wants to minimise his result 
 					//console.log(this.state.playerTwo+ " in play, result bettered, best sq "+i);
@@ -764,7 +764,7 @@ class Main extends React.Component {
 		//console.log("Finished minimax at depth "+depth+", about to return result of "+result+", best sq is "+bestSquare);
 		
 		
-		console.log("minimax returns bestSquare of "+bestSquare);	
+		if (depth==0) console.log("minimax returns bestSquare of "+bestSquare);	
 		return {result, bestSquare};			
 		
 	}
