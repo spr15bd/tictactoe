@@ -63,7 +63,7 @@ class Main extends React.Component {
 			imageDisplayed.push(
 				<img src="https://8bvjog-db3pap001.files.1drv.com/y4m3NWJJOBI7QHptRE2J5YOzx19zJU3rNs2j9S7wG2x9RTS7hXwL1gnXwyA0MBeW8CRyQ699a8CmGR-nnmQKmHkyG4i0V7w-l53X9AmvjNiWaTQbu7Zp4jMrnpRVIrr42fi6Zh9B2xAOtbxXOwnY_HLVLrbMCRxN5WMAdhrkwZnaHfD_7rEJPgwnqRRT9C_lDeeMc2KdjNHyQRymtGMs-UjGw?width=100% height=100%&cropmode=none"></img>
 			);
-			console.log("board[0] is "+this.state.board[0]);
+			//console.log("board[0] is "+this.state.board[0]);
 		} else if (this.state.inPlay) {
 			//message.push(this.state.message);
 			choices.push(	<div>	
@@ -180,7 +180,7 @@ class Main extends React.Component {
 	}
 			
         chooseGame(num) {
-		console.log(num + " chosen");
+		//console.log(num + " chosen");
 		if (num==1) {
 			this.setState({onePlayerGame: true});
 		} else if (num==2) {
@@ -205,7 +205,7 @@ class Main extends React.Component {
 	}
 
 	choosePlayer(str) {
-		console.log("in choosePlayer, str is "+str);
+		//console.log("in choosePlayer, str is "+str);
 		this.setState(	{	playerOne:str,
 					playerTwo:str=="X"?"O":"X",
 				 	inPlay:true,
@@ -245,8 +245,8 @@ class Main extends React.Component {
 	}	
   
 	playGame() { 
-		console.log("Chose Player "+this.state.playerOne);
-		console.log("Inplay state is "+this.state.inPlay);
+		//console.log("Chose Player "+this.state.playerOne);
+		//console.log("Inplay state is "+this.state.inPlay);
   		//$("h2").hide();
   		//$("#choose-x").hide();
   		//$("#choose-o").hide();
@@ -259,7 +259,7 @@ class Main extends React.Component {
   		//$("#player-two-score").show();
   		if (Math.random(0,1)<0.5) {
     			this.turn=this.state.playerOne;
-			console.log("Player One (and this.turn) is "+this.turn);
+			//console.log("Player One (and this.turn) is "+this.turn);
 			this.state.secondMove = true;
   		} else {
     			this.turn=this.state.playerTwo;
@@ -358,7 +358,7 @@ class Main extends React.Component {
 			
 	// check the status of the board, if no result swap players
 	changeTurns() {
-		console.log("changing turn, from "+this.turn);
+		//console.log("changing turn, from "+this.turn);
   		if (this.winner("X", this.state.board)||this.winner("O", this.state.board)) {
     			this.doVictory();
   		} else if (this.matchDrawn(this.state.board)) {
@@ -450,7 +450,7 @@ class Main extends React.Component {
 		
 		
 				
-		console.log("square taken - board is now "+this.state.board+", boardState is now "+this.state.boardState);
+		//console.log("square taken - board is now "+this.state.board+", boardState is now "+this.state.boardState);
 		//$("#square"+squareNumber).text(this.turn);
 		//this.enableBoardButtons();TEMPORARILY DISABLED 06/04/21
 		
@@ -479,7 +479,7 @@ class Main extends React.Component {
 
 	doComputerAI = (miniMaxGame) => {
 		this.setState({aiInPlay:true});
-		console.log("Board[3] is: "+this.state.board[3]+", this.state.playerOne is "+this.state.playerOne);
+		//console.log("Board[3] is: "+this.state.board[3]+", this.state.playerOne is "+this.state.playerOne);
 		let board = [];
 		for (var i=0; i<9; i++) {
 			board[i]=this.state.board[i];	
@@ -596,7 +596,6 @@ class Main extends React.Component {
 					var y=emptySquares.length;
 					if (y>0) {
 						var z=Math.floor(Math.random()*y);
-						console.log("This in doComputerAI() refers to "+this);
 						this.takeSquare(emptySquares[z]);
 						// if no corners or central positions are available, take one of the remaining four positions randomly
 					} else {
@@ -696,9 +695,9 @@ class Main extends React.Component {
 				
 				
 				// check for win - if X win return +1, if O win return -1
-				console.log("minimax: checking for a win");
+				//console.log("minimax: checking for a win");
 				if (this.winner(turn, boardState)) {
-					console.log("winner will be "+turn);
+					//console.log("winner will be "+turn);
 					//latestResult = turn==player2?1:-1;
 					latestResult = turn==this.state.playerTwo?10-depth:depth-10;
 					//depth++;
@@ -708,7 +707,7 @@ class Main extends React.Component {
 					//return result;
 				}  else if (this.matchDrawn(boardState)) {
 					// if no win
-					console.log("full board - match drawn");
+					//console.log("full board - match drawn");
 					//boardState=board.slice(0);
 					latestResult = 0;
 					//depth++;
@@ -721,26 +720,14 @@ class Main extends React.Component {
 					//result = latestResult;
 					//return result;
 				} else {
-					console.log("winner unknown, changing turn in minimax");
-					//result=-1;
 					newTurn=turn=="X"?"O":"X";
 					depth++;
-					//var newResult;
-					//iterate over all remaining spaces on the board
-					//bestSquare = i;
-
+					
 					latestResult = this.miniMax(newTurn,  depth, boardState).result;
 					
-					console.log("minimax stage "+i+", depth is "+depth+", returned up from "+newTurn+", turn is "+turn+", latestResult "+latestResult+", virtual board: "+boardState);
+					//console.log("minimax stage "+i+", depth is "+depth+", returned up from "+newTurn+", turn is "+turn+", latestResult "+latestResult+", virtual board: "+boardState);
 
-					//if (newResult==null) continue;
-					//else if (newResult >=result) result=newResult;
-					/*if (latestResult>=result) {
-						result=latestResult;
-						bestSquare=i;
-					}*/
-					//console.log("returning minimax at level "+level+", result was "+result);
-					//return latestResult;
+					
 				}
 
 				//let newArray = newBoard;
@@ -753,11 +740,11 @@ class Main extends React.Component {
 				if (depth==0) console.log("minimax stage i= "+i+", depth "+depth+",latestResult is "+latestResult+", reset sq to 0");
 					
 				if (turn==this.state.playerTwo && latestResult>result) {		// if new turn is the computer, turn is player & wants to minimise his result 
-					console.log(this.state.playerTwo+ " in play, result bettered, best sq "+i);
+					//console.log(this.state.playerTwo+ " in play, result bettered, best sq "+i);
 					result=latestResult;
 					bestSquare=i;
 				} else if (turn==this.state.playerOne && latestResult<result) {
-					console.log(this.state.playerOne+" in play, result bettered, best sq "+i);
+					//console.log(this.state.playerOne+" in play, result bettered, best sq "+i);
 					result=latestResult;
 					bestSquare=i;
 				}
@@ -770,12 +757,12 @@ class Main extends React.Component {
 		
 			
 					
-		//console.log("outside recursion");
+		
 				
 					
 		
-		console.log("Finished minimax at depth "+depth+", about to return result of "+result+", best sq is "+bestSquare);
-		//boardState=board.slice(0);
+		//console.log("Finished minimax at depth "+depth+", about to return result of "+result+", best sq is "+bestSquare);
+		
 		
 		console.log("minimax returns bestSquare of "+bestSquare);	
 		return {result, bestSquare};			
