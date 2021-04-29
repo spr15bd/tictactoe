@@ -615,7 +615,7 @@ class Main extends React.Component {
 				}   
 			}.bind(this), 1000);
 		} else {
-			console.log("board: "+this.state.board+", boardState: "+this.boardState+", "+this.turn+"'s turn, minimax at top level, player "+this.turn);
+			//console.log("board: "+this.state.board+", boardState: "+this.boardState+", "+this.turn+"'s turn, minimax at top level, player "+this.turn);
 			this.boardState=this.state.board.slice(0);
 			
 			//result=-100;
@@ -678,7 +678,7 @@ class Main extends React.Component {
 		var latestResult=turn==this.state.playerOne?100:-100;
 		var bestSquare=0;
 		var newTurn;
-		console.log("new minimax on player "+turn+", depth is "+depth+", boardState: "+this.state.boardState);
+		//console.log("new minimax on player "+turn+", depth is "+depth+", boardState: "+this.state.boardState);
 		//let boardState=this.boardState;
 		
 		for (var i=0; i < 9; i++) {
@@ -686,7 +686,7 @@ class Main extends React.Component {
 			//let boardState=this.state.boardState;
 			
 			if (boardState[i]==0) {
-				console.log("minimax stage i= "+i+", about to set sq "+i+" to "+turn+", depth "+depth+", and check for win");
+				//console.log("minimax stage i= "+i+", about to set sq "+i+" to "+turn+", depth "+depth+", and check for win");
 				//is.state.boardState[i]=turn;
 				//let newBoard = this.state.boardState;
 				boardState[i] = turn;
