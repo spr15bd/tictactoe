@@ -669,11 +669,11 @@ class Main extends React.Component {
 	miniMax(turn, depth, boardState) {
 		//minimax algorithm
 		//for loop over 9 sq
-		//	add player2 (ai) to next available sq
+		//	add the current player to next available sq
 		//		check for winner
 		//		if no win minimax on other player
 			
-		var result=turn==this.state.playerOne?100:-100;
+		var result=turn==this.state.playerOne?100:-100;	//playerTwo is the AI opponent
 		var latestResult=turn==this.state.playerOne?100:-100;
 		var bestSquare=0;
 		var newTurn;
