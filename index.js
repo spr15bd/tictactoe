@@ -621,6 +621,9 @@ class Main extends React.Component {
 			//start the minimax algorithm at the top level, level 0
 
 			//minimaxScore = miniMax(turn, 0);
+			
+			
+			/*
 			if (this.state.firstMove) {
 				//console.log(Math.floor(Math.random()*9));
 
@@ -641,6 +644,9 @@ class Main extends React.Component {
 					}
 				});
 			} else {
+			
+			
+			*/
 				let square = this.miniMax(this.turn, 0, this.state.board.slice(0)).bestSquare;	
 
 				setTimeout(function() {
@@ -648,7 +654,12 @@ class Main extends React.Component {
 					this.takeSquare(square);
 
 				}.bind(this), 1000);
-			}
+			
+			
+			//}
+			
+			
+			
 			/*	
 			console.log("minimax score: "+minimaxScore);	
 			var bestScore=-1;
