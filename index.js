@@ -622,7 +622,7 @@ class Main extends React.Component {
 
 			//minimaxScore = miniMax(turn, 0);
 			
-			if (this.state.board.includes("O") || this.state.board.includes("X")) {
+			if (!this.state.board.includes("O") && !this.state.board.includes("X")) {
 				setTimeout(function() {
 				//console.log(turn +" took square "+bestSquare);
 					this.takeSquare(Math.floor(Math.random()*9));
