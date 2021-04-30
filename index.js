@@ -623,8 +623,12 @@ class Main extends React.Component {
 			//minimaxScore = miniMax(turn, 0);
 			
 			if (this.state.board==[0,0,0,0,0,0,0,0,0]) {
-				this.takeSquare(Math.floor(Math.random()*9));
-			}
+				setTimeout(function() {
+				//console.log(turn +" took square "+bestSquare);
+					this.takeSquare(Math.floor(Math.random()*9));
+				}.bind(this), 1000);
+				
+			} else {
 			/*
 			if (this.state.firstMove) {
 				//console.log(Math.floor(Math.random()*9));
@@ -657,7 +661,7 @@ class Main extends React.Component {
 
 				}.bind(this), 1000);
 			
-			
+			}
 			//}
 			
 			
