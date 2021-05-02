@@ -61,15 +61,15 @@ class Main extends React.Component {
 			);
 		} else if (this.state.inPlay) {
 			choices.push(	<div>	
-						<a id="square0" onClick={() => this.playerTakeSquare(0)}>{this.state.board[0]=="0"?"":this.state.board[0]}</a>
-						<a id="square1" onClick={() => this.playerTakeSquare(1)}>{this.state.board[1]=="0"?"":this.state.board[1]}</a>
-						<a id="square2" onClick={() => this.playerTakeSquare(2)}>{this.state.board[2]=="0"?"":this.state.board[2]}</a>
-						<a id="square3" onClick={() => this.playerTakeSquare(3)}>{this.state.board[3]=="0"?"":this.state.board[3]}</a>
-						<a id="square4" onClick={() => this.playerTakeSquare(4)}>{this.state.board[4]=="0"?"":this.state.board[4]}</a>
-						<a id="square5" onClick={() => this.playerTakeSquare(5)}>{this.state.board[5]=="0"?"":this.state.board[5]}</a>
-						<a id="square6" onClick={() => this.playerTakeSquare(6)}>{this.state.board[6]=="0"?"":this.state.board[6]}</a>
-						<a id="square7" onClick={() => this.playerTakeSquare(7)}>{this.state.board[7]=="0"?"":this.state.board[7]}</a>
-						<a id="square8" onClick={() => this.playerTakeSquare(8)}>{this.state.board[8]=="0"?"":this.state.board[8]}</a>
+						<a id="square0" onClick={() => this.takeSquare(0)}>{this.state.board[0]=="0"?"":this.state.board[0]}</a>
+						<a id="square1" onClick={() => this.takeSquare(1)}>{this.state.board[1]=="0"?"":this.state.board[1]}</a>
+						<a id="square2" onClick={() => this.takeSquare(2)}>{this.state.board[2]=="0"?"":this.state.board[2]}</a>
+						<a id="square3" onClick={() => this.takeSquare(3)}>{this.state.board[3]=="0"?"":this.state.board[3]}</a>
+						<a id="square4" onClick={() => this.takeSquare(4)}>{this.state.board[4]=="0"?"":this.state.board[4]}</a>
+						<a id="square5" onClick={() => this.takeSquare(5)}>{this.state.board[5]=="0"?"":this.state.board[5]}</a>
+						<a id="square6" onClick={() => this.takeSquare(6)}>{this.state.board[6]=="0"?"":this.state.board[6]}</a>
+						<a id="square7" onClick={() => this.takeSquare(7)}>{this.state.board[7]=="0"?"":this.state.board[7]}</a>
+						<a id="square8" onClick={() => this.takeSquare(8)}>{this.state.board[8]=="0"?"":this.state.board[8]}</a>
 					</div>
 			); 
 			imageDisplayed.push(
@@ -158,7 +158,7 @@ class Main extends React.Component {
 		}
 	}
 			
-	// check the status of the board, if no result swap players
+	// check the current board, if no win swap players
 	changeTurns() {
 		if (this.winner("X", this.state.board)||this.winner("O", this.state.board)) {
     			this.doVictory();
@@ -166,7 +166,6 @@ class Main extends React.Component {
     			this.doDraw();
 		} else if (this.turn==this.state.playerOne) {
 			this.turn=this.state.playerTwo;
-			//this.setState({aiInPlay:!aiInPlay});
 			if (this.state.onePlayerGame) {
 				this.doComputerAI(this.state.miniMaxGame);
 			}
@@ -227,11 +226,13 @@ class Main extends React.Component {
 	}
 
 	takeSquare(squareNumber) {
-		console.log("Taking square "+squareNumber);
-		let newBoard = this.state.board;
-		newBoard[squareNumber] = this.turn;
-      		this.setState({board:newBoard});
-		this.changeTurns();
+		if (this.state.board[squareNumber]==0) {
+			console.log("Taking square "+squareNumber);
+			let newBoard = this.state.board;
+			newBoard[squareNumber] = this.turn;
+			this.setState({board:newBoard});
+			this.changeTurns();
+		}
 	}
 
 	playerTakeSquare(squareNumber) {
@@ -389,7 +390,6 @@ class Main extends React.Component {
 				let square = this.miniMax(this.turn, 0, this.state.board.slice(0)).bestSquare;	
 
 				setTimeout(function() {
-					//console.log(turn +" took square "+bestSquare);
 					this.takeSquare(square);
 
 				}.bind(this), 1000);
@@ -408,17 +408,8 @@ class Main extends React.Component {
 		var latestResult=turn==this.state.playerOne?100:-100;
 		var bestSquare=0;
 		var newTurn;
-		//console.log("new minimax on player "+turn+", depth is "+depth+", boardState: "+this.state.boardState);
-		//let boardState=this.boardState;
-		
 		for (var i=0; i < 9; i++) {
-			//boardState=board.slice(0);
-			//let boardState=this.state.boardState;
-			
 			if (boardState[i]==0) {
-				//console.log("minimax stage i= "+i+", about to set sq "+i+" to "+turn+", depth "+depth+", and check for win");
-				//is.state.boardState[i]=turn;
-				//let newBoard = this.state.boardState;
 				boardState[i] = turn;
 				
 				
