@@ -139,7 +139,8 @@ class Main extends React.Component {
 			inPlay:false,
 			playerOneWins:0,
 			playerTwoWins:0,
-			board:[0,0,0,0,0,0,0,0,0]
+			board:[0,0,0,0,0,0,0,0,0],
+			boardState:[0,0,0,0,0,0,0,0,0]
 		});
 		this.boardState=[0,0,0,0,0,0,0,0,0];
 	}	
@@ -221,7 +222,7 @@ class Main extends React.Component {
 	}
 
 	resetBoard() {
-		this.setState({board:[0,0,0,0,0,0,0,0,0]});
+		this.setState({board:[0,0,0,0,0,0,0,0,0], boardState:[0,0,0,0,0,0,0,0,0]});
 		this.boardState=[0,0,0,0,0,0,0,0,0];
 	}
 
@@ -232,16 +233,6 @@ class Main extends React.Component {
 			newBoard[squareNumber] = this.turn;
 			this.setState({board:newBoard});
 			this.changeTurns();
-		}
-	}
-
-	playerTakeSquare(squareNumber) {
-		// player can take a square only of the square is currently empty and it's their turn, not the computer
-		if (this.state.board[squareNumber]==0 && this.turn == this.state.playerOne) {
-      			let newBoard = this.state.board;
-			newBoard[squareNumber] = this.turn;
-			this.setState({board:newBoard});
-			this.changeTurns();		
 		}
 	}
 
@@ -380,7 +371,8 @@ class Main extends React.Component {
 				}   
 			}.bind(this), 1000);
 		} else {
-			this.boardState=this.state.board.slice(0);
+			//this.boardState=this.state.board.slice(0);
+			
 			if (!this.state.board.includes("O") && !this.state.board.includes("X")) {
 				setTimeout(function() {
 					this.takeSquare(Math.floor(Math.random()*9));
