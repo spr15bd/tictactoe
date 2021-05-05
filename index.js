@@ -22,7 +22,7 @@ class Main extends React.Component {
 			message:""
     		};
 		
-        	this.boardState=[0,0,0,0,0,0,0,0,0];
+        	
 		this.turn="";
  	}
     	render() {
@@ -142,7 +142,6 @@ class Main extends React.Component {
 			board:[0,0,0,0,0,0,0,0,0],
 			boardState:[0,0,0,0,0,0,0,0,0]
 		});
-		this.boardState=[0,0,0,0,0,0,0,0,0];
 	}	
   
 	playGame() { 
@@ -223,7 +222,6 @@ class Main extends React.Component {
 
 	resetBoard() {
 		this.setState({board:[0,0,0,0,0,0,0,0,0], boardState:[0,0,0,0,0,0,0,0,0]});
-		this.boardState=[0,0,0,0,0,0,0,0,0];
 	}
 
 	takeSquare(squareNumber) {
@@ -371,14 +369,14 @@ class Main extends React.Component {
 				}   
 			}.bind(this), 1000);
 		} else {
-			//this.boardState=this.state.board.slice(0);
-			
 			if (!this.state.board.includes("O") && !this.state.board.includes("X")) {
+				// if the AI opponent goes first, pick a random square.....
 				setTimeout(function() {
 					this.takeSquare(Math.floor(Math.random()*9));
 				}.bind(this), 1000);
 				
 			} else {
+				// .....else use the minimax algorithm to pick the best square (and never lose)
 				let square = this.miniMax(this.turn, 0, this.state.board.slice(0)).bestSquare;	
 
 				setTimeout(function() {
@@ -390,11 +388,11 @@ class Main extends React.Component {
 		}
 	}
 	miniMax(turn, depth, boardState) {
-		//minimax algorithm
-		//for loop over 9 sq
-		//	add the current player to next available sq
-		//		check for winner
-		//		if no win minimax on other player
+		// minimax algorithm:
+		// every available square on the board:
+		// 	add the current player to the square
+		//	check for winner
+		//	if no win minimax on other player
 			
 		var result=turn==this.state.playerOne?100:-100;	//playerTwo is the AI opponent
 		var latestResult=turn==this.state.playerOne?100:-100;
