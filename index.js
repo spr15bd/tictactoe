@@ -402,23 +402,10 @@ class Main extends React.Component {
 			if (boardState[i]==0) {
 				boardState[i] = turn;
 				// check for win - if X win return +1, if O win return -1
-				//console.log("minimax: checking for a win");
 				if (this.winner(turn, boardState)) {
-					//console.log("winner will be "+turn);
-					//latestResult = turn==player2?1:-1;
 					latestResult = turn==this.state.playerTwo?10-depth:depth-10;
-					//depth++;
-					//boardState[i]=0;
-					//bestSquare=i;
-					//result = latestResult;
-					//return result;
 				}  else if (this.matchDrawn(boardState)) {
-					// if no win
-					//console.log("full board - match drawn");
-					//boardState=board.slice(0);
 					latestResult = 0;
-					//depth++;
-					//boardState[i]=0;
 					/*if (latestResult>result) {
 						console.log("result bettered, best sq "+i);
 						result=latestResult;
@@ -436,14 +423,7 @@ class Main extends React.Component {
 
 					
 				}
-
-				//let newArray = newBoard;
 				boardState[i] = 0;
-				
-				
-				//this.setState({boardState:boardState});  
-				
-				
 				if (depth==0) console.log("minimax stage i= "+i+", depth "+depth+",latestResult is "+latestResult+", reset sq to 0");
 					
 				if (turn==this.state.playerTwo && latestResult>result) {		// if new turn is the computer, turn is player & wants to minimise his result 
@@ -460,17 +440,6 @@ class Main extends React.Component {
 					
 		}
 				
-				
-		
-			
-					
-		
-				
-					
-		
-		//console.log("Finished minimax at depth "+depth+", about to return result of "+result+", best sq is "+bestSquare);
-		
-		
 		if (depth==0) console.log("minimax returns bestSquare of "+bestSquare);	
 		return {result, bestSquare};			
 		
