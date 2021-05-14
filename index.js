@@ -406,22 +406,9 @@ class Main extends React.Component {
 					latestResult = turn==this.state.playerTwo?10-depth:depth-10;
 				}  else if (this.matchDrawn(boardState)) {
 					latestResult = 0;
-					/*if (latestResult>result) {
-						console.log("result bettered, best sq "+i);
-						result=latestResult;
-						//bestSquare=i;
-					}*/
-					//result = latestResult;
-					//return result;
 				} else {
 					newTurn=turn=="X"?"O":"X";
-					//depth++;
-					
 					latestResult = this.miniMax(newTurn,  depth+1, boardState).result;
-					
-					//console.log("minimax stage "+i+", depth is "+depth+", returned up from "+newTurn+", turn is "+turn+", latestResult "+latestResult+", virtual board: "+boardState);
-
-					
 				}
 				boardState[i] = 0;
 				if (depth==0) console.log("minimax stage i= "+i+", depth "+depth+",latestResult is "+latestResult+", reset sq to 0");
