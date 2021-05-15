@@ -21,8 +21,6 @@ class Main extends React.Component {
 			timeout:0,
 			message:""
     		};
-		
-        	
 		this.turn="";
  	}
     	render() {
@@ -147,7 +145,6 @@ class Main extends React.Component {
 	playGame() { 
   		if (Math.random(0,1)<0.5) {
     			this.turn=this.state.playerOne;
-			//console.log("Player One (and this.turn) is "+this.turn);
 			this.state.secondMove = true;
   		} else {
     			this.turn=this.state.playerTwo;
@@ -429,7 +426,6 @@ class Main extends React.Component {
 				
 		if (depth==0) console.log("minimax returns bestSquare of "+bestSquare);	
 		return {result, bestSquare};			
-		
 	}
 }
 ReactDOM.render (
