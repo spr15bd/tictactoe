@@ -398,7 +398,7 @@ class Main extends React.Component {
 		for (var i=0; i < 9; i++) {
 			if (boardState[i]==0) {
 				boardState[i] = turn;
-				// check for win - if X win return +1, if O win return -1
+				// check for win - if AI wins return +10, if human win return -10
 				if (this.winner(turn, boardState)) {
 					latestResult = turn==this.state.playerTwo?10-depth:depth-10;
 				}  else if (this.matchDrawn(boardState)) {
@@ -410,7 +410,7 @@ class Main extends React.Component {
 				boardState[i] = 0;
 				if (depth==0) console.log("minimax stage i= "+i+", depth "+depth+",latestResult is "+latestResult+", reset sq to 0");
 					
-				if (turn==this.state.playerTwo && latestResult>result) {		// if new turn is the computer, turn is player & wants to minimise his result 
+				if (turn==this.state.playerTwo && latestResult>result) {		// if turn is the computer, then turn will maximise its result 
 					result=latestResult;
 					bestSquare=i;
 				} else if (turn==this.state.playerOne && latestResult<result) {
