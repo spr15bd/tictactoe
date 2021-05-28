@@ -386,7 +386,7 @@ class Main extends React.Component {
 	}
 	miniMax(turn, depth, boardState) {
 		// minimax algorithm:
-		// every available square on the board:
+		// for every available square on the board:
 		// 	add the current player to the square
 		//	check for winner
 		//	if no win minimax on other player
@@ -410,7 +410,7 @@ class Main extends React.Component {
 				boardState[i] = 0;
 				if (depth==0) console.log("minimax stage i= "+i+", depth "+depth+",latestResult is "+latestResult+", reset sq to 0");
 					
-				if (turn==this.state.playerTwo && latestResult>result) {		// if turn is the computer, then turn will maximise its result 
+				if (turn==this.state.playerTwo && latestResult>result) {		// if turn is the computer, then turn will try to maximise its result 
 					result=latestResult;
 					bestSquare=i;
 				} else if (turn==this.state.playerOne && latestResult<result) {
