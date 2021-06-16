@@ -1,6 +1,7 @@
 # tictactoe
-Tic tac toe game for one or two players in JQuery / JavaScript
+Tic tac toe game for one or two players in React / JavaScript
 
+Options for single-player (beatable or unbeatable ai) and multiplayer
 
 
 <!--
