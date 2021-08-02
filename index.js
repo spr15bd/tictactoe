@@ -234,7 +234,7 @@ class Main extends React.Component {
 	doComputerAI = (miniMaxGame) => {
 		this.setState({aiInPlay:true});
 		let board = [];
-		for (var i=0; i<9; i++) {
+		for (let i=0; i<9; i++) {
 			board[i]=this.state.board[i];	
 		}
 		if (!miniMaxGame) {
@@ -340,7 +340,7 @@ class Main extends React.Component {
 					// otherwise, try and take either a corner or the central position
 				} else {
 					var emptySquares=[];
-					for (var x=0; x<9; x+=2) {
+					for (let x=0; x<9; x+=2) {
 						if (board[x]==0) {
 							emptySquares.push(x);
 						}
