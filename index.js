@@ -2,7 +2,7 @@ class Main extends React.Component {
 	constructor(props) {
         	super(props);
 		
-		this.state={
+		this.state = {
       			titleDisplayed:true,
 			xOrYOptionsDisplayed: false,
 			inPlay:false,
@@ -21,7 +21,7 @@ class Main extends React.Component {
 			timeout:0,
 			message:""
     		};
-		this.turn="";
+		this.turn = "";
  	}
     	render() {
 		let boardDisplay = [];
@@ -29,7 +29,7 @@ class Main extends React.Component {
         	let choices = [];
 		let board = [];
         	let twoPlayer= [];
-		let imageDisplayed=[];
+		let imageDisplayed = [];
 		let back = [];
 		let reset = [];
 		
@@ -88,10 +88,7 @@ class Main extends React.Component {
                     			{heading}
     					{choices}
     					<a id="game-over">{this.state.message}</a>
-    					
-					
-					{back}
-    					
+					{back}	
   				</div>
 			</div>			
 		);
@@ -192,7 +189,7 @@ class Main extends React.Component {
 
 	doVictory() {
 		this.setState({
-			message:this.turn+" won"
+			message:this.turn + " won"
 		});
 		if (this.turn==this.state.playerOne) {
 			this.setState({playerOneWins:this.state.playerOneWins+1});
@@ -417,9 +414,7 @@ class Main extends React.Component {
 					result=latestResult;
 					bestSquare=i;
 				}
-			}
-
-					
+			}		
 		}
 				
 		if (depth==0) console.log("minimax returns bestSquare of "+bestSquare);	
