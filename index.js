@@ -75,7 +75,6 @@ class Main extends React.Component {
 			);
 			reset.push(	<a id="reset" onClick={() => this.resetAll()}>Reset</a>);
 		}
-		
         	boardDisplay.push(
     			<div className="container-fluid">
   				<div className="board">
@@ -93,8 +92,7 @@ class Main extends React.Component {
 			</div>			
 		);
         	return(boardDisplay);
-	}
-			
+	}			
         chooseGame(num) {
 		if (num==1) {
 			this.setState({onePlayerGame: true});
@@ -108,7 +106,6 @@ class Main extends React.Component {
 		this.setState({titleDisplayed: false});
 		this.setState({xOrYOptionsDisplayed: true});
 	}
-
 	choosePlayer(str) {
 		this.setState(	{	playerOne:str,
 					playerTwo:str=="X"?"O":"X",
@@ -117,14 +114,12 @@ class Main extends React.Component {
 				}, () => this.playGame());
     		console.log("choosePlayer(str): Player One is "+this.state.playerOne);
     	}
-
 	back() {
 		this.setState({onePlayerGame: false});
 		this.setState({miniMaxGame: false});
 		this.setState({titleDisplayed: true});
 		this.setState({xOrYOptionsDisplayed: false});	
-	}
-    	
+	}	
     	resetAll() {
 		this.setState({	
 			firstMove:false,
@@ -137,8 +132,7 @@ class Main extends React.Component {
 			board:[0,0,0,0,0,0,0,0,0],
 			boardState:[0,0,0,0,0,0,0,0,0]
 		});
-	}	
-  
+	}	  
 	playGame() { 
   		if (Math.random(0,1)<0.5) {
     			this.turn=this.state.playerOne;
@@ -150,8 +144,7 @@ class Main extends React.Component {
 				this.doComputerAI(this.state.miniMaxGame);
     			}
 		}
-	}
-			
+	}		
 	// check the current board, if no win swap players
 	changeTurns() {
 		if (this.winner("X", this.state.board)||this.winner("O", this.state.board)) {
@@ -167,7 +160,6 @@ class Main extends React.Component {
 			this.turn=this.state.playerOne;
 		}
 	}
-
 	winner(turn, board) {
 		if ((board[0]===board[1]&&board[1]===board[2]&&board[0]===turn)||
 		(board[3]===board[4]&&board[4]===board[5]&&board[3]===turn)||
@@ -180,13 +172,11 @@ class Main extends React.Component {
 			return true;  
 		}
 	}
-
 	matchDrawn(board) {
 		if (board[0]!=0&&board[1]!=0&&board[2]!=0&&board[3]!=0&&board[4]!=0&&board[5]!=0&&board[6]!=0&&board[7]!=0&&board[8]!=0) {
 			return true;
 		}
 	}
-
 	doVictory() {
 		this.setState({
 			message:this.turn + " won"
@@ -202,7 +192,6 @@ class Main extends React.Component {
 			this.playGame();
 		}.bind(this), 5000);
 	}
-
 	doDraw() {
 		this.setState({
 			message:"Match drawn"
@@ -213,11 +202,9 @@ class Main extends React.Component {
 			this.playGame();
 		}.bind(this), 5000);
 	}
-
 	resetBoard() {
 		this.setState({board:[0,0,0,0,0,0,0,0,0], boardState:[0,0,0,0,0,0,0,0,0]});
 	}
-
 	takeSquare(squareNumber) {
 		if (this.state.board[squareNumber]==0) {
 			console.log("Taking square "+squareNumber);
@@ -227,7 +214,6 @@ class Main extends React.Component {
 			this.changeTurns();
 		}
 	}
-
 	doComputerAI = (miniMaxGame) => {
 		this.setState({aiInPlay:true});
 		let board = [];
@@ -367,17 +353,14 @@ class Main extends React.Component {
 				// if the AI opponent goes first, pick a random square.....
 				setTimeout(function() {
 					this.takeSquare(Math.floor(Math.random()*9));
-				}.bind(this), 1000);
-				
+				}.bind(this), 1000);				
 			} else {
 				// .....else use the minimax algorithm to pick the best square (and never lose)
 				let square = this.miniMax(this.turn, 0, this.state.board.slice(0)).bestSquare;	
 
 				setTimeout(function() {
 					this.takeSquare(square);
-
-				}.bind(this), 1000);
-			
+				}.bind(this), 1000);			
 			}
 		}
 	}
@@ -415,8 +398,7 @@ class Main extends React.Component {
 					bestSquare=i;
 				}
 			}		
-		}
-				
+		}		
 		if (depth==0) console.log("minimax returns bestSquare of "+bestSquare);	
 		return {result, bestSquare};			
 	}
