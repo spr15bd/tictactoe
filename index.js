@@ -173,7 +173,7 @@ class Main extends React.Component {
 		}
 	}
 	matchDrawn(board) {
-		if (board[0]!=0&&board[1]!=0&&board[2]!=0&&board[3]!=0&&board[4]!=0&&board[5]!=0&&board[6]!=0&&board[7]!=0&&board[8]!=0) {
+		if (board[0] != 0 && board[1] != 0 && board[2] != 0 && board[3] != 0 && board[4] != 0 && board[5] != 0 && board[6] != 0 && board[7] != 0 && board[8] != 0) {
 			return true;
 		}
 	}
@@ -223,9 +223,9 @@ class Main extends React.Component {
 		if (!miniMaxGame) {
 			setTimeout(function() {
 				// if a win is possible on the computer's move, take the win  
-				if (board[0]==this.turn&&board[1]==this.turn&&board[2]==0) {
+				if (board[0] == this.turn&&board[1] == this.turn&&board[2] == 0) {
 					this.takeSquare(2);
-				} else if (board[0]==0&&board[1]==this.turn&&board[2]==this.turn) {
+				} else if (board[0] == 0 && board[1] == this.turn&&board[2]==this.turn) {
 					this.takeSquare(0);
 				} else if (board[0]==this.turn&&board[1]==0&&board[2]==this.turn) {
 					this.takeSquare(1);
