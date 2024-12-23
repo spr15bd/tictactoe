@@ -3,23 +3,23 @@ class Main extends React.Component {
         	super(props);
 		
 		this.state = {
-      			titleDisplayed:true,
+      			titleDisplayed: true,
 			xOrYOptionsDisplayed: false,
-			inPlay:false,
-			aiInPlay:false,
-			firstMove:false,
-			secondMove:false,
-			onePlayerGame:false,
-			miniMaxGame:false,
-			playerOne:"",
-			playerTwo:"",
-			playerOneWins:0,
-			playerTwoWins:0,
-			board:[0,0,0,0,0,0,0,0,0],
-			boardState:[0,0,0,0,0,0,0,0,0],
-			square:0,
-			timeout:0,
-			message:""
+			inPlay: false,
+			aiInPlay: false,
+			firstMove: false,
+			secondMove: false,
+			onePlayerGame: false,
+			miniMaxGame: false,
+			playerOne: "",
+			playerTwo: "",
+			playerOneWins: 0,
+			playerTwoWins: 0,
+			board: [0,0,0,0,0,0,0,0,0],
+			boardState: [0,0,0,0,0,0,0,0,0],
+			square: 0,
+			timeout: 0,
+			message: ""
     		};
 		this.turn = "";
  	}
@@ -107,9 +107,9 @@ class Main extends React.Component {
 		this.setState({xOrYOptionsDisplayed: true});
 	}
 	choosePlayer(str) {
-		this.setState(	{	playerOne:str,
-					playerTwo:str=="X"?"O":"X",
-				 	inPlay:true,
+		this.setState(	{	playerOne: str,
+					playerTwo: str=="X"?"O":"X",
+				 	inPlay: true,
 				 	xOrYOptionsDisplayed: false
 				}, () => this.playGame());
     		console.log("choosePlayer(str): Player One is "+this.state.playerOne);
